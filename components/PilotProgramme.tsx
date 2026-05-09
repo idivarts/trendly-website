@@ -1,3 +1,5 @@
+import ScrollReveal from '@/components/ScrollReveal';
+
 const phases = [
   {
     label: 'Set up',
@@ -53,15 +55,16 @@ export default function PilotProgramme() {
       <div className="absolute -top-32 right-1/2 -z-10 h-[420px] w-[420px] translate-x-1/2 rounded-full bg-brand-200/30 blur-3xl" />
 
       <div className="container-px">
+
         {/* Heading */}
-        <div className="mx-auto max-w-3xl text-center">
+        <ScrollReveal className="mx-auto max-w-3xl text-center">
           <span className="pill">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand-600" />
             Beyond the subscription · The Trendly Pilot
           </span>
           <h2 className="h-display mt-5 text-4xl sm:text-5xl">
             Most marketing partners want you forever.{' '}
-            <span className="bg-gradient-brand bg-clip-text text-transparent">We're built to graduate you.</span>
+            <span className="text-gradient-animated">We're built to graduate you.</span>
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-slate-600">
             Most influencer marketing in India runs on long-term retainers — and we get why; running campaigns is hard.
@@ -69,48 +72,47 @@ export default function PilotProgramme() {
             <strong className="font-semibold text-slate-900">Trendly Pilot</strong> — a hands-on engagement that ends
             with you, not us, in control.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Phase cards with connector */}
         <div className="relative mt-16 grid gap-6 lg:grid-cols-3">
           <div className="pointer-events-none absolute left-0 right-0 top-12 hidden h-px bg-gradient-to-r from-transparent via-brand-300 to-transparent lg:block" />
           {phases.map((p, i) => (
-            <div
-              key={p.label}
-              className="group relative rounded-3xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:border-brand-200 hover:shadow-glow"
-            >
-              <div className="flex items-center gap-3">
-                <div className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-brand text-white shadow-glow">
-                  <div className="h-5 w-5">{p.icon}</div>
-                </div>
-                <div>
-                  <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-600">
-                    Phase {String(i + 1).padStart(2, '0')} · {p.duration}
+            <ScrollReveal key={p.label} direction="scale" delay={i * 130}>
+              <div className="group relative rounded-3xl border border-slate-200 bg-white p-7 transition-all duration-300 hover:-translate-y-2 hover:border-brand-200 hover:shadow-glow h-full">
+                <div className="flex items-center gap-3">
+                  <div className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-brand text-white shadow-glow transition-transform duration-300 group-hover:scale-110">
+                    <div className="h-5 w-5">{p.icon}</div>
                   </div>
-                  <div className="text-2xl font-extrabold text-slate-900">{p.label}</div>
+                  <div>
+                    <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-600">
+                      Phase {String(i + 1).padStart(2, '0')} · {p.duration}
+                    </div>
+                    <div className="text-2xl font-extrabold text-slate-900">{p.label}</div>
+                  </div>
                 </div>
-              </div>
-              <h3 className="mt-6 text-lg font-bold text-slate-900">{p.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">{p.desc}</p>
+                <h3 className="mt-6 text-lg font-bold text-slate-900">{p.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{p.desc}</p>
 
-              {i < phases.length - 1 && (
-                <svg
-                  className="absolute -right-3 top-12 hidden h-6 w-6 text-brand-300 lg:block"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                >
-                  <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg>
-              )}
-            </div>
+                {i < phases.length - 1 && (
+                  <svg
+                    className="absolute -right-3 top-12 hidden h-6 w-6 text-brand-300 lg:block"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                  >
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                )}
+              </div>
+            </ScrollReveal>
           ))}
         </div>
 
-        {/* Comparison */}
-        <div className="mt-16 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-soft">
+        {/* Comparison table */}
+        <ScrollReveal className="mt-16 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-soft" delay={200}>
           <div className="grid grid-cols-3 border-b border-slate-200 bg-slate-50">
             <div className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">
               How we differ
@@ -125,7 +127,7 @@ export default function PilotProgramme() {
           {compare.map((row, i) => (
             <div
               key={row.feature}
-              className={`grid grid-cols-3 ${i !== compare.length - 1 ? 'border-b border-slate-100' : ''}`}
+              className={`grid grid-cols-3 transition-colors duration-150 hover:bg-brand-50/30 ${i !== compare.length - 1 ? 'border-b border-slate-100' : ''}`}
             >
               <div className="px-6 py-4 text-sm font-semibold text-slate-800">{row.feature}</div>
               <div className="flex items-center gap-2 px-6 py-4 text-sm text-slate-500">
@@ -146,25 +148,28 @@ export default function PilotProgramme() {
               </div>
             </div>
           ))}
-        </div>
+        </ScrollReveal>
 
         {/* CTA strip */}
-        <div className="mt-12 flex flex-col items-start justify-between gap-5 rounded-3xl border border-brand-100 bg-gradient-to-br from-brand-50 to-white p-8 sm:flex-row sm:items-center">
-          <div className="max-w-xl">
-            <div className="text-sm font-bold uppercase tracking-wider text-brand-700">Want a head start?</div>
-            <p className="mt-1 text-base text-slate-700">
-              Tell us about your brand. We'll scope a 2-week kickoff, then run alongside your team for 6–8 months.
-            </p>
+        <ScrollReveal className="mt-12" delay={300}>
+          <div className="flex flex-col items-start justify-between gap-5 rounded-3xl border border-brand-100 bg-gradient-to-br from-brand-50 to-white p-8 sm:flex-row sm:items-center transition-all duration-300 hover:shadow-glow hover:border-brand-200">
+            <div className="max-w-xl">
+              <div className="text-sm font-bold uppercase tracking-wider text-brand-700">Want a head start?</div>
+              <p className="mt-1 text-base text-slate-700">
+                Tell us about your brand. We'll scope a 2-week kickoff, then run alongside your team for 6–8 months.
+              </p>
+            </div>
+            <div className="flex gap-3">
+              <a href="https://cal.com/rahul-idiv/30min" className="btn-primary">
+                Talk to founder
+              </a>
+              <a href="/contact" className="btn-ghost">
+                Or message us
+              </a>
+            </div>
           </div>
-          <div className="flex gap-3">
-            <a href="https://cal.com/rahul-idiv/30min" className="btn-primary">
-              Talk to founder
-            </a>
-            <a href="/contact" className="btn-ghost">
-              Or message us
-            </a>
-          </div>
-        </div>
+        </ScrollReveal>
+
       </div>
     </section>
   );

@@ -1,3 +1,5 @@
+import ScrollReveal from '@/components/ScrollReveal';
+
 const reasons = [
   {
     title: 'Built for startups & SMBs',
@@ -44,10 +46,15 @@ export default function WhyTrendly() {
     <section className="relative py-24">
       <div className="container-px">
         <div className="grid items-center gap-14 lg:grid-cols-12">
-          <div className="lg:col-span-5">
+
+          {/* Left column */}
+          <ScrollReveal className="lg:col-span-5" direction="left" distance={36}>
             <span className="section-eyebrow">Why Trendly</span>
             <h2 className="h-display mt-3 text-4xl sm:text-5xl">
-              Why pay <span className="line-through decoration-rose-400 decoration-[3px]">₹30,000+</span> when you can launch with <span className="bg-gradient-brand bg-clip-text text-transparent">₹750</span>?
+              Why pay{' '}
+              <span className="line-through decoration-rose-400 decoration-[3px]">₹30,000+</span>{' '}
+              when you can launch with{' '}
+              <span className="text-gradient-animated">₹750</span>?
             </h2>
             <p className="mt-5 text-slate-600">
               Trendly is purpose-built for early-stage and growth-stage brands who want authentic results without the
@@ -57,23 +64,26 @@ export default function WhyTrendly() {
               <a href="#pricing" className="btn-primary">See pricing</a>
               <a href="https://cal.com/rahul-idiv/30min" className="btn-ghost">Talk to founder</a>
             </div>
-          </div>
+          </ScrollReveal>
 
+          {/* Right grid — each card staggers in */}
           <div className="grid gap-4 sm:grid-cols-2 lg:col-span-7">
-            {reasons.map((r) => (
-              <div
-                key={r.title}
-                className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-brand-200 hover:shadow-glow"
-              >
-                <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-brand opacity-0 blur-3xl transition group-hover:opacity-20" />
-                <div className="grid h-12 w-12 place-items-center rounded-2xl bg-brand-50 text-brand-700 transition group-hover:bg-gradient-brand group-hover:text-white">
-                  <div className="h-5 w-5">{r.icon}</div>
+            {reasons.map((r, i) => (
+              <ScrollReveal key={r.title} direction="scale" delay={i * 100} distance={20}>
+                <div className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-2 hover:border-brand-200 hover:shadow-glow h-full">
+                  {/* Hover bloom */}
+                  <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-brand opacity-0 blur-3xl transition-all duration-500 group-hover:opacity-20" />
+                  {/* Icon */}
+                  <div className="grid h-12 w-12 place-items-center rounded-2xl bg-brand-50 text-brand-700 transition-all duration-300 group-hover:scale-110 group-hover:bg-gradient-brand group-hover:text-white group-hover:shadow-glow">
+                    <div className="h-5 w-5">{r.icon}</div>
+                  </div>
+                  <h3 className="mt-5 text-lg font-bold text-slate-900">{r.title}</h3>
+                  <p className="mt-2 text-sm text-slate-600">{r.desc}</p>
                 </div>
-                <h3 className="mt-5 text-lg font-bold text-slate-900">{r.title}</h3>
-                <p className="mt-2 text-sm text-slate-600">{r.desc}</p>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
+
         </div>
       </div>
     </section>

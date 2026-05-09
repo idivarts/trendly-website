@@ -1,3 +1,5 @@
+import ScrollReveal from '@/components/ScrollReveal';
+
 const steps = [
   {
     n: '01',
@@ -50,53 +52,64 @@ export default function HowItWorks() {
   return (
     <section id="how" className="relative py-24">
       <div className="container-px">
-        <div className="mx-auto max-w-2xl text-center">
+
+        {/* Section header */}
+        <ScrollReveal className="mx-auto max-w-2xl text-center">
           <span className="section-eyebrow">How it works</span>
           <h2 className="h-display mt-3 text-4xl sm:text-5xl">
-            From discovery to delivery in <span className="bg-gradient-brand bg-clip-text text-transparent">4 simple steps</span>
+            From discovery to delivery in{' '}
+            <span className="text-gradient-animated">4 simple steps</span>
           </h2>
           <p className="mt-4 text-slate-600">
             Built for startup teams who want results without the agency overhead.
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="relative mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {/* connector line */}
+          {/* Connector line */}
           <div className="pointer-events-none absolute left-0 right-0 top-12 hidden h-px bg-gradient-to-r from-transparent via-brand-200 to-transparent lg:block" />
+
           {steps.map((s, i) => (
-            <div
+            <ScrollReveal
               key={s.n}
-              className="group relative rounded-3xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-brand-200 hover:shadow-glow"
+              direction="scale"
+              delay={i * 120}
             >
-              <div className="flex items-center gap-3">
-                <div className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-brand text-white shadow-glow">
-                  <div className="h-5 w-5">{s.icon}</div>
+              <div className="group relative rounded-3xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-2 hover:border-brand-200 hover:shadow-glow h-full">
+                {/* Subtle hover bloom */}
+                <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-brand-50/0 to-brand-50/0 transition-all duration-500 group-hover:from-brand-50/60 group-hover:to-accent-400/5" />
+
+                <div className="flex items-center gap-3">
+                  <div className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-brand text-white shadow-glow transition-transform duration-300 group-hover:scale-110">
+                    <div className="h-5 w-5">{s.icon}</div>
+                  </div>
+                  <span className="text-sm font-bold tracking-wider text-brand-600">{s.n}</span>
                 </div>
-                <span className="text-sm font-bold tracking-wider text-brand-600">{s.n}</span>
+                <h3 className="mt-5 text-lg font-bold text-slate-900">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{s.desc}</p>
+
+                {i < steps.length - 1 && (
+                  <svg
+                    className="absolute -right-3 top-12 hidden h-6 w-6 text-brand-300 lg:block"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                  >
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                )}
               </div>
-              <h3 className="mt-5 text-lg font-bold text-slate-900">{s.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">{s.desc}</p>
-              {i < steps.length - 1 && (
-                <svg
-                  className="absolute -right-3 top-12 hidden h-6 w-6 text-brand-300 lg:block"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                >
-                  <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg>
-              )}
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        <ScrollReveal className="mt-12 text-center" delay={480}>
           <a href="https://openinapp.link/b5aqc" className="btn-primary">
             Start for free
           </a>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

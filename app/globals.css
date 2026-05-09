@@ -55,11 +55,62 @@ html, body {
   -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
 }
 
+/* ── Animated gradient text ──────────────────────────────────────────────── */
+/* Usage: <span className="text-gradient-animated">text</span>               */
+.text-gradient-animated {
+  background: linear-gradient(135deg, #2563eb 0%, #06b6d4 35%, #818cf8 65%, #2563eb 100%);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradient-x 6s ease infinite;
+}
+
+/* ── Animated gradient border ────────────────────────────────────────────── */
+/* Usage: add .gradient-border to any element with rounded corners.          */
+.gradient-border {
+  position: relative;
+  isolation: isolate;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #2563eb, #06b6d4, #818cf8, #2563eb);
+  background-size: 300% 300%;
+  animation: gradient-x 6s ease infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ── Scroll-reveal base (set by ScrollReveal.tsx via inline styles) ───────── */
+/* The will-change is cleaned up in JS after transition ends.                 */
+
+/* ── Floating number ticker for hero badges ──────────────────────────────── */
+.ticker-wrap {
+  height: 1.2em;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: text-bottom;
+}
+
 /* Reduce motion */
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee,
   .animate-float,
-  .animate-shimmer {
+  .animate-shimmer,
+  .animate-gradient-x,
+  .animate-glow-pulse,
+  .animate-draw-line,
+  .animate-slide-up,
+  .animate-scale-in,
+  .text-gradient-animated {
     animation: none !important;
+    background-position: 0% 50% !important;
   }
 }

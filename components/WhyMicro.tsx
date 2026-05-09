@@ -1,3 +1,6 @@
+import ScrollReveal from '@/components/ScrollReveal';
+import ParallaxOrb from '@/components/ParallaxOrb';
+
 const points = [
   {
     title: 'Budget-friendly for startups',
@@ -35,13 +38,25 @@ export default function WhyMicro() {
       {/* Richer, more saturated background */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-ink-900 via-brand-800 to-ink-900" />
       <div className="absolute inset-0 -z-10 grid-bg opacity-[0.07]" />
-      {/* Layered radial highlights — brighter and more colorful for energy */}
-      <div className="absolute -top-40 left-1/2 -z-10 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-brand-400/40 blur-3xl" />
-      <div className="absolute -bottom-32 left-[10%] -z-10 h-[360px] w-[360px] rounded-full bg-accent-500/30 blur-3xl" />
-      <div className="absolute -bottom-20 right-[8%] -z-10 h-[300px] w-[300px] rounded-full bg-fuchsia-500/20 blur-3xl" />
+
+      {/* Parallax background orbs for depth */}
+      <ParallaxOrb
+        className="absolute -top-40 left-1/2 -z-10 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-brand-400/40 blur-3xl animate-glow-pulse"
+        speed={0.06}
+      />
+      <ParallaxOrb
+        className="absolute -bottom-32 left-[10%] -z-10 h-[360px] w-[360px] rounded-full bg-accent-500/30 blur-3xl animate-glow-pulse"
+        speed={0.1}
+      />
+      <ParallaxOrb
+        className="absolute -bottom-20 right-[8%] -z-10 h-[300px] w-[300px] rounded-full bg-fuchsia-500/20 blur-3xl"
+        speed={0.08}
+      />
 
       <div className="container-px">
-        <div className="mx-auto max-w-2xl text-center">
+
+        {/* Header */}
+        <ScrollReveal className="mx-auto max-w-2xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.25em] text-cyan-200 backdrop-blur">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-cyan-300 shadow-[0_0_8px_2px_rgba(34,211,238,0.6)]" />
             Why micro creators
@@ -57,38 +72,39 @@ export default function WhyMicro() {
             Influencer marketing puts you in front of the right people — building trust, visibility, and long-term sales
             momentum.
           </p>
-        </div>
+        </ScrollReveal>
 
+        {/* Stat cards — staggered scale-in */}
         <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {points.map((p) => (
-            <div
-              key={p.title}
-              className="group relative overflow-hidden rounded-3xl border border-white/15 bg-white/[0.07] p-6 backdrop-blur transition hover:-translate-y-1 hover:border-white/30 hover:bg-white/[0.10]"
-            >
-              {/* Top edge highlight for definition against dark bg */}
-              <div className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
-              {/* Soft inner glow on hover */}
-              <div
-                className={`pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-to-br ${p.accent} opacity-20 blur-2xl transition group-hover:opacity-40`}
-              />
+          {points.map((p, i) => (
+            <ScrollReveal key={p.title} direction="scale" delay={i * 110} distance={20}>
+              <div className="group relative overflow-hidden rounded-3xl border border-white/15 bg-white/[0.07] p-6 backdrop-blur transition-all duration-300 hover:-translate-y-2 hover:border-white/30 hover:bg-white/[0.12] hover:shadow-[0_20px_60px_-10px_rgba(0,0,0,0.4)] h-full">
+                {/* Top edge highlight */}
+                <div className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+                {/* Inner glow on hover */}
+                <div
+                  className={`pointer-events-none absolute -right-10 -top-10 h-36 w-36 rounded-full bg-gradient-to-br ${p.accent} opacity-20 blur-2xl transition-all duration-500 group-hover:opacity-50 group-hover:scale-125`}
+                />
 
-              <div
-                className={`bg-gradient-to-br ${p.accent} bg-clip-text text-3xl font-extrabold text-transparent`}
-              >
-                {p.stat}
+                {/* Stat — large and gradient */}
+                <div
+                  className={`bg-gradient-to-br ${p.accent} bg-clip-text text-3xl font-extrabold text-transparent transition-transform duration-300 group-hover:scale-105 inline-block`}
+                >
+                  {p.stat}
+                </div>
+                <div className="mt-1 text-xs font-semibold uppercase tracking-wider text-cyan-200">{p.sub}</div>
+                <h3 className="mt-5 text-lg font-bold text-white">{p.title}</h3>
+                <p className="mt-2 text-sm text-slate-200">{p.desc}</p>
               </div>
-              <div className="mt-1 text-xs font-semibold uppercase tracking-wider text-cyan-200">{p.sub}</div>
-              <h3 className="mt-5 text-lg font-bold text-white">{p.title}</h3>
-              <p className="mt-2 text-sm text-slate-200">{p.desc}</p>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        <ScrollReveal className="mt-12 text-center" delay={440}>
           <a href="https://openinapp.link/b5aqc" className="btn-primary">
             Explore influencers today
           </a>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
