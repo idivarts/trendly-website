@@ -25,19 +25,18 @@ export type Post = {
 
 // ─── Marked config ────────────────────────────────────────────────────────────
 
-// Custom renderer: external links open in a new tab; internal links stay in-tab
-const renderer = new marked.Renderer();
+marked.use({ gfm: true, breaks: false });
 
-renderer.link = function ({ href, title, text }) {
-  const isExternal = href && (href.startsWith('http://') || href.startsWith('https://'));
-  const titleAttr = title ? ` title="${title}"` : '';
-  if (isExternal) {
-    return `<a href="${href}"${titleAttr} target="_blank" rel="noopener noreferrer">${text}</a>`;
-  }
-  return `<a href="${href}"${titleAttr}>${text}</a>`;
-};
-
-marked.setOptions({ renderer, gfm: true, breaks: false });
+/**
+ * Post-process rendered HTML to add target="_blank" + rel to external links.
+ * This avoids marked renderer API version differences entirely.
+ */
+function addExternalLinkAttrs(html: string): string {
+  return html.replace(
+    /<a href="(https?:\/\/[^"]+)"/g,
+    '<a href="$1" target="_blank" rel="noopener noreferrer"',
+  );
+}
 
 // ─── File loading ─────────────────────────────────────────────────────────────
 
@@ -57,9 +56,10 @@ function loadAllPosts(): Post[] {
         const raw = fs.readFileSync(path.join(POSTS_DIR, filename), 'utf-8');
         const { data, content } = matter(raw);
 
-        // Strip the H1 from the body — the page template renders post.title as <h1>
+        // Strip the H1 — the page template renders post.title as <h1>
         const bodyWithoutH1 = content.replace(/^#\s+.+\n?/m, '').trim();
-        const body = marked.parse(bodyWithoutH1) as string;
+        const rawHtml = marked.parse(bodyWithoutH1) as string;
+        const body = addExternalLinkAttrs(rawHtml);
 
         return {
           slug: data.slug as string,
