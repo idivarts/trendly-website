@@ -12,7 +12,7 @@ export default function PrivacyPage() {
       <LegalDoc
         title="Privacy Policy"
         updated="May 2026"
-        intro="This Privacy Policy explains how IDIVARTS Solutions Pvt Ltd (\"we\", \"us\") collects, uses, and protects your information when you use Trendly. We treat your data with the same care we would want for our own."
+        intro='This Privacy Policy explains how IDIVARTS Solutions Pvt Ltd ("we", "us") collects, uses, and protects your information when you use Trendly. We treat your data with the same care we would want for our own.'
         sections={[
           {
             heading: 'Data we collect',

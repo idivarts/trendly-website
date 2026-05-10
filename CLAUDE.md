@@ -79,8 +79,22 @@ TrendlyWebsite/
 │   ├── Footer.tsx          # 'use client' — Dark footer w/ newsletter + socials + columns
 │   ├── PageShell.tsx       # Wrapper: Navbar + content (pt-24) + Footer; exports PageHero
 │   └── LegalDoc.tsx        # Numbered-section layout used by /terms, /privacy, /data-deletion
+├── blog-posts/             # ⚠️ ALL blog posts live here as .md files — never edit lib/posts.ts directly
+│   ├── 01-why-indian-d2c-brands-are-switching-to-influencer-marketing-saas.md
+│   ├── 02-micro-creator-playbook-india.md
+│   ├── 03-what-500-campaigns-taught-us-influencer-marketing-india.md
+│   ├── 04-pay-on-delivery-influencer-marketing-india.md
+│   ├── 05-hidden-cost-diy-influencer-outreach-india.md
+│   ├── 06-pilot-programme-philosophy-trendly.md
+│   ├── 07-6-months-influencer-marketing-independence-trendly-pilot.md
+│   ├── 08-first-10-influencer-collaborations-startup-india.md
+│   ├── 09-why-brands-fail-influencer-marketing-first-3-months.md
+│   ├── 10-influencer-marketing-agency-vs-inhouse-india.md
+│   ├── 11-why-people-dont-care-about-your-brand.md
+│   ├── 12-influencer-marketing-doesnt-generate-leads-or-sales-myth.md
+│   └── 13-how-to-build-a-winning-influencer-profile-on-trendly.md
 ├── lib/
-│   └── posts.ts            # Blog post data (slug, body, gradient) + getPost(slug) helper
+│   └── posts.ts            # Auto-loads all .md files from blog-posts/ — do NOT hand-edit post data here
 ├── tailwind.config.ts      # Custom theme — see "Design system" below
 ├── next.config.js          # Image remote patterns
 ├── tsconfig.json           # Strict TS, "@/*" path alias
@@ -102,6 +116,7 @@ The `@/` import alias resolves to the project root, so e.g.
 - `/blog` — Blog index (featured + grid)
 - `/blog/[slug]` — Individual post (3 posts in `lib/posts.ts`)
 - `/terms`, `/privacy`, `/data-deletion` — Legal pages via `LegalDoc`
+- `/blog/[slug]` — 13 posts (10 new SEO posts + 3 original posts), all loaded from `blog-posts/*.md`
 
 All inner pages use `<PageShell>` from `components/PageShell.tsx` to keep
 Navbar + Footer consistent. Use the `<PageHero>` helper inside `PageShell`
@@ -241,6 +256,59 @@ To add a section, create the component in `components/`, import it in
   Plum, Mamaearth). Replace with real quotes once available.
 - **`LogosMarquee`** lists brand names as text — when real logo SVGs are
   available, swap the `<span>` for `<img>` tags.
+
+## Blog post authoring (IMPORTANT — read before adding posts)
+
+**All blog posts are markdown files in `blog-posts/`.** `lib/posts.ts` reads them automatically
+at build time using `gray-matter` + `marked`. Do NOT add post data directly to `lib/posts.ts`.
+
+### Adding a new blog post
+
+1. Create a new `.md` file in `blog-posts/` with a numeric prefix that places it correctly in sort
+   order (higher number = older post; `01` is the newest). E.g. `00-my-new-post.md`.
+2. The file is sorted by `dateISO` (newest first) — set this accurately.
+3. Run `npm install` first if this is a fresh checkout (requires `gray-matter` and `marked`).
+
+### Required frontmatter fields
+
+```yaml
+---
+title: "Full post title"
+slug: url-slug-for-the-post          # must be unique; used in /blog/[slug]
+date: 10 May 2026                    # human-readable, shown in the UI
+dateISO: "2026-05-10"                # ISO 8601 — used for sorting newest-first
+author: Trendly Team
+cat: Strategy                        # shown as a pill tag (Strategy / Insights / How To / Pilot Programme)
+readTime: 8 min read
+excerpt: "One-sentence summary shown on the blog card and as the subheading."
+metaDescription: "Under 160 chars. Used in <meta name=description>. Different from excerpt."
+targetKeyword: primary seo keyword   # for reference; not rendered on the page
+gradient: from-brand-500 via-accent-500 to-emerald-400  # Tailwind gradient classes for the card thumbnail
+---
+```
+
+### Body conventions
+
+- Start body content immediately after the frontmatter — the H1 (`# Title`) is optional in the .md
+  file; if present it will be **automatically stripped** before rendering (the page renders
+  `post.title` as the `<h1>` to avoid duplication).
+- Use `##` for section headings and `###` for sub-headings.
+- Internal links: use relative paths like `/pricing`, `/blog/slug`, `/#pilot`, `/#how`.
+- External links: use full URLs (`https://...`). The renderer automatically adds
+  `target="_blank" rel="noopener noreferrer"` to external links.
+- SEO checklist: primary keyword in title + first paragraph + 2–3 H2 headings; 2+ internal links;
+  2+ outbound links to authoritative external sources; 1,800–2,200 words for long-form posts.
+
+### Prose styling
+
+Rendered markdown is wrapped in `<div class="prose-content">`. Styles for `h2`, `h3`, `p`, `a`,
+`strong`, `ul`, `ol`, `blockquote`, `hr`, and `code` are defined in `app/globals.css`. To adjust
+typography, edit the `.prose-content` block there — never use inline styles in the .md files.
+
+### Dependencies added for blog system
+
+- `gray-matter` ^4.0.3 — frontmatter parser
+- `marked` ^12.0.0 — markdown → HTML renderer (server-side only, in `lib/posts.ts`)
 
 ## Common tasks
 

@@ -11,7 +11,7 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   if (!post) return { title: 'Post not found — Trendly' };
   return {
     title: `${post.title} — Trendly`,
-    description: post.excerpt,
+    description: post.metaDescription,
   };
 }
 
@@ -53,11 +53,11 @@ export default function PostPage({ params }: { params: { slug: string } }) {
             <div className="h-full w-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.55),transparent_55%)]" />
           </div>
 
-          <div className="prose-content mt-12 space-y-6 text-base leading-relaxed text-slate-700">
-            {post.body.map((para, i) => (
-              <p key={i}>{para}</p>
-            ))}
-          </div>
+          {/* Rendered markdown body */}
+          <div
+            className="prose-content mt-12"
+            dangerouslySetInnerHTML={{ __html: post.body }}
+          />
 
           {/* Share / tags */}
           <div className="mt-14 flex flex-wrap items-center justify-between gap-4 border-t border-slate-200 pt-8">
@@ -65,7 +65,9 @@ export default function PostPage({ params }: { params: { slug: string } }) {
               <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">Share</span>
               <a
                 aria-label="Share on Twitter"
-                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}`}
+                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`https://www.trendly.now/blog/${post.slug}`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="grid h-9 w-9 place-items-center rounded-full border border-slate-200 text-slate-600 transition hover:border-brand-300 hover:bg-brand-50 hover:text-brand-700"
               >
                 <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
@@ -74,7 +76,9 @@ export default function PostPage({ params }: { params: { slug: string } }) {
               </a>
               <a
                 aria-label="Share on LinkedIn"
-                href={`https://www.linkedin.com/sharing/share-offsite/?url=https://www.trendly.now/blog/${post.slug}`}
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://www.trendly.now/blog/${post.slug}`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="grid h-9 w-9 place-items-center rounded-full border border-slate-200 text-slate-600 transition hover:border-brand-300 hover:bg-brand-50 hover:text-brand-700"
               >
                 <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">

@@ -34,10 +34,9 @@ const points = [
 
 export default function WhyMicro() {
   return (
-    <section className="relative overflow-hidden py-24">
-      {/* Richer, more saturated background */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-ink-900 via-brand-800 to-ink-900" />
-      <div className="absolute inset-0 -z-10 grid-bg opacity-[0.07]" />
+    <section className="relative overflow-hidden py-24 bg-gradient-to-br from-ink-900 via-brand-800 to-ink-900">
+      {/* Grid overlay */}
+      <div className="absolute inset-0 grid-bg opacity-[0.07]" />
 
       {/* Parallax background orbs for depth */}
       <ParallaxOrb
@@ -63,11 +62,11 @@ export default function WhyMicro() {
           </span>
           <h2 className="h-display mt-5 text-4xl text-white sm:text-5xl">
             Visibility is everything. <br />
-            <span className="bg-gradient-to-r from-cyan-200 via-white to-brand-200 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(34,211,238,0.35)]">
+            <span className="bg-gradient-to-r from-cyan-300 via-white to-brand-300 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(34,211,238,0.35)]">
               Micro creators get you there.
             </span>
           </h2>
-          <p className="mt-5 text-slate-200">
+          <p className="mt-5 text-slate-100">
             In today's content-driven world, if your brand isn't everywhere your audience is, you're invisible.
             Influencer marketing puts you in front of the right people — building trust, visibility, and long-term sales
             momentum.
@@ -92,9 +91,9 @@ export default function WhyMicro() {
                 >
                   {p.stat}
                 </div>
-                <div className="mt-1 text-xs font-semibold uppercase tracking-wider text-cyan-200">{p.sub}</div>
+                <div className="mt-1 text-xs font-semibold uppercase tracking-wider text-cyan-300">{p.sub}</div>
                 <h3 className="mt-5 text-lg font-bold text-white">{p.title}</h3>
-                <p className="mt-2 text-sm text-slate-200">{p.desc}</p>
+                <p className="mt-2 text-sm text-slate-100">{p.desc}</p>
               </div>
             </ScrollReveal>
           ))}

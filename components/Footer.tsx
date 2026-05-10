@@ -24,9 +24,9 @@ const cols = [
   {
     title: 'Legal',
     links: [
-      { label: 'Terms & Conditions', href: '/terms' },
-      { label: 'Privacy Policy', href: '/privacy' },
-      { label: 'Data Deletion', href: '/data-deletion' },
+      { label: 'Terms & Conditions', href: '/terms-and-condition' },
+      { label: 'Privacy Policy', href: '/privacy-policy' },
+      { label: 'Data Deletion', href: '/data-deletion-instruction-page' },
     ],
   },
   {
