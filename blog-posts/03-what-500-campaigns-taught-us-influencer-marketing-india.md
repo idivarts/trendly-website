@@ -9,6 +9,7 @@ excerpt: "After running over 500 campaigns for Indian D2C brands, a few patterns
 metaDescription: "Trendly's learnings from 500+ influencer marketing campaigns in India — which niches convert, which cities punch above their weight, and what content formats win."
 targetKeyword: influencer marketing India results
 gradient: from-amber-400 via-orange-500 to-rose-500
+imageUrl: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=750&fit=crop&auto=format&q=80
 ---
 
 # What 500+ Campaigns Taught Us About Influencer Marketing in India

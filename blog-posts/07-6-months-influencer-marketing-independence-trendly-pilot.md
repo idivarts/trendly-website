@@ -9,6 +9,7 @@ excerpt: "A month-by-month look at what happens when a brand goes through the Tr
 metaDescription: "The Trendly Pilot Programme walks D2C brands through 6–8 months of hands-on influencer marketing — set up, run together, hand off. Here's the full timeline."
 targetKeyword: influencer marketing strategy for startups India
 gradient: from-brand-700 via-brand-600 to-accent-500
+imageUrl: https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1200&h=750&fit=crop&auto=format&q=80
 ---
 
 # 6 Months to Influencer Marketing Independence: What the Trendly Pilot Actually Looks Like

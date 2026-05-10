@@ -9,6 +9,7 @@ excerpt: "Agencies had a decade-long grip on influencer marketing in India. Here
 metaDescription: "Indian D2C brands are leaving influencer marketing agencies for SaaS platforms. We break down why the shift is happening, what it saves, and what to look for."
 targetKeyword: influencer marketing platform India
 gradient: from-brand-500 via-accent-500 to-emerald-400
+imageUrl: https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=750&fit=crop&auto=format&q=80
 ---
 
 # Why Indian D2C Brands Are Switching from Agencies to SaaS for Influencer Marketing

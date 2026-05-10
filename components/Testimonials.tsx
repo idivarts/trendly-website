@@ -1,12 +1,16 @@
 'use client';
 import { useEffect, useState } from 'react';
 
+const UNS = 'https://images.unsplash.com/photo-';
+const AV  = '?w=200&h=200&fit=crop&auto=format&q=80';
+
 type T = {
   quote: string;
   name: string;
   role: string;
   brand: string;
   gradient: string;
+  avatar: string;
   rating: number;
 };
 
@@ -18,6 +22,7 @@ const testimonials: T[] = [
     role: 'Co-founder',
     brand: 'BoldCare',
     gradient: 'from-brand-500 to-accent-500',
+    avatar: UNS+'1542909168-82935b4b349d'+AV,
     rating: 5,
   },
   {
@@ -27,6 +32,7 @@ const testimonials: T[] = [
     role: 'Head of Growth',
     brand: 'Quench',
     gradient: 'from-pink-500 to-rose-500',
+    avatar: UNS+'1494790108377-be9c29b29330'+AV,
     rating: 5,
   },
   {
@@ -36,6 +42,7 @@ const testimonials: T[] = [
     role: 'Marketing Lead',
     brand: 'Earth Rhythm',
     gradient: 'from-emerald-500 to-teal-500',
+    avatar: UNS+'1599566150163-29194dcaad36'+AV,
     rating: 5,
   },
   {
@@ -45,6 +52,7 @@ const testimonials: T[] = [
     role: 'Brand Manager',
     brand: 'Sleepyhead',
     gradient: 'from-violet-500 to-purple-500',
+    avatar: UNS+'1567532939604-b6b5b0db2604'+AV,
     rating: 5,
   },
   {
@@ -54,6 +62,7 @@ const testimonials: T[] = [
     role: 'Founder',
     brand: 'Plum',
     gradient: 'from-amber-500 to-orange-500',
+    avatar: UNS+'1580489944761-15a19d654956'+AV,
     rating: 5,
   },
   {
@@ -63,6 +72,7 @@ const testimonials: T[] = [
     role: 'Performance Marketing',
     brand: 'Mamaearth',
     gradient: 'from-sky-500 to-indigo-500',
+    avatar: UNS+'1558618666-fcd25c85cd64'+AV,
     rating: 5,
   },
 ];
@@ -118,7 +128,9 @@ export default function Testimonials() {
                 "{testimonials[idx].quote}"
               </p>
               <div className="mt-6 flex items-center gap-3">
-                <div className={`h-12 w-12 rounded-full bg-gradient-to-br ${testimonials[idx].gradient}`} />
+                <div className={`relative h-12 w-12 flex-none overflow-hidden rounded-full bg-gradient-to-br ${testimonials[idx].gradient}`}>
+                  <img src={testimonials[idx].avatar} alt={testimonials[idx].name} className="h-full w-full object-cover" />
+                </div>
                 <div>
                   <div className="text-sm font-bold text-slate-900">{testimonials[idx].name}</div>
                   <div className="text-xs text-slate-500">

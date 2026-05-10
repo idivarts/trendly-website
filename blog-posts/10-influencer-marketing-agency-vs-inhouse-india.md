@@ -9,6 +9,7 @@ excerpt: "There is a right time to move influencer marketing in-house — and a 
 metaDescription: "Agency vs in-house influencer marketing India: when to make the switch, what signals to look for, and how the Trendly Pilot Programme makes the transition smooth."
 targetKeyword: influencer marketing agency vs in-house India
 gradient: from-slate-600 via-slate-700 to-brand-700
+imageUrl: https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&h=750&fit=crop&auto=format&q=80
 ---
 
 # When Should a Brand Stop Using an Agency and Own Their Influencer Strategy?

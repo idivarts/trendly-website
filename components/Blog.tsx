@@ -24,8 +24,15 @@ export default function Blog() {
               href={`/blog/${p.slug}`}
               className="group block overflow-hidden rounded-3xl border border-slate-200 bg-white transition hover:-translate-y-1 hover:border-brand-200 hover:shadow-glow"
             >
-              <div className={`relative aspect-[16/10] bg-gradient-to-br ${p.gradient}`}>
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.5),transparent_55%)]" />
+              <div className={`relative aspect-[16/10] overflow-hidden bg-gradient-to-br ${p.gradient}`}>
+                {p.imageUrl && (
+                  <img
+                    src={p.imageUrl}
+                    alt={p.title}
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                )}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.18),transparent_55%)]" />
                 <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-bold text-slate-900 backdrop-blur">
                   {p.cat}
                 </span>

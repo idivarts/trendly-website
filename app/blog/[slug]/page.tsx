@@ -1,17 +1,43 @@
 import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
 import PageShell from '@/components/PageShell';
 import { posts, getPost } from '@/lib/posts';
+
+const BASE_URL = 'https://www.trendly.now';
 
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const post = getPost(params.slug);
-  if (!post) return { title: 'Post not found — Trendly' };
+  if (!post) return { title: 'Post not found' };
+
+  const canonicalUrl = `${BASE_URL}/blog/${post.slug}`;
+
   return {
-    title: `${post.title} — Trendly`,
+    title: post.title,
     description: post.metaDescription,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title: post.title,
+      description: post.metaDescription,
+      url: canonicalUrl,
+      siteName: 'Trendly',
+      locale: 'en_IN',
+      type: 'article',
+      publishedTime: post.dateISO,
+      authors: ['Trendly Team'],
+      tags: [post.cat, 'influencer marketing', 'India'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      site: '@trendlynow',
+      title: post.title,
+      description: post.metaDescription,
+    },
   };
 }
 
@@ -21,8 +47,40 @@ export default function PostPage({ params }: { params: { slug: string } }) {
 
   const others = posts.filter((p) => p.slug !== post.slug).slice(0, 2);
 
+  // JSON-LD structured data for the article (Article schema)
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.metaDescription,
+    datePublished: post.dateISO,
+    dateModified: post.dateISO,
+    author: {
+      '@type': 'Organization',
+      name: 'Trendly Team',
+      url: BASE_URL,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Trendly',
+      url: BASE_URL,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${BASE_URL}/og-default.png`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${BASE_URL}/blog/${post.slug}`,
+    },
+  };
+
   return (
     <PageShell>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <article className="container-px py-12">
         <div className="mx-auto max-w-3xl">
           <a

@@ -1,6 +1,9 @@
 'use client';
 import { useMemo, useState } from 'react';
 
+const UNS = 'https://images.unsplash.com/photo-';
+const AV  = '?w=200&h=200&fit=crop&auto=format&q=80';
+
 type Influencer = {
   name: string;
   niche: string;
@@ -9,20 +12,21 @@ type Influencer = {
   er: number;
   trust: number;
   gradient: string;
+  avatar: string;
   verified: boolean;
 };
 
 const all: Influencer[] = [
-  { name: 'Aanya Sharma', niche: 'Lifestyle', city: 'Mumbai', followers: 38400, er: 4.8, trust: 92, gradient: 'from-pink-400 to-rose-500', verified: true },
-  { name: 'Rohan Mehta', niche: 'Fitness', city: 'Bangalore', followers: 52100, er: 6.2, trust: 88, gradient: 'from-emerald-400 to-teal-500', verified: true },
-  { name: 'Priya Iyer', niche: 'Food', city: 'Delhi', followers: 24600, er: 5.4, trust: 85, gradient: 'from-amber-400 to-orange-500', verified: false },
-  { name: 'Karan Joshi', niche: 'Tech', city: 'Bangalore', followers: 61200, er: 3.9, trust: 90, gradient: 'from-sky-400 to-indigo-500', verified: true },
-  { name: 'Meera Pillai', niche: 'Fashion', city: 'Mumbai', followers: 88300, er: 4.1, trust: 84, gradient: 'from-violet-400 to-purple-500', verified: true },
-  { name: 'Vikas Kumar', niche: 'Comedy', city: 'Delhi', followers: 142000, er: 7.1, trust: 81, gradient: 'from-fuchsia-400 to-pink-500', verified: false },
-  { name: 'Tara Nair', niche: 'Travel', city: 'Pune', followers: 31200, er: 5.2, trust: 89, gradient: 'from-cyan-400 to-sky-500', verified: true },
-  { name: 'Devansh Roy', niche: 'Education', city: 'Kolkata', followers: 19500, er: 8.0, trust: 95, gradient: 'from-lime-400 to-emerald-500', verified: true },
-  { name: 'Sana Khan', niche: 'Beauty', city: 'Hyderabad', followers: 47800, er: 5.7, trust: 87, gradient: 'from-rose-400 to-pink-600', verified: true },
-  { name: 'Aditya Rao', niche: 'Gaming', city: 'Chennai', followers: 76500, er: 6.6, trust: 86, gradient: 'from-indigo-400 to-violet-600', verified: false },
+  { name: 'Aanya Sharma',  niche: 'Lifestyle',  city: 'Mumbai',    followers: 38400,  er: 4.8, trust: 92, gradient: 'from-pink-400 to-rose-500',     avatar: UNS+'1531746020798-e6953c6e8e04'+AV, verified: true  },
+  { name: 'Rohan Mehta',   niche: 'Fitness',     city: 'Bangalore', followers: 52100,  er: 6.2, trust: 88, gradient: 'from-emerald-400 to-teal-500',   avatar: UNS+'1507003211169-0a1dd7228f2d'+AV, verified: true  },
+  { name: 'Priya Iyer',    niche: 'Food',        city: 'Delhi',     followers: 24600,  er: 5.4, trust: 85, gradient: 'from-amber-400 to-orange-500',   avatar: UNS+'1438761681033-6461ffad8d80'+AV, verified: false },
+  { name: 'Karan Joshi',   niche: 'Tech',        city: 'Bangalore', followers: 61200,  er: 3.9, trust: 90, gradient: 'from-sky-400 to-indigo-500',     avatar: UNS+'1500648767791-00dcc994a43e'+AV, verified: true  },
+  { name: 'Meera Pillai',  niche: 'Fashion',     city: 'Mumbai',    followers: 88300,  er: 4.1, trust: 84, gradient: 'from-violet-400 to-purple-500',  avatar: UNS+'1517841905240-472988babdf9'+AV, verified: true  },
+  { name: 'Vikas Kumar',   niche: 'Comedy',      city: 'Delhi',     followers: 142000, er: 7.1, trust: 81, gradient: 'from-fuchsia-400 to-pink-500',   avatar: UNS+'1539571696357-5a69c17a67c6'+AV, verified: false },
+  { name: 'Tara Nair',     niche: 'Travel',      city: 'Pune',      followers: 31200,  er: 5.2, trust: 89, gradient: 'from-cyan-400 to-sky-500',       avatar: UNS+'1534528741775-53994a69daeb'+AV, verified: true  },
+  { name: 'Devansh Roy',   niche: 'Education',   city: 'Kolkata',   followers: 19500,  er: 8.0, trust: 95, gradient: 'from-lime-400 to-emerald-500',   avatar: UNS+'1552058544-f2b08422138a'+AV,    verified: true  },
+  { name: 'Sana Khan',     niche: 'Beauty',      city: 'Hyderabad', followers: 47800,  er: 5.7, trust: 87, gradient: 'from-rose-400 to-pink-600',      avatar: UNS+'1573496799652-408c2ac9fe98'+AV, verified: true  },
+  { name: 'Aditya Rao',    niche: 'Gaming',      city: 'Chennai',   followers: 76500,  er: 6.6, trust: 86, gradient: 'from-indigo-400 to-violet-600',  avatar: UNS+'1506794778202-cad84cf45f1d'+AV, verified: false },
 ];
 
 const niches = ['All', 'Lifestyle', 'Fitness', 'Food', 'Tech', 'Fashion', 'Comedy', 'Travel', 'Education', 'Beauty', 'Gaming'];
@@ -161,7 +165,9 @@ export default function InteractiveDemo() {
                   className="group rounded-3xl border border-slate-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-brand-200 hover:shadow-glow"
                 >
                   <div className="flex items-center gap-3">
-                    <div className={`h-12 w-12 rounded-2xl bg-gradient-to-br ${c.gradient}`} />
+                    <div className={`relative h-12 w-12 flex-none overflow-hidden rounded-2xl bg-gradient-to-br ${c.gradient}`}>
+                      <img src={c.avatar} alt={c.name} className="h-full w-full object-cover" />
+                    </div>
                     <div className="flex-1">
                       <div className="flex items-center gap-1">
                         <span className="text-sm font-bold text-slate-900">{c.name}</span>

@@ -9,6 +9,7 @@ excerpt: "Sliding into creator DMs feels free. Until you calculate what it actua
 metaDescription: "DIY influencer outreach in India: the real time and money cost of doing it manually, and how platforms like Trendly automate the parts that drain founders most."
 targetKeyword: influencer outreach India
 gradient: from-sky-400 via-blue-500 to-indigo-500
+imageUrl: https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=1200&h=750&fit=crop&auto=format&q=80
 ---
 
 # The Hidden Cost of DIY Influencer Outreach (And How to Automate It)

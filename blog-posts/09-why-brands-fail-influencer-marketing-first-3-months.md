@@ -9,6 +9,7 @@ excerpt: "The first three months of influencer marketing are where most Indian D
 metaDescription: "Why Indian D2C brands fail at influencer marketing in their first 3 months — and the specific fixes that separate brands that build it into a real channel from those that give up."
 targetKeyword: influencer marketing mistakes India
 gradient: from-red-400 via-rose-500 to-orange-400
+imageUrl: https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=1200&h=750&fit=crop&auto=format&q=80
 ---
 
 # Why Most Brands Fail at Influencer Marketing in the First 3 Months (And How to Not Be One of Them)

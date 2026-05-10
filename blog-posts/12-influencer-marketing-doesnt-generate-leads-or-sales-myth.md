@@ -10,6 +10,7 @@ excerpt: "Influencer marketing is often misunderstood. Many people think it just
 metaDescription: "Does influencer marketing generate sales in India? Trendly data shows micro-creator campaigns drive 4–7× ROI when tracked correctly. Here's what brands get wrong."
 targetKeyword: does influencer marketing generate sales India
 gradient: from-brand-500 via-accent-500 to-emerald-400
+imageUrl: https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=750&fit=crop&auto=format&q=80
 ---
 
 # Influencer Marketing Doesn't Generate Leads or Sales — Myth!

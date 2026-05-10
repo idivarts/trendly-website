@@ -9,6 +9,7 @@ excerpt: "Most marketing services are built to keep you dependent. Trendly's Pil
 metaDescription: "The Trendly Pilot Programme helps Indian D2C brands set up, run, and then own their influencer marketing strategy. Here's the philosophy behind building to hand off."
 targetKeyword: influencer marketing setup India
 gradient: from-brand-600 via-brand-500 to-accent-400
+imageUrl: https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200&h=750&fit=crop&auto=format&q=80
 ---
 
 # We Don't Want You to Need Us Forever: The Philosophy Behind Trendly's Pilot Programme

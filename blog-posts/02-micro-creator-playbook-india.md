@@ -9,6 +9,7 @@ excerpt: "Chasing big follower counts is one of the most expensive mistakes an e
 metaDescription: "Micro influencer marketing India: why brands under ₹1 crore ARR get better ROI from micro-creators than mega influencers. A data-backed playbook for D2C startups."
 targetKeyword: micro influencer marketing India
 gradient: from-violet-500 via-purple-500 to-pink-400
+imageUrl: https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1200&h=750&fit=crop&auto=format&q=80
 ---
 
 # The Micro-Creator Playbook: Why Brands Under ₹1 Crore ARR Should Ignore Mega Influencers

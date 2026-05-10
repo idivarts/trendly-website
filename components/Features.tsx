@@ -1,5 +1,8 @@
 import ScrollReveal from '@/components/ScrollReveal';
 
+const UNS = 'https://images.unsplash.com/photo-';
+const AV  = '?w=200&h=200&fit=crop&auto=format&q=80';
+
 const features = [
   {
     title: 'Powerful Influencer Discovery',
@@ -43,10 +46,10 @@ function Visual({ kind }: { kind: string }) {
       <div className="relative h-full w-full overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-brand-50 to-white p-6">
         <div className="grid grid-cols-2 gap-3">
           {[
-            { name: 'Aanya', tag: 'Lifestyle', f: '38k', g: 'from-pink-400 to-rose-500' },
-            { name: 'Rohan', tag: 'Fitness', f: '52k', g: 'from-emerald-400 to-teal-500' },
-            { name: 'Priya', tag: 'Food', f: '24k', g: 'from-amber-400 to-orange-500' },
-            { name: 'Karan', tag: 'Tech', f: '61k', g: 'from-sky-400 to-indigo-500' },
+            { name: 'Aanya', tag: 'Lifestyle', f: '38k', g: 'from-pink-400 to-rose-500',    av: UNS+'1531746020798-e6953c6e8e04'+AV },
+            { name: 'Rohan', tag: 'Fitness',   f: '52k', g: 'from-emerald-400 to-teal-500', av: UNS+'1507003211169-0a1dd7228f2d'+AV },
+            { name: 'Priya', tag: 'Food',      f: '24k', g: 'from-amber-400 to-orange-500', av: UNS+'1438761681033-6461ffad8d80'+AV },
+            { name: 'Karan', tag: 'Tech',      f: '61k', g: 'from-sky-400 to-indigo-500',   av: UNS+'1500648767791-00dcc994a43e'+AV },
           ].map((c, i) => (
             <div
               key={c.name}
@@ -56,7 +59,9 @@ function Visual({ kind }: { kind: string }) {
                 animationDelay: `${i * 80}ms`,
               }}
             >
-              <div className={`h-20 w-full rounded-xl bg-gradient-to-br ${c.g}`} />
+              <div className={`relative h-20 w-full overflow-hidden rounded-xl bg-gradient-to-br ${c.g}`}>
+                <img src={c.av} alt={c.name} className="h-full w-full object-cover object-top" />
+              </div>
               <div className="mt-3 text-sm font-semibold text-slate-900">{c.name}</div>
               <div className="flex items-center justify-between text-xs text-slate-500">
                 <span>{c.tag}</span>
@@ -98,13 +103,15 @@ function Visual({ kind }: { kind: string }) {
         </div>
         <div className="mt-3 space-y-2">
           {[
-            { n: 'Aanya Sharma', s: 'Quoted ₹4,500', c: 'from-pink-400 to-rose-500' },
-            { n: 'Rohan Mehta', s: 'Approved', c: 'from-emerald-400 to-teal-500' },
-            { n: 'Priya Iyer', s: 'In review', c: 'from-amber-400 to-orange-500' },
+            { n: 'Aanya Sharma', s: 'Quoted ₹4,500', c: 'from-pink-400 to-rose-500',    av: UNS+'1531746020798-e6953c6e8e04'+AV },
+            { n: 'Rohan Mehta',  s: 'Approved',      c: 'from-emerald-400 to-teal-500', av: UNS+'1507003211169-0a1dd7228f2d'+AV },
+            { n: 'Priya Iyer',   s: 'In review',     c: 'from-amber-400 to-orange-500', av: UNS+'1438761681033-6461ffad8d80'+AV },
           ].map((c) => (
             <div key={c.n} className="flex items-center justify-between rounded-xl border border-slate-100 bg-white p-2.5 shadow-sm transition hover:-translate-y-0.5">
               <div className="flex items-center gap-2">
-                <div className={`h-8 w-8 rounded-full bg-gradient-to-br ${c.c}`} />
+                <div className={`relative h-8 w-8 flex-none overflow-hidden rounded-full bg-gradient-to-br ${c.c}`}>
+                  <img src={c.av} alt={c.n} className="h-full w-full object-cover" />
+                </div>
                 <div className="text-sm font-medium text-slate-800">{c.n}</div>
               </div>
               <span className="text-xs font-semibold text-slate-500">{c.s}</span>

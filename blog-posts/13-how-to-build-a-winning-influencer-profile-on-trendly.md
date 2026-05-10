@@ -10,6 +10,7 @@ excerpt: "Your Trendly profile is more than a formality — it's your pitch. Her
 metaDescription: "How to build a strong influencer profile on Trendly to attract more brand collaborations. Step-by-step guide for Indian creators on Instagram."
 targetKeyword: influencer profile Trendly India creator
 gradient: from-violet-500 via-purple-500 to-sky-400
+imageUrl: https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=1200&h=750&fit=crop&auto=format&q=80
 ---
 
 # How to Build a Winning Influencer Profile on Trendly

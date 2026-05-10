@@ -9,6 +9,7 @@ excerpt: "What does it actually feel like to run influencer marketing for the fi
 metaDescription: "How to start influencer marketing in India as a startup. A realistic, step-by-step account of getting your first 10 creator collaborations off the ground."
 targetKeyword: how to start influencer marketing India
 gradient: from-rose-400 via-pink-500 to-purple-500
+imageUrl: https://images.unsplash.com/photo-1543269865-cbf427effbad?w=1200&h=750&fit=crop&auto=format&q=80
 ---
 
 # From Zero to Your First 10 Influencer Collaborations: A Startup Founder's Honest Account

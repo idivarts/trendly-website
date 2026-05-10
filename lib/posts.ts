@@ -16,6 +16,8 @@ export type Post = {
   excerpt: string;
   /** Tailwind gradient classes for the post card thumbnail */
   gradient: string;
+  /** Optional Unsplash image URL for the post card thumbnail */
+  imageUrl?: string;
   /** Full post body rendered as an HTML string from markdown */
   body: string;
   readTime: string;
@@ -69,6 +71,7 @@ function loadAllPosts(): Post[] {
           title: data.title as string,
           excerpt: data.excerpt as string,
           gradient: data.gradient as string,
+          imageUrl: data.imageUrl as string | undefined,
           body,
           readTime: data.readTime as string,
           metaDescription: (data.metaDescription as string) ?? (data.excerpt as string),

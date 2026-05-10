@@ -10,6 +10,7 @@ excerpt: "Let's be honest. Nobody woke up today saying, \"Wow, I love this brand
 metaDescription: "Why Indian D2C brands struggle to build brand love — and how micro-creator partnerships and better messaging can change that fast."
 targetKeyword: brand marketing India D2C
 gradient: from-pink-500 via-rose-500 to-amber-400
+imageUrl: https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=1200&h=750&fit=crop&auto=format&q=80
 ---
 
 # Why People Don't Care About Your Brand (And How to Make Them Care)

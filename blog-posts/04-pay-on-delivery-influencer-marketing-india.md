@@ -9,6 +9,7 @@ excerpt: "Paying ₹50,000 upfront and hoping a creator delivers — that is the
 metaDescription: "Pay-on-delivery influencer marketing in India: how Trendly's performance-first model protects D2C brands from wasted spend and undelivered campaigns."
 targetKeyword: performance influencer marketing India
 gradient: from-emerald-400 via-teal-500 to-cyan-500
+imageUrl: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&h=750&fit=crop&auto=format&q=80
 ---
 
 # Pay-on-Delivery Influencer Marketing: How Trendly Eliminates the Biggest Risk for Small Brands
