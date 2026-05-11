@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "./export.sh && ./deploy-s3.sh",
+    "start": "./start.sh",
     "lint": "next lint"
   },
   "dependencies": {

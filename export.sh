@@ -41,7 +41,7 @@ fi
 # ── 4. Run Next.js static build ───────────────────────────────────────────
 echo "🏗️   Running next build (output: export)..."
 echo ""
-npm run build
+next build
 echo ""
 
 # ── 5. Post-build checks ───────────────────────────────────────────────────
