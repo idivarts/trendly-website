@@ -75,18 +75,10 @@ export default function Pricing() {
   const [annual, setAnnual] = useState(true);
 
   return (
-    <section id="pricing" className="relative py-24">
+    <section id="pricing" className="relative py-12">
       <div className="container-px">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="section-eyebrow">Pricing</span>
-          <h2 className="h-display mt-3 text-4xl sm:text-5xl">
-            Best-in-class pricing, <span className="bg-gradient-brand bg-clip-text text-transparent">designed for startups</span>
-          </h2>
-          <p className="mt-4 text-slate-600">
-            Where competitors charge no less than ₹30,000, we're priced perfectly for startups looking for micro creators.
-          </p>
-
-          <div className="mt-8 inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white p-1 shadow-sm">
+          <div className="mt-2 inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white p-1 shadow-sm">
             <button
               onClick={() => setAnnual(false)}
               className={`rounded-full px-5 py-2 text-sm font-semibold transition ${

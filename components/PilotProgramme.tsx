@@ -150,8 +150,21 @@ export default function PilotProgramme() {
           ))}
         </ScrollReveal>
 
+        {/* Know more details link */}
+        <ScrollReveal className="mt-10 text-center" delay={250}>
+          <a
+            href="/pilot"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-brand-700 transition-all duration-200 hover:gap-3 hover:text-brand-600"
+          >
+            See the full Pilot Programme — phases, deliverables, FAQ
+            <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
+        </ScrollReveal>
+
         {/* CTA strip */}
-        <ScrollReveal className="mt-12" delay={300}>
+        <ScrollReveal className="mt-8" delay={300}>
           <div className="flex flex-col items-start justify-between gap-5 rounded-3xl border border-brand-100 bg-gradient-to-br from-brand-50 to-white p-8 sm:flex-row sm:items-center transition-all duration-300 hover:shadow-glow hover:border-brand-200">
             <div className="max-w-xl">
               <div className="text-sm font-bold uppercase tracking-wider text-brand-700">Want a head start?</div>
