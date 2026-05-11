@@ -106,9 +106,16 @@ export default function PostPage({ params }: { params: { slug: string } }) {
           <p className="mt-5 text-lg text-slate-600">{post.excerpt}</p>
 
           <div
-            className={`mt-10 aspect-[2/1] overflow-hidden rounded-3xl bg-gradient-to-br ${post.gradient}`}
+            className={`relative mt-10 aspect-[2/1] overflow-hidden rounded-3xl bg-gradient-to-br ${post.gradient}`}
           >
-            <div className="h-full w-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.55),transparent_55%)]" />
+            {post.imageUrl && (
+              <img
+                src={post.imageUrl}
+                alt={post.title}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            )}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.18),transparent_55%)]" />
           </div>
 
           {/* Rendered markdown body */}
@@ -165,6 +172,13 @@ export default function PostPage({ params }: { params: { slug: string } }) {
                     className="group block overflow-hidden rounded-3xl border border-slate-200 bg-white transition hover:-translate-y-1 hover:border-brand-200 hover:shadow-glow"
                   >
                     <div className={`relative aspect-[16/9] bg-gradient-to-br ${p.gradient}`}>
+                      {p.imageUrl && (
+                        <img
+                          src={p.imageUrl}
+                          alt={p.title}
+                          className="absolute inset-0 h-full w-full object-cover"
+                        />
+                      )}
                       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.5),transparent_55%)]" />
                     </div>
                     <div className="p-5">
