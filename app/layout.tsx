@@ -1,4 +1,6 @@
+import MarketingPixels from '@/components/MarketingPixels';
 import type { Metadata } from 'next';
+// @ts-ignore - Next.js 14 app router types are still in RC and not yet included in @types/next
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -72,7 +74,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="font-sans text-slate-700 antialiased">{children}</body>
+      <body className="font-sans text-slate-700 antialiased">
+        <MarketingPixels />
+        {children}
+      </body>
     </html>
   );
 }
