@@ -94,7 +94,7 @@ The second campaign is faster. By the third, they have a workflow. By the sixth,
 
 That is the version of influencer marketing that works. It does not start with DIY — or if it does, it does not stay there for long.
 
-[Explore the Trendly platform free](https://openinapp.link/b5aqc). No retainer, no minimum campaign spend. See what your next campaign looks like when the logistics are handled for you.
+[Explore the Trendly platform free](https://brands.trendly.now). No retainer, no minimum campaign spend. See what your next campaign looks like when the logistics are handled for you.
 
 ---
 

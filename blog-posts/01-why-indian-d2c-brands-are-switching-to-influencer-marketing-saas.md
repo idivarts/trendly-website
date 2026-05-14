@@ -92,6 +92,6 @@ If you are at the beginning of this journey and want to understand what a self-s
 
 ---
 
-**Ready to take back control of your influencer marketing?** [Start free on Trendly](https://openinapp.link/b5aqc) or [book a 30-minute call](https://cal.com/rahul-idiv/30min) with our team to talk through your specific situation.
+**Ready to take back control of your influencer marketing?** [Start free on Trendly](https://brands.trendly.now) or [book a 30-minute call](https://cal.com/rahul-idiv/30min) with our team to talk through your specific situation.
 
 *Also worth reading: [Why influencer marketing doesn't generate leads or sales — myth!](/blog/influencer-marketing-doesnt-generate-leads-or-sales-myth) and [What 500+ campaigns taught us about influencer marketing in India](/blog/what-500-campaigns-taught-us-about-influencer-marketing-india).*

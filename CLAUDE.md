@@ -239,7 +239,7 @@ To add a section, create the component in `components/`, import it in
   campaigns · sub-100k follower focus · pay-on-delivery · India-first ·
   partnerships with Modash and Phyllo for enterprise.
 - **External CTAs (do not change without asking)**:
-  - Try free → `https://openinapp.link/b5aqc`
+  - Try free → `https://brands.trendly.now`
   - Book demo → `https://cal.com/rahul-idiv/30min`
   - Influencer signup → `https://creators.trendly.now/`
   - Brands login → `https://brands.trendly.now/`

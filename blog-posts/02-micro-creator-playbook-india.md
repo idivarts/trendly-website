@@ -78,7 +78,7 @@ This is one of the core principles behind [Trendly's Pilot Programme](/#pilot) â
 
 ## Where to Start
 
-If you have never run a micro-creator campaign in India before, the [Trendly platform](https://openinapp.link/b5aqc) is the fastest way to go from concept to live campaign. Free to start, no minimum creator spend, and discovery tools that let you find exactly the right creator profile for your niche.
+If you have never run a micro-creator campaign in India before, the [Trendly platform](https://brands.trendly.now) is the fastest way to go from concept to live campaign. Free to start, no minimum creator spend, and discovery tools that let you find exactly the right creator profile for your niche.
 
 Start with a small test â€” three or four creators, one month, one measurable goal. The data will tell you more than any strategy deck can.
 
