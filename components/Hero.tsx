@@ -73,8 +73,7 @@ export default function Hero() {
               className="mt-6 max-w-xl text-lg text-slate-600 animate-fade-up"
               style={{ animationDelay: '180ms' }}
             >
-              Your startup journey begins here. Discover thousands of verified micro-creators with mind-blowing filters,
-              run end-to-end campaigns, and pay only after they deliver.
+              Discover thousands of verified micro-creators, run end-to-end campaigns, and pay only after they deliver — all from ₹750/month.
             </p>
 
             {/* CTA buttons */}

@@ -150,9 +150,6 @@ export default function InteractiveDemo() {
                   </button>
                 </label>
 
-                <a href={LINKS.BRAND_SIGNUP} className="btn-primary w-full">
-                  Unlock full search
-                </a>
               </div>
             </div>
           </aside>
@@ -214,8 +211,8 @@ export default function InteractiveDemo() {
             <div className="mt-6 rounded-3xl border border-brand-100 bg-gradient-to-br from-brand-50 to-white p-6">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <div className="text-sm font-bold text-slate-900">10,000+ more creators waiting inside</div>
-                  <div className="text-xs text-slate-600">Sign up to access the full database with 30+ advanced filters.</div>
+                  <div className="text-sm font-bold text-slate-900">This is a sample of 10 creators</div>
+                  <div className="text-xs text-slate-600">Sign up to search 10,000+ verified micro-creators with 30+ advanced filters.</div>
                 </div>
                 <a href={LINKS.BRAND_SIGNUP} className="btn-primary">
                   Try free for 3 days

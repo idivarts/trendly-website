@@ -18,7 +18,7 @@ export default function LogosMarquee() {
     <section className="border-y border-slate-200/70 bg-white py-10">
       <div className="container-px">
         <p className="text-center text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">
-          Trusted by 500+ startups & D2C brands
+          Brands growing with Trendly
         </p>
       </div>
       <div className="mt-6 fade-mask overflow-hidden">

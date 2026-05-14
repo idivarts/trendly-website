@@ -52,18 +52,15 @@ export default function WhyTrendly() {
           <ScrollReveal className="lg:col-span-5" direction="left" distance={36}>
             <span className="section-eyebrow">Why Trendly</span>
             <h2 className="h-display mt-3 text-4xl sm:text-5xl">
-              Why pay{' '}
-              <span className="line-through decoration-rose-400 decoration-[3px]">₹30,000+</span>{' '}
-              when you can launch with{' '}
-              <span className="text-gradient-animated">₹750</span>?
+              Real influencer campaigns.{' '}
+              <span className="text-gradient-animated">Without the agency overhead.</span>
             </h2>
             <p className="mt-5 text-slate-600">
-              Trendly is purpose-built for early-stage and growth-stage brands who want authentic results without the
-              agency overhead. We obsess over the micro-creator ecosystem so you don't have to.
+              Launch authentic campaigns from ₹750/month — a fraction of the ₹30,000–₹2L+ agencies charge. Trendly is
+              purpose-built for early-stage and growth-stage brands who want real results without the retainer.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a href="#pricing" className="btn-primary">See pricing</a>
-              <a href={LINKS.BOOK_DEMO} className="btn-ghost">Talk to founder</a>
             </div>
           </ScrollReveal>
 

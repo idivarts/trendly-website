@@ -51,7 +51,7 @@ export default function FAQ() {
             Questions, <span className="bg-gradient-brand bg-clip-text text-transparent">answered</span>
           </h2>
           <p className="mt-4 text-slate-600">
-            We proudly compare ourselves with competitors — because we're priced for startups, by design.
+            Everything you need to know before getting started.
           </p>
         </div>
 

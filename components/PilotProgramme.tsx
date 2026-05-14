@@ -61,17 +61,16 @@ export default function PilotProgramme() {
         <ScrollReveal className="mx-auto max-w-3xl text-center">
           <span className="pill">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand-600" />
-            Beyond the subscription · The Trendly Pilot
+            The Trendly Pilot · 8-month managed add-on
           </span>
           <h2 className="h-display mt-5 text-4xl sm:text-5xl">
             Most marketing partners want you forever.{' '}
             <span className="text-gradient-animated">We're built to graduate you.</span>
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-slate-600">
-            Most influencer marketing in India runs on long-term retainers — and we get why; running campaigns is hard.
-            But we believe the right partner sets you up to run things yourself, then gets out of the way. That's the{' '}
-            <strong className="font-semibold text-slate-900">Trendly Pilot</strong> — a hands-on engagement that ends
-            with you, not us, in control.
+            <strong className="font-semibold text-slate-900">The Trendly Pilot is an 8-month hands-on programme where we set up and run your influencer marketing — then hand it over to your team entirely.</strong>
+            {' '}Most influencer marketing in India runs on long-term retainers — and we get why; running campaigns is hard.
+            But we believe the right partner sets you up to run things yourself, then gets out of the way.
           </p>
         </ScrollReveal>
 
