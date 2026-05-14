@@ -1,5 +1,6 @@
 'use client';
 
+import { LINKS } from '@/lib/site-config';
 import Logo from './Logo';
 
 const cols = [
@@ -9,7 +10,7 @@ const cols = [
       { label: 'About', href: '/about' },
       { label: 'Contact', href: '/contact' },
       { label: 'Pricing', href: '/pricing' },
-      { label: 'Influencer pages', href: 'https://creators.trendly.now/' },
+      { label: 'Influencer pages', href: LINKS.CREATOR_SIGNUP },
     ],
   },
   {
@@ -33,7 +34,7 @@ const cols = [
     title: 'Download',
     links: [
       { label: 'iOS app', href: 'https://apps.apple.com/app/trendly-find-influencers/id6736949941' },
-      { label: 'Android app', href: 'https://amzn.openinapp.link/brands-app' },
+      { label: 'Android app', href: 'https://play.google.com/store/apps/details?id=pro.trendly.brands' },
     ],
   },
 ];
