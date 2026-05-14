@@ -22,7 +22,7 @@ export const MARKETING = {
 
   // Microsoft Clarity project ID — 10-char lowercase string e.g. abc123xyz0
   // Get it at: clarity.microsoft.com → New Project → copy the ID
-  CLARITY_PROJECT_ID: 'REPLACE_WITH_CLARITY_PROJECT_ID',
+  CLARITY_PROJECT_ID: 'wr2q3skiu7',
 } as const;
 
 /** Returns true if the ID has been replaced with a real value. */

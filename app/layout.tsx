@@ -69,6 +69,11 @@ export const metadata: Metadata = {
   authors: [{ name: 'Trendly — IDIVARTS Solutions Pvt Ltd', url: 'https://www.trendly.now' }],
   creator: 'IDIVARTS Solutions Pvt Ltd',
   publisher: 'IDIVARTS Solutions Pvt Ltd',
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
