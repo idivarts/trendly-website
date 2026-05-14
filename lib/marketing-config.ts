@@ -6,16 +6,16 @@
  */
 export const MARKETING = {
   // Meta (Facebook / Instagram) Pixel — 15-16 digit number
-  META_PIXEL_ID: 'REPLACE_WITH_META_PIXEL_ID',
+  META_PIXEL_ID: '1131893411605705',
 
   // Google Analytics 4 — format: G-XXXXXXXXXX
-  GA4_MEASUREMENT_ID: 'REPLACE_WITH_GA4_MEASUREMENT_ID',
+  GA4_MEASUREMENT_ID: 'G-7HR6HKN407',
 
   // Google Ads remarketing tag — format: AW-XXXXXXXXXX
   GOOGLE_ADS_ID: 'REPLACE_WITH_GOOGLE_ADS_ID',
 
   // LinkedIn Insight Tag — 7-8 digit number
-  LINKEDIN_PARTNER_ID: 'REPLACE_WITH_LINKEDIN_PARTNER_ID',
+  LINKEDIN_PARTNER_ID: '10155273',
 
   // Twitter / X pixel — short alphanumeric string e.g. o7abc
   TWITTER_PIXEL_ID: 'REPLACE_WITH_TWITTER_PIXEL_ID',
