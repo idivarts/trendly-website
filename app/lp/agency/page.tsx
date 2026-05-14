@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Logo from '@/components/Logo';
+import { LINKS } from '@/lib/site-config';
 
 export const metadata: Metadata = {
   title: 'Influencer Marketing Done Differently — Trendly',
@@ -69,7 +70,7 @@ export default function LpAgencyPage() {
       <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/90 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
           <Logo />
-          <a href="https://cal.com/rahul-idiv/30min" className="btn-primary">
+          <a href={LINKS.BOOK_DEMO} className="btn-primary">
             Book a Demo
             <svg className="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
           </a>
@@ -113,11 +114,11 @@ export default function LpAgencyPage() {
                 className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center animate-fade-up"
                 style={{ animationDelay: '240ms' }}
               >
-                <a href="https://cal.com/rahul-idiv/30min" className="btn-primary text-base px-8 py-4">
+                <a href={LINKS.BOOK_DEMO} className="btn-primary text-base px-8 py-4">
                   Book a 30-min demo
                   <svg className="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
                 </a>
-                <a href="https://openinapp.link/b5aqc" className="btn-ghost text-base px-8 py-4">
+                <a href={LINKS.BRAND_SIGNUP} className="btn-ghost text-base px-8 py-4">
                   Try the platform free
                 </a>
               </div>
@@ -290,13 +291,13 @@ export default function LpAgencyPage() {
             </p>
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
               <a
-                href="https://cal.com/rahul-idiv/30min"
+                href={LINKS.BOOK_DEMO}
                 className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-bold text-brand-700 shadow-soft transition hover:-translate-y-0.5"
               >
                 Book a 30-min demo
                 <svg className="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
               </a>
-              <a href="https://openinapp.link/b5aqc" className="inline-flex items-center justify-center rounded-full border border-white/50 px-8 py-4 text-base font-semibold text-white transition hover:bg-white/10">
+              <a href={LINKS.BRAND_SIGNUP} className="inline-flex items-center justify-center rounded-full border border-white/50 px-8 py-4 text-base font-semibold text-white transition hover:bg-white/10">
                 Try the platform free
               </a>
             </div>

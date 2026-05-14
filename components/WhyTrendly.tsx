@@ -1,4 +1,5 @@
 import ScrollReveal from '@/components/ScrollReveal';
+import { LINKS } from '@/lib/site-config';
 
 const reasons = [
   {
@@ -62,7 +63,7 @@ export default function WhyTrendly() {
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a href="#pricing" className="btn-primary">See pricing</a>
-              <a href="https://cal.com/rahul-idiv/30min" className="btn-ghost">Talk to founder</a>
+              <a href={LINKS.BOOK_DEMO} className="btn-ghost">Talk to founder</a>
             </div>
           </ScrollReveal>
 

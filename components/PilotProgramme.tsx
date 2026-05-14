@@ -1,4 +1,5 @@
 import ScrollReveal from '@/components/ScrollReveal';
+import { LINKS } from '@/lib/site-config';
 
 const phases = [
   {
@@ -173,7 +174,7 @@ export default function PilotProgramme() {
               </p>
             </div>
             <div className="flex gap-3">
-              <a href="https://cal.com/rahul-idiv/30min" className="btn-primary">
+              <a href={LINKS.BOOK_DEMO} className="btn-primary">
                 Talk to founder
               </a>
               <a href="/contact" className="btn-ghost">

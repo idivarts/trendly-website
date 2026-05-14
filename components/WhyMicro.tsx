@@ -1,5 +1,6 @@
 import ScrollReveal from '@/components/ScrollReveal';
 import ParallaxOrb from '@/components/ParallaxOrb';
+import { LINKS } from '@/lib/site-config';
 
 const points = [
   {
@@ -100,7 +101,7 @@ export default function WhyMicro() {
         </div>
 
         <ScrollReveal className="mt-12 text-center" delay={440}>
-          <a href="https://openinapp.link/b5aqc" className="btn-primary">
+          <a href={LINKS.BRAND_SIGNUP} className="btn-primary">
             Explore influencers today
           </a>
         </ScrollReveal>

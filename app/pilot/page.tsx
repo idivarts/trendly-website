@@ -1,4 +1,5 @@
 import PageShell, { PageHero } from '@/components/PageShell';
+import { LINKS } from '@/lib/site-config';
 import ScrollReveal from '@/components/ScrollReveal';
 import CTA from '@/components/CTA';
 
@@ -422,7 +423,7 @@ export default function PilotPage() {
                 </p>
                 <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
                   <a
-                    href="https://cal.com/rahul-idiv/30min"
+                    href={LINKS.BOOK_DEMO}
                     className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-bold text-brand-700 shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
                   >
                     Book a 30-min call with Rahul

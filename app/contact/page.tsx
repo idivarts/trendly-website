@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import PageShell, { PageHero } from '@/components/PageShell';
+import { LINKS } from '@/lib/site-config';
 
 const contactOptions = [
   {
@@ -19,7 +20,7 @@ const contactOptions = [
     title: 'Book a 30-min demo',
     desc: 'Walk through the platform with our team.',
     cta: 'cal.com/rahul-idiv',
-    href: 'https://cal.com/rahul-idiv/30min',
+    href: LINKS.BOOK_DEMO,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
         <rect x="3" y="4" width="18" height="18" rx="3" />

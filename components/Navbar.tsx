@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Logo from './Logo';
+import { LINKS } from '@/lib/site-config';
 
 const links = [
   { label: 'Features', href: '/#features' },
@@ -46,12 +47,12 @@ export default function Navbar() {
         </nav>
         <div className="hidden items-center gap-3 md:flex">
           <a
-            href="https://openinapp.link/1lbgf"
+            href={LINKS.CREATOR_SIGNUP}
             className="text-sm font-medium text-slate-600 transition hover:text-slate-900"
           >
             I'm an influencer
           </a>
-          <a href="https://cal.com/rahul-idiv/30min" className="btn-primary !px-5 !py-2.5">
+          <a href={LINKS.BOOK_DEMO} className="btn-primary !px-5 !py-2.5">
             Book a Demo
           </a>
         </div>
@@ -79,7 +80,7 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="https://cal.com/rahul-idiv/30min"
+              href={LINKS.BOOK_DEMO}
               className="btn-primary mt-2 w-full"
             >
               Book a Demo

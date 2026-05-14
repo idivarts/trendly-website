@@ -1,5 +1,6 @@
 'use client';
 import { useMemo, useState } from 'react';
+import { LINKS } from '@/lib/site-config';
 
 const UNS = 'https://images.unsplash.com/photo-';
 const AV  = '?w=200&h=200&fit=crop&auto=format&q=80';
@@ -149,7 +150,7 @@ export default function InteractiveDemo() {
                   </button>
                 </label>
 
-                <a href="https://openinapp.link/b5aqc" className="btn-primary w-full">
+                <a href={LINKS.BRAND_SIGNUP} className="btn-primary w-full">
                   Unlock full search
                 </a>
               </div>
@@ -216,7 +217,7 @@ export default function InteractiveDemo() {
                   <div className="text-sm font-bold text-slate-900">10,000+ more creators waiting inside</div>
                   <div className="text-xs text-slate-600">Sign up to access the full database with 30+ advanced filters.</div>
                 </div>
-                <a href="https://openinapp.link/b5aqc" className="btn-primary">
+                <a href={LINKS.BRAND_SIGNUP} className="btn-primary">
                   Try free for 3 days
                 </a>
               </div>

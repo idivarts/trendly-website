@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Logo from '@/components/Logo';
+import { LINKS } from '@/lib/site-config';
 
 export const metadata: Metadata = {
   title: 'Find the Right Influencer in Minutes — Trendly',
@@ -38,7 +39,7 @@ export default function LpSaasPage() {
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
           <Logo />
           <a
-            href="https://openinapp.link/b5aqc"
+            href={LINKS.BRAND_SIGNUP}
             className="btn-primary"
           >
             Start free — it's ₹0
@@ -92,11 +93,11 @@ export default function LpSaasPage() {
                 className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center animate-fade-up"
                 style={{ animationDelay: '240ms' }}
               >
-                <a href="https://openinapp.link/b5aqc" className="btn-primary text-base px-8 py-4">
+                <a href={LINKS.BRAND_SIGNUP} className="btn-primary text-base px-8 py-4">
                   Start free — no credit card needed
                   <svg className="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
                 </a>
-                <a href="https://cal.com/rahul-idiv/30min" className="btn-ghost text-base px-8 py-4">
+                <a href={LINKS.BOOK_DEMO} className="btn-ghost text-base px-8 py-4">
                   See a live demo
                 </a>
               </div>
@@ -362,13 +363,13 @@ export default function LpSaasPage() {
             </p>
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
               <a
-                href="https://openinapp.link/b5aqc"
+                href={LINKS.BRAND_SIGNUP}
                 className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-bold text-brand-700 shadow-soft transition hover:-translate-y-0.5 hover:shadow-md"
               >
                 Start free — ₹0 to sign up
                 <svg className="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
               </a>
-              <a href="https://cal.com/rahul-idiv/30min" className="inline-flex items-center justify-center rounded-full border border-white/50 px-8 py-4 text-base font-semibold text-white transition hover:bg-white/10">
+              <a href={LINKS.BOOK_DEMO} className="inline-flex items-center justify-center rounded-full border border-white/50 px-8 py-4 text-base font-semibold text-white transition hover:bg-white/10">
                 Talk to the founder
               </a>
             </div>

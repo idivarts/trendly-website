@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { LINKS } from '@/lib/site-config';
 
 type Plan = {
   name: string;
@@ -24,7 +25,7 @@ const plans: Plan[] = [
       'Up to 1 campaign',
       'Max one hiring (contract)',
     ],
-    cta: { label: 'Start Free', href: 'https://brands.trendly.now/' },
+    cta: { label: 'Start Free', href: LINKS.BRAND_SIGNUP },
   },
   {
     name: 'Growth',
@@ -38,7 +39,7 @@ const plans: Plan[] = [
       'Up to 8 hirings (contracts)',
       'One free collaboration boosting',
     ],
-    cta: { label: 'Get Started', href: 'https://brands.trendly.now/' },
+    cta: { label: 'Get Started', href: LINKS.BRAND_SIGNUP },
     popular: true,
   },
   {
@@ -53,7 +54,7 @@ const plans: Plan[] = [
       'Unlimited hirings (contracts)',
       'Advanced customer support',
     ],
-    cta: { label: 'Get Started', href: 'https://brands.trendly.now/' },
+    cta: { label: 'Get Started', href: LINKS.BRAND_SIGNUP },
   },
   {
     name: 'Enterprise',

@@ -1,4 +1,5 @@
 import ParallaxOrb from '@/components/ParallaxOrb';
+import { LINKS } from '@/lib/site-config';
 
 export default function Hero() {
   return (
@@ -81,7 +82,7 @@ export default function Hero() {
               className="mt-8 flex flex-wrap items-center gap-3 animate-fade-up"
               style={{ animationDelay: '270ms' }}
             >
-              <a href="https://openinapp.link/b5aqc" className="btn-primary group">
+              <a href={LINKS.BRAND_SIGNUP} className="btn-primary group">
                 Try free for 3 days
                 <svg
                   className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
@@ -94,7 +95,7 @@ export default function Hero() {
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
               </a>
-              <a href="https://cal.com/rahul-idiv/30min" className="btn-ghost">
+              <a href={LINKS.BOOK_DEMO} className="btn-ghost">
                 <svg className="mr-2 h-4 w-4 text-brand-600" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M8 5v14l11-7z" />
                 </svg>

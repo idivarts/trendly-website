@@ -1,4 +1,5 @@
 import ScrollReveal from '@/components/ScrollReveal';
+import { LINKS } from '@/lib/site-config';
 
 const stats = [
   { v: '10k+', l: 'Verified creators' },
@@ -34,7 +35,7 @@ export default function CTA() {
                 </p>
                 <div className="mt-7 flex flex-wrap gap-3">
                   <a
-                    href="https://openinapp.link/b5aqc"
+                    href={LINKS.BRAND_SIGNUP}
                     className="group inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-brand-700 shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
                   >
                     Try free for 3 days
@@ -50,7 +51,7 @@ export default function CTA() {
                     </svg>
                   </a>
                   <a
-                    href="https://cal.com/rahul-idiv/30min"
+                    href={LINKS.BOOK_DEMO}
                     className="inline-flex items-center justify-center rounded-full border border-white/30 bg-transparent px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-white/10 hover:border-white/50"
                   >
                     Book a Demo

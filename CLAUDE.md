@@ -130,17 +130,17 @@ anchor). Don't change them to bare `#features` or they'll break on inner pages.
 
 ### Colors (defined in `tailwind.config.ts`)
 
-| Token        | Value     | Usage                                         |
-|--------------|-----------|-----------------------------------------------|
-| `brand-50`   | `#eff6ff` | Pill bg, soft section backgrounds             |
-| `brand-100`  | `#dbeafe` | Pill border, soft accent surfaces             |
-| `brand-500`  | `#3b82f6` | Default brand blue                            |
-| `brand-600`  | `#2563eb` | Primary CTA fill, gradient start              |
-| `brand-700`  | `#1d4ed8` | Hover/active, brand text                      |
-| `brand-900`  | `#1e3a8a` | Dark hero background                          |
-| `accent-400` | `#22d3ee` | Cyan accent, gradient end                     |
-| `accent-500` | `#06b6d4` | Cyan accent, gradient end (deeper)            |
-| `ink-900`    | `#0b1020` | Footer / dark section bg                      |
+| Token          | Value       | Usage                              |
+| -------------- | ----------- | ---------------------------------- |
+| `brand-50`   | `#eff6ff` | Pill bg, soft section backgrounds  |
+| `brand-100`  | `#dbeafe` | Pill border, soft accent surfaces  |
+| `brand-500`  | `#3b82f6` | Default brand blue                 |
+| `brand-600`  | `#2563eb` | Primary CTA fill, gradient start   |
+| `brand-700`  | `#1d4ed8` | Hover/active, brand text           |
+| `brand-900`  | `#1e3a8a` | Dark hero background               |
+| `accent-400` | `#22d3ee` | Cyan accent, gradient end          |
+| `accent-500` | `#06b6d4` | Cyan accent, gradient end (deeper) |
+| `ink-900`    | `#0b1020` | Footer / dark section bg           |
 
 ### Custom Tailwind utilities
 
@@ -241,7 +241,7 @@ To add a section, create the component in `components/`, import it in
 - **External CTAs (do not change without asking)**:
   - Try free → `https://openinapp.link/b5aqc`
   - Book demo → `https://cal.com/rahul-idiv/30min`
-  - Influencer signup → `https://openinapp.link/1lbgf`
+  - Influencer signup → `https://creators.trendly.now/`
   - Brands login → `https://brands.trendly.now/`
   - Support email → `support@idiv.in`
 
@@ -313,24 +313,29 @@ typography, edit the `.prose-content` block there — never use inline styles in
 ## Common tasks
 
 ### Change the primary brand color
+
 Edit `tailwind.config.ts` → `theme.extend.colors.brand`. Also update the
 `bg-gradient-brand` definition in the same file. The site will pick up
 everywhere because all components reference `brand-*` tokens.
 
 ### Add a new pricing plan
+
 Append a `Plan` object to the `plans` array in `components/Pricing.tsx`.
 The grid auto-flows; if going beyond 4 columns, change `lg:grid-cols-4` on
 the plan list and on the heading container.
 
 ### Add an FAQ item
+
 Append `{ q, a }` to the `faqs` array in `components/FAQ.tsx`.
 
 ### Wire up real influencer data in InteractiveDemo
+
 Replace the static `all` array with a fetch from the Trendly API. Move the
 component to a route handler or a server component with `use server` for
 better SEO; keep the filter UI as a client component.
 
 ### Make a section dark
+
 Pattern: `<section className="bg-ink-900 text-slate-300">` and use
 `text-white` for headings, `text-slate-300` for body. See `WhyMicro.tsx`
 and `Footer.tsx` for examples.
