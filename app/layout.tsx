@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/og-default.png',
+        url: '/logo.png',
         width: 1200,
         height: 630,
         alt: 'Trendly — Micro Influencer Marketing Platform for Indian Startups',
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     title: 'Trendly — Influencer Marketing for Indian Startups',
     description:
       'Discover 10,000+ verified micro-creators, manage campaigns end-to-end, and pay only on delivery. From ₹750/month.',
-    images: ['/og-default.png'],
+    images: ['/logo.png'],
   },
   // ── App / browser hints ───────────────────────────────────────────────────
   applicationName: 'Trendly',
