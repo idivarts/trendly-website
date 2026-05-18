@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Logo from './Logo';
 import { LINKS } from '@/lib/site-config';
 
@@ -14,6 +14,7 @@ const links = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -22,8 +23,20 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    if (!open) return;
+    const onClickOutside = (e: MouseEvent) => {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', onClickOutside);
+    return () => document.removeEventListener('mousedown', onClickOutside);
+  }, [open]);
+
   return (
     <header
+      ref={headerRef}
       className={`fixed inset-x-0 top-0 z-50 transition-all ${
         scrolled
           ? 'border-b border-slate-200/70 bg-white/80 backdrop-blur-md'
@@ -67,7 +80,7 @@ export default function Navbar() {
         </button>
       </div>
       {open && (
-        <div className="md:hidden">
+        <div className="md:hidden bg-white border-t border-slate-200/70">
           <div className="container-px space-y-1 pb-4">
             {links.map((l) => (
               <a
