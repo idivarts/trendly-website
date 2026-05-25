@@ -1,225 +1,268 @@
 'use client';
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { LINKS } from '@/lib/site-config';
 
-const UNS = 'https://images.unsplash.com/photo-';
-const AV  = '?w=200&h=200&fit=crop&auto=format&q=80';
-
-type Influencer = {
-  name: string;
-  niche: string;
-  city: string;
-  followers: number;
-  er: number;
-  trust: number;
-  gradient: string;
-  avatar: string;
-  verified: boolean;
+type Post = {
+  id: number;
+  day: string;
+  channel: string;
+  chColor: string;
+  chBg: string;
+  type: string;
+  title: string;
+  status: 'Scheduled' | 'Review' | 'Draft' | 'Live';
+  statusColor: string;
+  brief: {
+    goal: string;
+    hook: string;
+    caption: string;
+    hashtags: string[];
+    pillar: string;
+    creator?: { name: string; followers: string; er: string; gradient: string };
+  };
 };
 
-const all: Influencer[] = [
-  { name: 'Aanya Sharma',  niche: 'Lifestyle',  city: 'Mumbai',    followers: 38400,  er: 4.8, trust: 92, gradient: 'from-pink-400 to-rose-500',     avatar: UNS+'1531746020798-e6953c6e8e04'+AV, verified: true  },
-  { name: 'Rohan Mehta',   niche: 'Fitness',     city: 'Bangalore', followers: 52100,  er: 6.2, trust: 88, gradient: 'from-emerald-400 to-teal-500',   avatar: UNS+'1507003211169-0a1dd7228f2d'+AV, verified: true  },
-  { name: 'Priya Iyer',    niche: 'Food',        city: 'Delhi',     followers: 24600,  er: 5.4, trust: 85, gradient: 'from-amber-400 to-orange-500',   avatar: UNS+'1438761681033-6461ffad8d80'+AV, verified: false },
-  { name: 'Karan Joshi',   niche: 'Tech',        city: 'Bangalore', followers: 61200,  er: 3.9, trust: 90, gradient: 'from-sky-400 to-indigo-500',     avatar: UNS+'1500648767791-00dcc994a43e'+AV, verified: true  },
-  { name: 'Meera Pillai',  niche: 'Fashion',     city: 'Mumbai',    followers: 88300,  er: 4.1, trust: 84, gradient: 'from-violet-400 to-purple-500',  avatar: UNS+'1517841905240-472988babdf9'+AV, verified: true  },
-  { name: 'Vikas Kumar',   niche: 'Comedy',      city: 'Delhi',     followers: 142000, er: 7.1, trust: 81, gradient: 'from-fuchsia-400 to-pink-500',   avatar: UNS+'1539571696357-5a69c17a67c6'+AV, verified: false },
-  { name: 'Tara Nair',     niche: 'Travel',      city: 'Pune',      followers: 31200,  er: 5.2, trust: 89, gradient: 'from-cyan-400 to-sky-500',       avatar: UNS+'1534528741775-53994a69daeb'+AV, verified: true  },
-  { name: 'Devansh Roy',   niche: 'Education',   city: 'Kolkata',   followers: 19500,  er: 8.0, trust: 95, gradient: 'from-lime-400 to-emerald-500',   avatar: UNS+'1552058544-f2b08422138a'+AV,    verified: true  },
-  { name: 'Sana Khan',     niche: 'Beauty',      city: 'Hyderabad', followers: 47800,  er: 5.7, trust: 87, gradient: 'from-rose-400 to-pink-600',      avatar: UNS+'1573496799652-408c2ac9fe98'+AV, verified: true  },
-  { name: 'Aditya Rao',    niche: 'Gaming',      city: 'Chennai',   followers: 76500,  er: 6.6, trust: 86, gradient: 'from-indigo-400 to-violet-600',  avatar: UNS+'1506794778202-cad84cf45f1d'+AV, verified: false },
+const posts: Post[] = [
+  {
+    id: 1,
+    day: 'Mon',
+    channel: 'Instagram',
+    chColor: 'text-pink-700',
+    chBg: 'bg-pink-50 border-pink-200',
+    type: 'Reel',
+    title: '5 ways to style our hero piece',
+    status: 'Live',
+    statusColor: 'bg-emerald-500',
+    brief: {
+      goal: 'Drive product discovery and save-worthy content',
+      hook: '"Wait — one piece, 5 completely different looks?"',
+      caption: 'Your wardrobe shortcut just arrived. 5 ways to style our new drop — from morning coffee to rooftop dinners. Which look is you? → Link in bio.',
+      hashtags: ['#OOTD', '#StyleInspo', '#NewArrivals', '#OutfitIdeas'],
+      pillar: 'Education',
+    },
+  },
+  {
+    id: 2,
+    day: 'Tue',
+    channel: 'TikTok',
+    chColor: 'text-violet-700',
+    chBg: 'bg-violet-50 border-violet-200',
+    type: 'Video',
+    title: 'GRWM with our summer drops',
+    status: 'Draft',
+    statusColor: 'bg-slate-300',
+    brief: {
+      goal: 'Build brand authenticity and relatability with Gen Z',
+      hook: '"I have a 9am meeting and somehow I\'m pulling this together..."',
+      caption: 'GRWM for a day that goes from Zoom calls to rooftop happy hour. All pieces linked in our bio 🔗',
+      hashtags: ['#GRWM', '#SummerFashion', '#GetReadyWithMe', '#OOTD'],
+      pillar: 'Authenticity',
+      creator: { name: 'Jamie Lee', followers: '41k', er: '5.8%', gradient: 'from-pink-400 to-rose-500' },
+    },
+  },
+  {
+    id: 3,
+    day: 'Wed',
+    channel: 'LinkedIn',
+    chColor: 'text-sky-700',
+    chBg: 'bg-sky-50 border-sky-200',
+    type: 'Article',
+    title: 'Behind the design process',
+    status: 'Review',
+    statusColor: 'bg-amber-400',
+    brief: {
+      goal: 'Build thought leadership and attract B2B partnerships',
+      hook: '"Every piece we ship goes through 11 rounds of revision. Here\'s why."',
+      caption: 'We believe great design isn\'t just aesthetic — it\'s the difference between something people wear twice and something they wear forever. A behind-the-scenes look at our process.',
+      hashtags: ['#DesignThinking', '#BrandBuilding', '#ProductDesign'],
+      pillar: 'Education',
+    },
+  },
+  {
+    id: 4,
+    day: 'Thu',
+    channel: 'Instagram',
+    chColor: 'text-pink-700',
+    chBg: 'bg-pink-50 border-pink-200',
+    type: 'Story',
+    title: '24hr flash sale — don\'t miss it',
+    status: 'Scheduled',
+    statusColor: 'bg-brand-500',
+    brief: {
+      goal: 'Drive urgency and direct sales during promotion window',
+      hook: '"24 hours. Your favorites at 30% off. Starting now."',
+      caption: 'FLASH SALE 🔥 30% off sitewide — ends midnight tonight. Use code FLASH30 at checkout. Link in bio.',
+      hashtags: ['#FlashSale', '#SaleAlert', '#LimitedTime'],
+      pillar: 'Product',
+    },
+  },
+  {
+    id: 5,
+    day: 'Fri',
+    channel: 'X',
+    chColor: 'text-slate-700',
+    chBg: 'bg-slate-50 border-slate-200',
+    type: 'Thread',
+    title: 'How we built our brand in 18 months',
+    status: 'Draft',
+    statusColor: 'bg-slate-300',
+    brief: {
+      goal: 'Build authority and community through founder storytelling',
+      hook: '"18 months ago we had a Canva logo and a Shopify store. Here\'s the full story 🧵"',
+      caption: '18 months ago we had a Canva logo and a Shopify store. Today we\'re shipping to 40 countries. Here\'s everything we did — the wins, the fails, and the things we\'d do differently.',
+      hashtags: ['#BuildInPublic', '#StartupStory', '#Entrepreneurship', '#DTC'],
+      pillar: 'Authenticity',
+    },
+  },
 ];
 
-const niches = ['All', 'Lifestyle', 'Fitness', 'Food', 'Tech', 'Fashion', 'Comedy', 'Travel', 'Education', 'Beauty', 'Gaming'];
-const cities = ['All', 'Mumbai', 'Bangalore', 'Delhi', 'Pune', 'Kolkata', 'Hyderabad', 'Chennai'];
-
-function fmt(n: number) {
-  if (n >= 1000) return (n / 1000).toFixed(n >= 100000 ? 0 : 1) + 'k';
-  return String(n);
-}
+const statusStyles: Record<Post['status'], string> = {
+  Live:      'bg-emerald-100 text-emerald-700',
+  Review:    'bg-amber-100 text-amber-700',
+  Draft:     'bg-slate-100 text-slate-600',
+  Scheduled: 'bg-brand-100 text-brand-700',
+};
 
 export default function InteractiveDemo() {
-  const [niche, setNiche] = useState('All');
-  const [city, setCity] = useState('All');
-  const [maxFollowers, setMaxFollowers] = useState(150000);
-  const [verifiedOnly, setVerifiedOnly] = useState(false);
-
-  const filtered = useMemo(() => {
-    return all.filter(
-      (c) =>
-        (niche === 'All' || c.niche === niche) &&
-        (city === 'All' || c.city === city) &&
-        c.followers <= maxFollowers &&
-        (!verifiedOnly || c.verified),
-    );
-  }, [niche, city, maxFollowers, verifiedOnly]);
+  const [active, setActive] = useState<Post>(posts[0]);
 
   return (
     <section className="relative py-24">
       <div className="absolute inset-x-0 top-0 -z-10 h-1/2 bg-gradient-to-b from-brand-50/50 to-transparent" />
       <div className="container-px">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="section-eyebrow">Try it live</span>
+          <span className="section-eyebrow">See it in action</span>
           <h2 className="h-display mt-3 text-4xl sm:text-5xl">
-            Discover creators in <span className="bg-gradient-brand bg-clip-text text-transparent">real time</span>
+            Click any post to see the{' '}
+            <span className="bg-gradient-brand bg-clip-text text-transparent">AI brief behind it</span>
           </h2>
           <p className="mt-4 text-slate-600">
-            Tweak the filters and watch the results refresh instantly. This is a glimpse of what your search experience
-            looks like inside Trendly.
+            Every post on your calendar comes with an AI-generated goal, hook, caption, and creator match — ready for your team to refine and approve.
           </p>
         </div>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-12">
-          {/* Filters */}
-          <aside className="lg:col-span-4">
-            <div className="sticky top-24 rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
-              <div className="flex items-center gap-2">
-                <div className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-brand text-white shadow-glow">
-                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round">
-                    <path d="M4 6h16M7 12h10M10 18h4" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-slate-900">Filters</div>
-                  <div className="text-xs text-slate-500">{filtered.length} creators match</div>
-                </div>
+
+          {/* Post list — weekly calendar */}
+          <aside className="lg:col-span-5">
+            <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-soft">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-sm font-bold text-slate-900">Week of May 19</span>
+                <span className="rounded-full bg-brand-50 px-2.5 py-0.5 text-xs font-bold text-brand-700 border border-brand-100">
+                  {posts.length} posts
+                </span>
               </div>
-
-              <div className="mt-6 space-y-5">
-                <div>
-                  <label className="text-xs font-semibold uppercase tracking-wider text-slate-500">Niche</label>
-                  <div className="mt-2 flex flex-wrap gap-1.5">
-                    {niches.map((n) => (
-                      <button
-                        key={n}
-                        onClick={() => setNiche(n)}
-                        className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${
-                          niche === n
-                            ? 'border-brand-600 bg-brand-600 text-white shadow-glow'
-                            : 'border-slate-200 bg-white text-slate-600 hover:border-brand-300 hover:text-brand-700'
-                        }`}
-                      >
-                        {n}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <label className="text-xs font-semibold uppercase tracking-wider text-slate-500">Location</label>
-                  <select
-                    value={city}
-                    onChange={(e) => setCity(e.target.value)}
-                    className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-800 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-200"
-                  >
-                    {cities.map((c) => (
-                      <option key={c}>{c}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-slate-500">
-                    Max followers
-                    <span className="font-bold text-brand-700">{fmt(maxFollowers)}</span>
-                  </label>
-                  <input
-                    type="range"
-                    min={10000}
-                    max={150000}
-                    step={5000}
-                    value={maxFollowers}
-                    onChange={(e) => setMaxFollowers(Number(e.target.value))}
-                    className="mt-3 w-full accent-brand-600"
-                  />
-                </div>
-
-                <label className="flex items-center justify-between rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
-                  <span className="text-sm font-medium text-slate-700">Verified only</span>
+              <div className="space-y-2">
+                {posts.map((p) => (
                   <button
-                    type="button"
-                    onClick={() => setVerifiedOnly((v) => !v)}
-                    className={`relative h-6 w-11 rounded-full transition ${verifiedOnly ? 'bg-brand-600' : 'bg-slate-300'}`}
-                    aria-pressed={verifiedOnly}
+                    key={p.id}
+                    onClick={() => setActive(p)}
+                    className={`w-full rounded-2xl border p-3.5 text-left transition-all duration-200 ${
+                      active.id === p.id
+                        ? 'border-brand-300 bg-brand-50 shadow-glow'
+                        : 'border-slate-100 bg-white hover:border-brand-200 hover:bg-brand-50/40'
+                    }`}
                   >
-                    <span
-                      className={`absolute top-0.5 h-5 w-5 rounded-full bg-white shadow transition ${
-                        verifiedOnly ? 'left-[22px]' : 'left-0.5'
-                      }`}
-                    />
+                    <div className="flex items-center gap-2.5">
+                      <span className="w-7 shrink-0 text-center text-[10px] font-extrabold text-slate-400">
+                        {p.day}
+                      </span>
+                      <span className={`rounded-full px-2 py-0.5 text-[10px] font-bold border ${p.chBg} ${p.chColor}`}>
+                        {p.channel.slice(0, 2).toUpperCase()}
+                      </span>
+                      <span className="flex-1 truncate text-sm font-medium text-slate-800">{p.title}</span>
+                      <span className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold ${statusStyles[p.status]}`}>
+                        {p.status}
+                      </span>
+                    </div>
                   </button>
-                </label>
-
+                ))}
               </div>
             </div>
           </aside>
 
-          {/* Results */}
-          <div className="lg:col-span-8">
-            <div className="grid gap-4 sm:grid-cols-2">
-              {filtered.map((c) => (
-                <div
-                  key={c.name}
-                  className="group rounded-3xl border border-slate-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-brand-200 hover:shadow-glow"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className={`relative h-12 w-12 flex-none overflow-hidden rounded-2xl bg-gradient-to-br ${c.gradient}`}>
-                      <img src={c.avatar} alt={c.name} className="h-full w-full object-cover" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-1">
-                        <span className="text-sm font-bold text-slate-900">{c.name}</span>
-                        {c.verified && (
-                          <svg className="h-4 w-4 text-brand-600" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2 9.6 5.4 5.6 6 6 10l-3 3 3 3-.4 4 4 .6L12 22l2.4-3.4 4-.6-.4-4 3-3-3-3-.4-4-4-.6L12 2zm-1 14-4-4 1.5-1.5L11 13l4.5-4.5L17 10l-6 6z" />
-                          </svg>
-                        )}
-                      </div>
-                      <div className="text-xs text-slate-500">
-                        {c.niche} • {c.city}
-                      </div>
-                    </div>
-                    <div className="grid h-9 w-9 place-items-center rounded-xl bg-brand-50 text-brand-700 transition group-hover:bg-brand-600 group-hover:text-white">
-                      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                        <path d="M5 12h14M13 6l6 6-6 6" />
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="mt-4 grid grid-cols-3 gap-2 text-center">
-                    <div className="rounded-xl bg-slate-50 px-2 py-2">
-                      <div className="text-sm font-extrabold text-slate-900">{fmt(c.followers)}</div>
-                      <div className="text-[10px] uppercase tracking-wider text-slate-500">Followers</div>
-                    </div>
-                    <div className="rounded-xl bg-brand-50 px-2 py-2">
-                      <div className="text-sm font-extrabold text-brand-700">{c.er}%</div>
-                      <div className="text-[10px] uppercase tracking-wider text-brand-700/80">Engagement</div>
-                    </div>
-                    <div className="rounded-xl bg-emerald-50 px-2 py-2">
-                      <div className="text-sm font-extrabold text-emerald-700">{c.trust}</div>
-                      <div className="text-[10px] uppercase tracking-wider text-emerald-700/80">Trust</div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-              {filtered.length === 0 && (
-                <div className="col-span-2 rounded-3xl border border-dashed border-slate-300 bg-white p-12 text-center text-slate-500">
-                  No creators match these filters. Try widening your search.
-                </div>
-              )}
-            </div>
-
-            <div className="mt-6 rounded-3xl border border-brand-100 bg-gradient-to-br from-brand-50 to-white p-6">
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          {/* AI Brief panel */}
+          <div className="lg:col-span-7">
+            <div className="h-full rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
+              {/* Header */}
+              <div className="flex items-start justify-between gap-3 border-b border-slate-100 pb-5">
                 <div>
-                  <div className="text-sm font-bold text-slate-900">This is a sample of 10 creators</div>
-                  <div className="text-xs text-slate-600">Sign up to search 10,000+ verified micro-creators with 30+ advanced filters.</div>
+                  <div className="flex items-center gap-2">
+                    <span className={`rounded-full border px-2 py-0.5 text-[10px] font-bold ${active.chBg} ${active.chColor}`}>
+                      {active.channel} · {active.type}
+                    </span>
+                    <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${statusStyles[active.status]}`}>
+                      {active.status}
+                    </span>
+                  </div>
+                  <h3 className="mt-2 text-lg font-bold text-slate-900">{active.title}</h3>
                 </div>
-                <a href={LINKS.BRAND_SIGNUP} className="btn-primary">
-                  Try free for 3 days
-                </a>
+                <span className="shrink-0 rounded-full bg-brand-50 px-2.5 py-0.5 text-[10px] font-bold text-brand-700 border border-brand-100">
+                  {active.brief.pillar}
+                </span>
+              </div>
+
+              {/* Brief fields */}
+              <div className="mt-5 space-y-4">
+                <div>
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Goal</div>
+                  <p className="mt-1 text-sm text-slate-700">{active.brief.goal}</p>
+                </div>
+
+                <div>
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Opening Hook</div>
+                  <p className="mt-1 text-sm font-medium italic text-slate-800">{active.brief.hook}</p>
+                </div>
+
+                <div>
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">AI-Draft Caption</div>
+                  <div className="mt-1.5 rounded-2xl border border-slate-100 bg-slate-50 p-3">
+                    <p className="text-sm leading-relaxed text-slate-700">{active.brief.caption}</p>
+                    <div className="mt-2 flex flex-wrap gap-1">
+                      {active.brief.hashtags.map((h) => (
+                        <span key={h} className="rounded-full bg-brand-100 px-2 py-0.5 text-[10px] font-semibold text-brand-700">
+                          {h}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {active.brief.creator && (
+                  <div>
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Creator Match</div>
+                    <div className="mt-1.5 flex items-center gap-3 rounded-2xl border border-slate-100 bg-white p-3 shadow-sm">
+                      <div className={`h-10 w-10 rounded-full bg-gradient-to-br ${active.brief.creator.gradient}`} />
+                      <div className="flex-1">
+                        <div className="text-sm font-semibold text-slate-900">{active.brief.creator.name}</div>
+                        <div className="text-xs text-slate-500">{active.brief.creator.followers} followers · {active.brief.creator.er} ER</div>
+                      </div>
+                      <a
+                        href={LINKS.BRAND_SIGNUP}
+                        className="rounded-full bg-brand-600 px-3 py-1.5 text-xs font-semibold text-white shadow-glow transition hover:bg-brand-700"
+                      >
+                        Invite
+                      </a>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Bottom CTA */}
+              <div className="mt-6 rounded-2xl border border-brand-100 bg-gradient-to-br from-brand-50 to-white p-4">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <div className="text-sm font-bold text-slate-900">Ready to build your own calendar?</div>
+                    <div className="text-xs text-slate-500">Start free — no credit card required.</div>
+                  </div>
+                  <a href={LINKS.BRAND_SIGNUP} className="btn-primary shrink-0">
+                    Start for free
+                  </a>
+                </div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>

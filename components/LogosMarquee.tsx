@@ -1,16 +1,16 @@
 const brands = [
-  'Dabur',
-  'Haldiram',
-  'SUGAR Cosmetics',
-  'Earth Rhythm',
-  'Quench',
-  'BoldCare',
-  'Mamaearth',
-  'WOW Skin',
-  'Plum',
-  'mCaffeine',
-  'Bewakoof',
-  'Sleepyhead',
+  'Glossier',
+  'Allbirds',
+  'Graza',
+  'Olipop',
+  'Haus Labs',
+  'Billie',
+  'Caraway',
+  'MeUndies',
+  'Curology',
+  'Thrive Market',
+  'Athletic Greens',
+  'Brightland',
 ];
 
 export default function LogosMarquee() {
@@ -18,7 +18,7 @@ export default function LogosMarquee() {
     <section className="border-y border-slate-200/70 bg-white py-10">
       <div className="container-px">
         <p className="text-center text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">
-          Brands growing with Trendly
+          Trusted by marketing teams at
         </p>
       </div>
       <div className="mt-6 fade-mask overflow-hidden">

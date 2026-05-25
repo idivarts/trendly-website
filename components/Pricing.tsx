@@ -14,61 +14,63 @@ type Plan = {
 
 const plans: Plan[] = [
   {
-    name: 'Starter',
-    blurb: 'For early experiments, limited usage',
+    name: 'Free',
+    blurb: 'For solo marketers exploring the platform',
     monthly: 'free',
     annually: 'free',
     features: [
-      'Unlimited influencer browsing',
-      'Unlimited invitations / applications',
-      '5 influencer unlocks',
-      'Up to 1 campaign',
-      'Max one hiring (contract)',
+      '1 seat · 1 workspace',
+      '15 scheduled posts / month',
+      '5 AI strategy credits / month',
+      '10 creator searches / month',
+      'Basic analytics',
     ],
     cta: { label: 'Start Free', href: LINKS.BRAND_SIGNUP },
   },
   {
-    name: 'Growth',
-    blurb: 'For serious brands, multiple collabs, real hiring.',
-    monthly: 750,
-    annually: 625,
+    name: 'Starter',
+    blurb: 'For individual marketers and freelancers',
+    monthly: 29,
+    annually: 23,
     features: [
-      'Basic influencer filters',
-      'Up to 50 influencer unlocks',
-      '5 collaboration postings',
-      'Up to 8 hirings (contracts)',
-      'One free collaboration boosting',
+      '2 seats · 2 workspaces',
+      'Unlimited scheduled posts',
+      '50 AI credits / month',
+      '100 creator searches / month',
+      'Standard analytics & reporting',
+    ],
+    cta: { label: 'Get Started', href: LINKS.BRAND_SIGNUP },
+  },
+  {
+    name: 'Team',
+    blurb: 'For growing marketing teams',
+    monthly: 79,
+    annually: 63,
+    features: [
+      '5 seats · 5 workspaces',
+      'Unlimited posts + scheduling',
+      '300 AI credits / month',
+      'Unlimited creator searches',
+      'Campaign management & approvals',
+      'Full analytics + team reporting',
     ],
     cta: { label: 'Get Started', href: LINKS.BRAND_SIGNUP },
     popular: true,
   },
   {
-    name: 'Pro',
-    blurb: 'Unlimited scale, end-to-end support, recovery safety net.',
-    monthly: 1500,
-    annually: 1250,
+    name: 'Agency',
+    blurb: 'For agencies managing multiple brands',
+    monthly: 199,
+    annually: 159,
     features: [
-      'Advanced discovery tools',
-      '5 free collaboration boosting',
-      'Unlimited collaboration postings',
-      'Unlimited hirings (contracts)',
-      'Advanced customer support',
+      '15 seats · 15 workspaces',
+      'Everything in Team',
+      'White-label client reports',
+      'Client portal access',
+      'API access',
+      'Priority support',
     ],
     cta: { label: 'Get Started', href: LINKS.BRAND_SIGNUP },
-  },
-  {
-    name: 'Enterprise',
-    blurb: 'Unlimited scale, end-to-end support, recovery safety net.',
-    monthly: 'custom',
-    annually: 'custom',
-    features: [
-      'Discovery with no limits',
-      'Access 250M+ influencers',
-      'Direct access to Modash / Phyllo',
-      'End-to-end hiring support *',
-      'Guaranteed recovery support *',
-    ],
-    cta: { label: 'Contact Us', href: 'mailto:support@idiv.in' },
   },
 ];
 
@@ -78,8 +80,16 @@ export default function Pricing() {
   return (
     <section id="pricing" className="relative py-12">
       <div className="container-px">
+
         <div className="mx-auto max-w-2xl text-center">
-          <div className="mt-2 inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white p-1 shadow-sm">
+          <span className="section-eyebrow">Pricing</span>
+          <h2 className="h-display mt-3 text-4xl sm:text-5xl">
+            Simple, <span className="text-gradient-animated">self-serve pricing</span>
+          </h2>
+          <p className="mt-4 text-slate-600">
+            All plans include a free trial. No contracts. Cancel anytime.
+          </p>
+          <div className="mt-6 inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white p-1 shadow-sm">
             <button
               onClick={() => setAnnual(false)}
               className={`rounded-full px-5 py-2 text-sm font-semibold transition ${
@@ -96,13 +106,13 @@ export default function Pricing() {
             >
               Annually
               <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-emerald-700">
-                Save 2 mo
+                Save 20%
               </span>
             </button>
           </div>
         </div>
 
-        <div className="mt-12 grid gap-5 lg:grid-cols-4">
+        <div className="mt-10 grid gap-5 lg:grid-cols-4">
           {plans.map((p) => {
             const price = annual ? p.annually : p.monthly;
             const isPopular = p.popular;
@@ -132,18 +142,18 @@ export default function Pricing() {
                     <div className="flex items-baseline gap-1">
                       {annual && typeof p.monthly === 'number' && (
                         <span className={`text-base line-through ${isPopular ? 'text-white/60' : 'text-slate-400'}`}>
-                          ₹{p.monthly}
+                          ${p.monthly}
                         </span>
                       )}
                       <span className={`text-4xl font-extrabold ${isPopular ? 'text-white' : 'text-slate-900'}`}>
-                        ₹{price}
+                        ${price}
                       </span>
                       <span className={`text-sm ${isPopular ? 'text-white/80' : 'text-slate-500'}`}>/mo</span>
                     </div>
                   )}
                 </div>
 
-                <ul className="mt-6 space-y-3">
+                <ul className="mt-6 flex-1 space-y-3">
                   {p.features.map((f) => (
                     <li key={f} className="flex items-start gap-2">
                       <span
@@ -175,9 +185,20 @@ export default function Pricing() {
           })}
         </div>
 
-        <div className="mt-10 text-center">
+        {/* Enterprise row */}
+        <div className="mt-6 flex flex-col items-start justify-between gap-5 rounded-3xl border border-slate-200 bg-white p-6 sm:flex-row sm:items-center hover:border-brand-200 hover:shadow-soft transition">
+          <div>
+            <div className="text-sm font-bold text-slate-900">Enterprise</div>
+            <div className="mt-1 text-sm text-slate-600">Unlimited seats & workspaces · SSO / SAML · Dedicated success manager · Custom integrations · SLA</div>
+          </div>
+          <a href="mailto:support@idiv.in" className="shrink-0 rounded-full border border-slate-200 bg-white px-6 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-brand-300 hover:text-brand-700">
+            Contact us
+          </a>
+        </div>
+
+        <div className="mt-8 text-center">
           <a href="/pricing" className="text-sm font-semibold text-brand-700 hover:underline">
-            View detailed pricing page →
+            View full feature comparison →
           </a>
         </div>
       </div>

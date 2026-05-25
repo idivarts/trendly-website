@@ -10,7 +10,7 @@ const cols = [
       { label: 'About', href: '/about' },
       { label: 'Contact', href: '/contact' },
       { label: 'Pricing', href: '/pricing' },
-      { label: 'Influencer pages', href: LINKS.CREATOR_SIGNUP },
+      { label: 'Book a demo', href: LINKS.BOOK_DEMO },
     ],
   },
   {
@@ -89,8 +89,7 @@ export default function Footer() {
           <div className="lg:col-span-5">
             <Logo dark />
             <p className="mt-5 max-w-sm text-sm text-slate-400">
-              Trendly is a place where brands and influencers connect, collaborate, and create campaigns that actually
-              move the needle.
+              Trendly is an AI-powered marketing workspace for modern teams — from content strategy and scheduling to creator campaigns, all in one place.
             </p>
 
             <form

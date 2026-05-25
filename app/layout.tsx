@@ -6,11 +6,11 @@ import './globals.css';
 export const metadata: Metadata = {
   // ── Core ──────────────────────────────────────────────────────────────────
   title: {
-    default: 'Trendly — Find the Right Micro Influencers to Grow Your Brand',
+    default: 'Trendly — Your Entire Marketing Workflow in One Place',
     template: '%s — Trendly',
   },
   description:
-    'Trendly is the smartest way for startups and SMBs to discover, hire, and manage micro-influencers. Launch authentic campaigns from ₹750 with verified creators.',
+    'Trendly is an AI-powered marketing workspace for modern teams. Build your content strategy, plan your calendar, collaborate on approvals, and find the right creators — all in one place.',
   metadataBase: new URL('https://www.trendly.now'),
   // ── Canonical & indexing ──────────────────────────────────────────────────
   alternates: {
@@ -29,19 +29,19 @@ export const metadata: Metadata = {
   },
   // ── Open Graph ────────────────────────────────────────────────────────────
   openGraph: {
-    title: 'Trendly — Influencer Marketing for Indian Startups',
+    title: 'Trendly — Your Entire Marketing Workflow in One Place',
     description:
-      'Discover 10,000+ verified micro-creators, manage campaigns end-to-end, and pay only on delivery. From ₹750/month.',
+      'AI content strategy, visual content calendar, team approvals, and creator campaigns — all in one workspace built for modern marketing teams.',
     url: 'https://www.trendly.now',
     siteName: 'Trendly',
-    locale: 'en_IN',
+    locale: 'en_US',
     type: 'website',
     images: [
       {
         url: '/logo.png',
         width: 1200,
         height: 630,
-        alt: 'Trendly — Micro Influencer Marketing Platform for Indian Startups',
+        alt: 'Trendly — AI-Powered Marketing Workspace for Social Media Teams',
       },
     ],
   },
@@ -50,21 +50,21 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@trendlynow',
     creator: '@trendlynow',
-    title: 'Trendly — Influencer Marketing for Indian Startups',
+    title: 'Trendly — Your Entire Marketing Workflow in One Place',
     description:
-      'Discover 10,000+ verified micro-creators, manage campaigns end-to-end, and pay only on delivery. From ₹750/month.',
+      'AI content strategy, visual content calendar, team approvals, and creator campaigns — all in one workspace built for modern marketing teams.',
     images: ['/logo.png'],
   },
   // ── App / browser hints ───────────────────────────────────────────────────
   applicationName: 'Trendly',
   keywords: [
-    'influencer marketing India',
-    'micro influencer platform',
-    'influencer marketing for startups',
-    'find influencers India',
-    'influencer marketing saas',
-    'instagram influencer marketing',
-    'D2C influencer marketing',
+    'social media marketing tool',
+    'content calendar app',
+    'ai content strategy',
+    'influencer marketing platform',
+    'social media management for teams',
+    'content workflow software',
+    'creator campaign management',
   ],
   authors: [{ name: 'Trendly — IDIVARTS Solutions Pvt Ltd', url: 'https://www.trendly.now' }],
   creator: 'IDIVARTS Solutions Pvt Ltd',

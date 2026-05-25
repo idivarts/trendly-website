@@ -6,7 +6,6 @@ import { LINKS } from '@/lib/site-config';
 const links = [
   { label: 'Features', href: '/#features' },
   { label: 'How it works', href: '/#how' },
-  { label: 'Pilot Programme', href: '/pilot' },
   { label: 'Pricing', href: '/pricing' },
   { label: 'Blog', href: '/blog' },
 ];
@@ -60,13 +59,13 @@ export default function Navbar() {
         </nav>
         <div className="hidden items-center gap-3 md:flex">
           <a
-            href={LINKS.CREATOR_SIGNUP}
+            href={LINKS.BRAND_SIGNUP}
             className="text-sm font-medium text-slate-600 transition hover:text-slate-900"
           >
-            I'm an influencer
+            Log in
           </a>
-          <a href={LINKS.BOOK_DEMO} className="btn-primary !px-5 !py-2.5">
-            Book a Demo
+          <a href={LINKS.BRAND_SIGNUP} className="btn-primary !px-5 !py-2.5">
+            Start free
           </a>
         </div>
         <button
@@ -93,10 +92,10 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href={LINKS.BOOK_DEMO}
+              href={LINKS.BRAND_SIGNUP}
               className="btn-primary mt-2 w-full"
             >
-              Book a Demo
+              Start free
             </a>
           </div>
         </div>

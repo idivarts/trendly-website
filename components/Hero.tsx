@@ -1,6 +1,13 @@
 import ParallaxOrb from '@/components/ParallaxOrb';
 import { LINKS } from '@/lib/site-config';
 
+const posts = [
+  { channel: 'IG',  color: 'text-pink-600',   bg: 'bg-pink-50 border-pink-100',   label: 'Reel',    status: 'Live',      statusColor: 'bg-emerald-500' },
+  { channel: 'LI',  color: 'text-sky-600',     bg: 'bg-sky-50 border-sky-100',     label: 'Article', status: 'Review',    statusColor: 'bg-amber-400'   },
+  { channel: 'TT',  color: 'text-violet-600',  bg: 'bg-violet-50 border-violet-100', label: 'Video', status: 'Draft',     statusColor: 'bg-slate-300'   },
+  { channel: 'X',   color: 'text-slate-700',   bg: 'bg-slate-50 border-slate-100', label: 'Thread',  status: 'Scheduled', statusColor: 'bg-brand-500'   },
+];
+
 export default function Hero() {
   return (
     <section className="relative overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28">
@@ -8,7 +15,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-mesh" />
       <div className="absolute inset-0 grid-bg opacity-[0.35]" />
 
-      {/* Parallax orbs — drift at different speeds for depth */}
+      {/* Parallax orbs */}
       <ParallaxOrb
         className="absolute -top-32 right-[-10%] h-[420px] w-[420px] rounded-full bg-brand-300/30 blur-3xl animate-glow-pulse"
         speed={0.08}
@@ -17,7 +24,6 @@ export default function Hero() {
         className="absolute -bottom-40 left-[-10%] h-[420px] w-[420px] rounded-full bg-accent-400/20 blur-3xl animate-glow-pulse"
         speed={0.14}
       />
-      {/* Extra depth layer */}
       <ParallaxOrb
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[300px] w-[300px] rounded-full bg-indigo-400/10 blur-3xl"
         speed={0.05}
@@ -26,28 +32,21 @@ export default function Hero() {
       <div className="container-px relative">
         <div className="grid items-center gap-12 lg:grid-cols-12">
 
-          {/* ── Left column — staggered fade-up on page load ── */}
+          {/* ── Left column ── */}
           <div className="lg:col-span-7">
 
-            {/* Pill — first in */}
-            <span
-              className="pill animate-fade-up"
-              style={{ animationDelay: '0ms' }}
-            >
+            <span className="pill animate-fade-up" style={{ animationDelay: '0ms' }}>
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand-600" />
-              For Influencer Discovery
+              For Social Media Teams
             </span>
 
-            {/* Heading — animated gradient on the key phrase */}
             <h1
               className="h-display mt-5 text-5xl leading-[1.05] sm:text-6xl lg:text-7xl animate-fade-up"
               style={{ animationDelay: '90ms' }}
             >
-              Find{' '}
+              Your entire{' '}
               <span className="relative inline-block">
-                {/* Animated gradient text instead of static */}
-                <span className="text-gradient-animated">powerful micro</span>
-                {/* SVG underline that draws itself in */}
+                <span className="text-gradient-animated">marketing workflow</span>
                 <svg
                   viewBox="0 0 200 12"
                   preserveAspectRatio="none"
@@ -58,31 +57,27 @@ export default function Hero() {
                   strokeLinecap="round"
                   strokeDasharray="220"
                   strokeDashoffset="220"
-                  style={{
-                    animation: 'draw-line 1.1s cubic-bezier(0.16,1,0.3,1) 0.7s both',
-                  }}
+                  style={{ animation: 'draw-line 1.1s cubic-bezier(0.16,1,0.3,1) 0.7s both' }}
                 >
                   <path d="M2 9 C 60 1, 140 1, 198 9" />
                 </svg>
-              </span>{' '}
-              influencers to grow your brand
+              </span>
+              {' '}— in one place
             </h1>
 
-            {/* Subhead */}
             <p
               className="mt-6 max-w-xl text-lg text-slate-600 animate-fade-up"
               style={{ animationDelay: '180ms' }}
             >
-              Discover thousands of verified micro-creators, run end-to-end campaigns, and pay only after they deliver — all from ₹750/month.
+              AI content strategy. Visual content calendar. Team approvals. Creator campaigns. Trendly replaces four tools with one workspace built for modern marketing teams.
             </p>
 
-            {/* CTA buttons */}
             <div
               className="mt-8 flex flex-wrap items-center gap-3 animate-fade-up"
               style={{ animationDelay: '270ms' }}
             >
               <a href={LINKS.BRAND_SIGNUP} className="btn-primary group">
-                Try free for 3 days
+                Start for free
                 <svg
                   className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
                   viewBox="0 0 24 24"
@@ -102,7 +97,7 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Social proof avatars */}
+            {/* Social proof */}
             <div
               className="mt-10 flex items-center gap-6 animate-fade-up"
               style={{ animationDelay: '360ms' }}
@@ -123,13 +118,13 @@ export default function Hero() {
                 ))}
               </div>
               <div>
-                <div className="text-sm font-semibold text-slate-900">10,000+ creators</div>
-                <div className="text-xs text-slate-500">Verified micro-influencers under 100k followers</div>
+                <div className="text-sm font-semibold text-slate-900">2,000+ marketing teams</div>
+                <div className="text-xs text-slate-500">building better social content with Trendly</div>
               </div>
             </div>
           </div>
 
-          {/* ── Right column — app preview card, slight delay ── */}
+          {/* ── Right column — content calendar card ── */}
           <div className="lg:col-span-5">
             <div
               className="relative mx-auto max-w-md animate-fade-up"
@@ -140,73 +135,82 @@ export default function Hero() {
 
               {/* App card */}
               <div className="relative rounded-3xl border border-slate-200/80 bg-white p-5 shadow-[0_30px_80px_-20px_rgba(15,23,42,0.25)] transition-shadow duration-500 hover:shadow-[0_40px_100px_-20px_rgba(37,99,235,0.2)]">
+
+                {/* Browser chrome */}
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1.5">
                     <span className="h-3 w-3 rounded-full bg-rose-400" />
                     <span className="h-3 w-3 rounded-full bg-amber-400" />
                     <span className="h-3 w-3 rounded-full bg-emerald-400" />
                   </div>
-                  <div className="text-xs text-slate-400">trendly.now/discover</div>
+                  <div className="text-xs text-slate-400">trendly.now/calendar</div>
+                  <div className="w-14" />
                 </div>
-                <div className="mt-4 flex items-center gap-2 rounded-xl bg-slate-50 px-3 py-2">
-                  <svg className="h-4 w-4 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <circle cx="11" cy="11" r="7" />
-                    <path d="m20 20-3.5-3.5" />
-                  </svg>
-                  <span className="text-sm text-slate-500">Search "fitness creators in Mumbai..."</span>
+
+                {/* Calendar header */}
+                <div className="mt-4 flex items-center justify-between">
+                  <span className="text-sm font-bold text-slate-900">Today's Lineup</span>
+                  <span className="rounded-full bg-brand-50 px-2.5 py-0.5 text-[10px] font-bold text-brand-700 border border-brand-100">
+                    8 posts this week
+                  </span>
                 </div>
-                <div className="mt-4 grid grid-cols-3 gap-2">
-                  {['Fashion', 'Food', 'Fitness'].map((t) => (
-                    <span key={t} className="rounded-full bg-brand-50 px-3 py-1 text-center text-xs font-semibold text-brand-700 transition hover:bg-brand-100">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                <div className="mt-4 space-y-3">
-                  {[
-                    { name: 'Aanya Sharma', niche: 'Lifestyle • Mumbai', followers: '38.4k', color: 'from-pink-400 to-rose-500' },
-                    { name: 'Rohan Mehta', niche: 'Fitness • Bangalore', followers: '52.1k', color: 'from-emerald-400 to-teal-500' },
-                    { name: 'Priya Iyer', niche: 'Food • Delhi', followers: '24.6k', color: 'from-amber-400 to-orange-500' },
-                  ].map((c, i) => (
+
+                {/* Post list */}
+                <div className="mt-4 space-y-2.5">
+                  {posts.map((p, i) => (
                     <div
-                      key={c.name}
-                      className="flex items-center justify-between rounded-2xl border border-slate-100 p-3 transition-all duration-300 hover:border-brand-200 hover:bg-brand-50/40 hover:-translate-y-0.5 hover:shadow-sm"
+                      key={p.label}
+                      className={`flex items-center gap-3 rounded-2xl border p-3 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-sm ${p.bg}`}
                       style={{
                         animation: 'fade-up 0.6s cubic-bezier(0.16,1,0.3,1) both',
                         animationDelay: `${400 + i * 80}ms`,
                       }}
                     >
-                      <div className="flex items-center gap-3">
-                        <div className={`h-10 w-10 rounded-full bg-gradient-to-br ${c.color}`} />
-                        <div>
-                          <div className="text-sm font-semibold text-slate-900">{c.name}</div>
-                          <div className="text-xs text-slate-500">{c.niche}</div>
-                        </div>
+                      <span className={`w-7 text-center text-[10px] font-extrabold uppercase tracking-wider ${p.color}`}>
+                        {p.channel}
+                      </span>
+                      <div className="flex-1">
+                        <div className="text-xs font-semibold text-slate-800">{p.label}</div>
                       </div>
-                      <div className="text-right">
-                        <div className="text-sm font-semibold text-slate-900">{c.followers}</div>
-                        <div className="text-[10px] uppercase tracking-wider text-slate-400">followers</div>
+                      <div className="flex items-center gap-1.5">
+                        <span className={`h-2 w-2 rounded-full ${p.statusColor}`} />
+                        <span className="text-[10px] font-semibold text-slate-500">{p.status}</span>
                       </div>
                     </div>
                   ))}
                 </div>
+
+                {/* AI Strategy strip */}
+                <div className="mt-4 rounded-2xl bg-gradient-to-r from-brand-50 to-accent-400/10 p-3">
+                  <div className="flex items-center gap-1.5">
+                    <svg className="h-3.5 w-3.5 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                      <path d="M12 2L9 9H2l5.5 4-2 7L12 16l6.5 4-2-7L22 9h-7z" />
+                    </svg>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-brand-700">AI Strategy Active</span>
+                  </div>
+                  <div className="mt-2 flex flex-wrap gap-1.5">
+                    {['Education', 'Authenticity', 'Product'].map((p) => (
+                      <span key={p} className="rounded-full bg-white px-2.5 py-0.5 text-[10px] font-semibold text-slate-700 shadow-sm border border-slate-100">
+                        {p}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
 
-              {/* Floating stat cards — animate-float with offset */}
-              <div
-                className="absolute -left-10 bottom-6 hidden animate-float rounded-2xl border border-slate-200 bg-white p-3 shadow-lg sm:block"
-              >
-                <div className="text-[10px] uppercase tracking-wider text-slate-500">Engagement Rate</div>
-                <div className="mt-1 text-2xl font-extrabold text-slate-900">4.8%</div>
-                <div className="text-xs font-medium text-emerald-600">+1.2% vs avg</div>
+              {/* Floating cards */}
+              <div className="absolute -left-10 bottom-6 hidden animate-float rounded-2xl border border-slate-200 bg-white p-3 shadow-lg sm:block">
+                <div className="text-[10px] uppercase tracking-wider text-slate-500">Scheduled</div>
+                <div className="mt-1 text-2xl font-extrabold text-slate-900">8</div>
+                <div className="text-xs font-medium text-emerald-600">↑3 vs last week</div>
               </div>
               <div
                 className="absolute -right-6 -top-6 hidden animate-float rounded-2xl bg-gradient-brand p-3 text-white shadow-glow sm:block"
                 style={{ animationDelay: '1.5s' }}
               >
-                <div className="text-[10px] uppercase tracking-wider opacity-80">Trust Score</div>
-                <div className="mt-1 text-2xl font-extrabold">92</div>
-                <div className="text-xs opacity-90">Verified ✓</div>
+                <div className="text-[10px] uppercase tracking-wider opacity-80">AI Ready</div>
+                <div className="mt-1 text-lg font-extrabold">✓</div>
+                <div className="text-xs opacity-90">Strategy active</div>
               </div>
             </div>
           </div>

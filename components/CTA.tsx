@@ -2,12 +2,12 @@ import ScrollReveal from '@/components/ScrollReveal';
 import { LINKS } from '@/lib/site-config';
 
 const stats = [
-  { v: '10k+', l: 'Verified creators' },
-  { v: '₹750', l: 'Starts from / mo' },
-  { v: '92%', l: 'Trust score avg.' },
-  { v: '500+', l: 'Brands trust us' },
-  { v: '4.8%', l: 'Avg engagement' },
-  { v: '3 days', l: 'Free trial' },
+  { v: '2,000+', l: 'Marketing teams' },
+  { v: '$0',     l: 'To get started' },
+  { v: '4.8★',   l: 'Avg team rating' },
+  { v: '4',      l: 'Channels managed' },
+  { v: '14-day', l: 'Free trial' },
+  { v: 'No CC',  l: 'Required' },
 ];
 
 export default function CTA() {
@@ -16,7 +16,6 @@ export default function CTA() {
       <div className="container-px">
         <ScrollReveal direction="scale" distance={24}>
           <div className="relative overflow-hidden rounded-[36px] border border-brand-100 bg-gradient-to-br from-brand-600 via-brand-700 to-accent-600 p-10 text-white shadow-glow sm:p-16">
-            {/* Background orbs */}
             <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/10 blur-3xl animate-glow-pulse" />
             <div className="absolute -bottom-32 -left-10 h-72 w-72 rounded-full bg-accent-400/20 blur-3xl animate-glow-pulse" style={{ animationDelay: '1.5s' }} />
 
@@ -28,17 +27,17 @@ export default function CTA() {
                   Ready when you are
                 </span>
                 <h2 className="h-display mt-4 text-4xl text-white sm:text-5xl">
-                  Launch your first campaign in under 10 minutes
+                  Stop juggling tools. Start doing better marketing.
                 </h2>
                 <p className="mt-4 max-w-lg text-white/80">
-                  Free 3-day trial. No credit card required. Start discovering verified micro-creators today.
+                  Free plan available. No credit card required. Set up your first content strategy in under 5 minutes.
                 </p>
                 <div className="mt-7 flex flex-wrap gap-3">
                   <a
                     href={LINKS.BRAND_SIGNUP}
                     className="group inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-brand-700 shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
                   >
-                    Try free for 3 days
+                    Start for free
                     <svg
                       className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
                       viewBox="0 0 24 24"
@@ -59,7 +58,7 @@ export default function CTA() {
                 </div>
               </div>
 
-              {/* Right — stat tiles with staggered reveal */}
+              {/* Right — stat tiles */}
               <div className="relative grid grid-cols-3 gap-3">
                 {stats.map((s, i) => (
                   <div

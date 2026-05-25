@@ -6,7 +6,6 @@ import Features from '@/components/Features';
 import InteractiveDemo from '@/components/InteractiveDemo';
 import WhyTrendly from '@/components/WhyTrendly';
 import Pricing from '@/components/Pricing';
-import PilotProgramme from '@/components/PilotProgramme';
 import Testimonials from '@/components/Testimonials';
 import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
@@ -23,7 +22,6 @@ export default function Page() {
       <InteractiveDemo />
       <WhyTrendly />
       <Pricing />
-      <PilotProgramme />
       <Testimonials />
       <FAQ />
       <CTA />
