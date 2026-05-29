@@ -1,5 +1,17 @@
 # CLAUDE.md — Trendly Website
 
+> **⚠️ Read the monorepo root before going further.**
+> This file covers only `trendly-website`-specific detail. For the complete picture
+> of the entire Trendly platform — every micro-repo, shared architecture,
+> domain model, auth flow, contract lifecycle, Notion preferences, and more —
+> read the parent first:
+>
+> - **Full monorepo context**: `../CLAUDE.md`
+> - **Knowledge graph** (keyword → exact file path, token-efficient lookups): `../.claude/knowledge-graph.json`
+>
+> When working across repos (e.g. website + backend), always load `../CLAUDE.md`
+> so you have the full picture before touching any code.
+
 Context file for Claude. Read this first before making changes.
 
 ## What this project is
