@@ -1,5 +1,11 @@
 import Navbar from '@/components/Navbar';
+// Hero variants — swap which one is rendered below to A/B them:
+//   <Hero />            = full-width centered copy + static chat→calendar product window
+//   <HeroChat />        = actionable embedded chatbot (type or pick a goal), Manus-style
+//   <HeroWalkthrough /> = auto-playing product walkthrough cinema (types → strategy → calendar)
 import Hero from '@/components/Hero';
+import HeroChat from '@/components/HeroChat';
+import HeroWalkthrough from '@/components/HeroWalkthrough';
 import AIModels from '@/components/AIModels';
 import CreateWithAI from '@/components/CreateWithAI';
 import CollaborateOnAI from '@/components/CollaborateOnAI';
@@ -21,7 +27,7 @@ export default function Page() {
     <main className="overflow-x-hidden">
       <JsonLd data={[organizationSchema(), softwareApplicationSchema()]} />
       <Navbar />
-      <Hero />
+      <HeroWalkthrough />
       {/* The differentiator: every AI model in one place */}
       <AIModels />
       {/* Create → collaborate → consolidate → schedule → engage */}
