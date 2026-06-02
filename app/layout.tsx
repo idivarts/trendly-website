@@ -6,11 +6,11 @@ import './globals.css';
 export const metadata: Metadata = {
   // ── Core ──────────────────────────────────────────────────────────────────
   title: {
-    default: 'Trendly — Your Entire Marketing Workflow in One Place',
+    default: 'Trendly — The AI Social Media Tool for Founders & Small Teams',
     template: '%s — Trendly',
   },
   description:
-    'Trendly is an AI-powered marketing workspace for modern teams. Build your content strategy, plan your calendar, collaborate on approvals, and find the right creators — all in one place.',
+    'Trendly is the AI social media management tool that brings GPT, Claude & Gemini into one workspace. Generate posts, images & scripts, plan a calendar in one click, schedule to every platform, and manage all comments & DMs in one inbox. Free forever, no credit card.',
   metadataBase: new URL('https://www.trendly.now'),
   // ── Canonical & indexing ──────────────────────────────────────────────────
   alternates: {
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
   },
   // ── Open Graph ────────────────────────────────────────────────────────────
   openGraph: {
-    title: 'Trendly — Your Entire Marketing Workflow in One Place',
+    title: 'Trendly — The AI Social Media Tool for Founders & Small Teams',
     description:
-      'AI content strategy, visual content calendar, team approvals, and creator campaigns — all in one workspace built for modern marketing teams.',
+      'Every AI model in one social media workspace: generate posts, images & scripts, plan a calendar in one click, schedule everywhere, and manage every comment & DM in one inbox.',
     url: 'https://www.trendly.now',
     siteName: 'Trendly',
     locale: 'en_US',
@@ -50,21 +50,22 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@trendlynow',
     creator: '@trendlynow',
-    title: 'Trendly — Your Entire Marketing Workflow in One Place',
+    title: 'Trendly — The AI Social Media Tool for Founders & Small Teams',
     description:
-      'AI content strategy, visual content calendar, team approvals, and creator campaigns — all in one workspace built for modern marketing teams.',
+      'Every AI model in one social media workspace: generate posts, images & scripts, plan a calendar in one click, schedule everywhere, and manage every comment & DM in one inbox.',
     images: ['/logo.png'],
   },
   // ── App / browser hints ───────────────────────────────────────────────────
   applicationName: 'Trendly',
   keywords: [
-    'social media marketing tool',
-    'content calendar app',
-    'ai content strategy',
-    'influencer marketing platform',
-    'social media management for teams',
-    'content workflow software',
-    'creator campaign management',
+    'ai social media tool',
+    'ai social media management',
+    'social media management tool',
+    'social media scheduling tool',
+    'ai social media content generator',
+    'social media tool for startups',
+    'social media tool for small teams',
+    'buffer alternative',
   ],
   authors: [{ name: 'Trendly — IDIVARTS Solutions Pvt Ltd', url: 'https://www.trendly.now' }],
   creator: 'IDIVARTS Solutions Pvt Ltd',

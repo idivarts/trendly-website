@@ -2,12 +2,12 @@ import ScrollReveal from '@/components/ScrollReveal';
 import { LINKS } from '@/lib/site-config';
 
 const stats = [
-  { v: '2,000+', l: 'Marketing teams' },
-  { v: '$0',     l: 'To get started' },
-  { v: '4.8★',   l: 'Avg team rating' },
-  { v: '4',      l: 'Channels managed' },
-  { v: '14-day', l: 'Free trial' },
-  { v: 'No CC',  l: 'Required' },
+  { v: '$0',      l: 'To get started' },
+  { v: 'No CC',   l: 'Required' },
+  { v: '10,000+', l: 'Creators on tap' },
+  { v: '8',       l: 'Channels supported' },
+  { v: 'Forever', l: 'Free plan' },
+  { v: 'Cancel',  l: 'Anytime' },
 ];
 
 export default function CTA() {

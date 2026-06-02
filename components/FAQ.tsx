@@ -1,14 +1,19 @@
 'use client';
 import { useState } from 'react';
+import JsonLd, { faqSchema } from '@/components/JsonLd';
 
 const faqs = [
   {
     q: 'How is Trendly different from Buffer, Later, or Hootsuite?',
-    a: "Buffer, Later, and Hootsuite are primarily scheduling tools — you still need to figure out what to post. Trendly starts upstream: the AI builds you a content strategy first, then you plan, write, and schedule inside the same workspace. Add team approvals and creator campaigns and it replaces 4–6 tools at once.",
+    a: "Those are mainly schedulers — you still juggle separate AI tools to actually make content. Trendly brings every top AI model (GPT, Claude, Gemini, ElevenLabs and more) into one workspace, generates your captions, images and scripts from a single prompt, turns ideas into a calendar in one click, schedules to every platform, and pulls all your comments and DMs into one inbox. It replaces your whole stack — Docs, Notion, a calendar, a scheduler, and a pile of AI subscriptions — not just your scheduler.",
+  },
+  {
+    q: 'Which AI models does Trendly support?',
+    a: 'Trendly brings the leading models together in one place — GPT (OpenAI), Claude (Anthropic), Gemini (Google), ElevenLabs, and more — and routes each task to the model that does it best (e.g. research vs. captions vs. images vs. voice). You get the strongest result without paying for and switching between several AI subscriptions.',
   },
   {
     q: 'What social channels does Trendly support?',
-    a: 'Instagram, TikTok, LinkedIn, and X (Twitter) are fully supported. YouTube Shorts and Pinterest are on the roadmap.',
+    a: 'Instagram, TikTok, LinkedIn, X (Twitter), YouTube and Facebook — schedule and multi-publish to all of them from one place, and manage every comment and DM across them in a single inbox.',
   },
   {
     q: 'How does the AI content strategy actually work?',
@@ -44,6 +49,7 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
   return (
     <section id="faq" className="relative py-24">
+      <JsonLd data={faqSchema(faqs)} />
       <div className="container-px">
         <div className="mx-auto max-w-2xl text-center">
           <span className="section-eyebrow">FAQ</span>

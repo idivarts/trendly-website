@@ -4,23 +4,11 @@ import { LINKS } from '@/lib/site-config';
 
 const services = [
   {
-    id: 'strategy',
-    title: 'Content Strategy & Planning',
-    desc: 'We configure your brand voice, content pillars, and a rolling content plan — powered by AI, maintained by our team.',
-    category: 'Strategy',
-    catColor: 'bg-brand-500/20 text-brand-300',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-        <path d="M12 2L9 9H2l5.5 4-2 7L12 16l6.5 4-2-7L22 9h-7z" />
-      </svg>
-    ),
-  },
-  {
-    id: 'writing',
-    title: 'Caption & Creative Writing',
-    desc: 'Our writers draft captions, scripts, and creative briefs for every post — matched exactly to your brand voice.',
+    id: 'content',
+    title: 'Content Strategy & Creative',
+    desc: 'We set your brand voice and content pillars, plan a rolling calendar, and draft captions, scripts, and creative for every post — AI-assisted, team-maintained.',
     category: 'Content',
-    catColor: 'bg-violet-500/20 text-violet-300',
+    catColor: 'bg-brand-500/20 text-brand-300',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
         <path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" />
@@ -28,34 +16,24 @@ const services = [
     ),
   },
   {
-    id: 'sourcing',
-    title: 'Creator Sourcing & Vetting',
-    desc: 'We research, shortlist, and vet micro-influencers from our database that match your niche, audience, and goals.',
+    id: 'creators',
+    title: 'Creator Campaigns',
+    desc: 'We source, vet, brief, and manage micro-influencer campaigns end-to-end — from shortlist to deliverables, revisions, and approvals.',
     category: 'Creators',
     catColor: 'bg-emerald-500/20 text-emerald-300',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-        <circle cx="11" cy="11" r="7" />
-        <path d="m20 20-3.5-3.5" />
-      </svg>
-    ),
-  },
-  {
-    id: 'campaign',
-    title: 'Campaign Management',
-    desc: 'We brief creators, manage revisions, review deliverables, and track every campaign from launch to completion.',
-    category: 'Creators',
-    catColor: 'bg-emerald-500/20 text-emerald-300',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-        <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="9" cy="7" r="4" />
+        <circle cx="17" cy="11" r="3" />
+        <path d="M2 21c0-3.9 3.1-7 7-7 2 0 3.8.8 5.1 2.1" />
+        <path d="M21 21c0-2.8-1.8-5-4-5" />
       </svg>
     ),
   },
   {
     id: 'community',
     title: 'Community Management',
-    desc: 'We monitor and respond to comments and DMs on your posts, keeping your audience engaged and on-brand.',
+    desc: 'We monitor and respond to comments and DMs across your platforms, keeping your audience engaged and on-brand.',
     category: 'Community',
     catColor: 'bg-amber-500/20 text-amber-300',
     icon: (
@@ -66,14 +44,38 @@ const services = [
   },
   {
     id: 'reporting',
-    title: 'Monthly Analytics & Reporting',
-    desc: "A clear performance report every month — what worked, what didn't, and what we're changing next month.",
+    title: 'Analytics & Reporting',
+    desc: "A clear monthly report across content, creators, and ads — what worked, what didn't, and what we're changing next.",
     category: 'Reporting',
     catColor: 'bg-rose-500/20 text-rose-300',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
         <path d="M3 3v18h18" />
         <path d="m19 9-5 5-4-4-3 3" />
+      </svg>
+    ),
+  },
+  {
+    id: 'performance',
+    title: 'Paid Ads & Performance Marketing',
+    desc: 'We plan, launch, and optimize paid ads across Meta, Google & TikTok, plus full-funnel performance — retargeting and tracking, measured to revenue.',
+    category: 'Performance',
+    catColor: 'bg-sky-500/20 text-sky-300',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 3v18h18M19 9l-5 5-4-4-3 3" />
+      </svg>
+    ),
+  },
+  {
+    id: 'audit',
+    title: 'Website & Conversion Audit',
+    desc: 'We map your funnel end-to-end, install pixels and tracking, find exactly where visitors drop off, and fix the leaks (CRO).',
+    category: 'CRO',
+    catColor: 'bg-cyan-500/20 text-cyan-300',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 4h18l-7 8v6l-4 2v-8z" />
       </svg>
     ),
   },

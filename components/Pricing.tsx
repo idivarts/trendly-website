@@ -185,15 +185,40 @@ export default function Pricing() {
           })}
         </div>
 
-        {/* Enterprise row */}
-        <div className="mt-6 flex flex-col items-start justify-between gap-5 rounded-3xl border border-slate-200 bg-white p-6 sm:flex-row sm:items-center hover:border-brand-200 hover:shadow-soft transition">
-          <div>
-            <div className="text-sm font-bold text-slate-900">Enterprise</div>
-            <div className="mt-1 text-sm text-slate-600">Unlimited seats & workspaces · SSO / SAML · Dedicated success manager · Custom integrations · SLA</div>
+        {/* Enterprise / Custom plan */}
+        <div className="mt-6 rounded-3xl border border-slate-200 bg-white p-6 transition hover:border-brand-200 hover:shadow-soft sm:p-8">
+          <div className="flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-center">
+            <div>
+              <div className="text-sm font-bold text-slate-900">Enterprise / Custom</div>
+              <div className="mt-1 max-w-xl text-sm text-slate-600">
+                The platform plus done-for-you growth — scoped to your brand. Software, ads, and performance marketing under one custom plan.
+              </div>
+            </div>
+            <a href="mailto:support@idiv.in" className="shrink-0 rounded-full border border-slate-200 bg-white px-6 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-brand-300 hover:text-brand-700">
+              Contact us
+            </a>
           </div>
-          <a href="mailto:support@idiv.in" className="shrink-0 rounded-full border border-slate-200 bg-white px-6 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-brand-300 hover:text-brand-700">
-            Contact us
-          </a>
+          <div className="mt-6 grid gap-x-6 gap-y-2.5 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              'Unlimited seats & workspaces',
+              'SSO / SAML',
+              'Dedicated success manager',
+              'Custom integrations',
+              'SLA',
+              'Website & full-funnel conversion audit',
+              'Ad running & management',
+              'Performance marketing',
+            ].map((f) => (
+              <div key={f} className="flex items-start gap-2">
+                <span className="mt-0.5 grid h-5 w-5 flex-none place-items-center rounded-full bg-brand-100 text-brand-700">
+                  <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12l5 5L20 7" />
+                  </svg>
+                </span>
+                <span className="text-sm text-slate-700">{f}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="mt-8 text-center">

@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import PageShell, { PageHero } from '@/components/PageShell';
-import { LINKS } from '@/lib/site-config';
+import { LINKS, CONTACT_ENDPOINT, PROOF } from '@/lib/site-config';
 
 const contactOptions = [
   {
@@ -18,7 +18,7 @@ const contactOptions = [
   },
   {
     title: 'Book a 30-min demo',
-    desc: 'Walk through the platform with our team.',
+    desc: 'Walk through the workspace with our team.',
     cta: 'cal.com/rahul-idiv',
     href: LINKS.BOOK_DEMO,
     icon: (
@@ -30,7 +30,7 @@ const contactOptions = [
   },
   {
     title: 'WhatsApp',
-    desc: 'Quick chats during business hours (IST).',
+    desc: 'Quick chats with the founding team.',
     cta: '+91 76040 07156',
     href: 'https://wa.me/917604007156',
     icon: (
@@ -41,8 +41,46 @@ const contactOptions = [
   },
 ];
 
+type Status = 'idle' | 'loading' | 'success' | 'error';
+
 export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<Status>('idle');
+  const [form, setForm] = useState({ name: '', email: '', company: '', message: '' });
+
+  const onChange = (field: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+    setForm((prev) => ({ ...prev, [field]: e.target.value }));
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setStatus('loading');
+
+    // Graceful no-op when the endpoint is still the placeholder: show success
+    // UX but warn in the console so it's obvious nothing was actually sent.
+    if (CONTACT_ENDPOINT.includes('REPLACE_ME')) {
+      // eslint-disable-next-line no-console
+      console.warn(
+        '[contact form] CONTACT_ENDPOINT is still the placeholder — submission was not delivered. ' +
+          'Set a real Formspree/Loops endpoint in lib/site-config.ts. Captured payload:',
+        form,
+      );
+      setStatus('success');
+      return;
+    }
+
+    try {
+      const res = await fetch(CONTACT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error(`Request failed: ${res.status}`);
+      setStatus('success');
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error('[contact form] submission failed', err);
+      setStatus('error');
+    }
+  }
 
   return (
     <PageShell>
@@ -50,7 +88,7 @@ export default function ContactPage() {
         eyebrow="Contact"
         title="Let's talk."
         highlight="talk"
-        subtitle="Whether you're a brand exploring micro-influencer campaigns or a creator with a question — we'd love to hear from you."
+        subtitle="Whether you're a founder doing it all yourself or a small marketing team weighing up Trendly — we'd love to hear from you."
       />
 
       <section className="pb-16">
@@ -85,48 +123,38 @@ export default function ContactPage() {
             <div>
               <span className="section-eyebrow">Send a message</span>
               <h2 className="h-display mt-3 text-3xl sm:text-4xl">
-                Tell us about your <span className="bg-gradient-brand bg-clip-text text-transparent">campaign</span>
+                Tell us about your <span className="bg-gradient-brand bg-clip-text text-transparent">marketing</span>
               </h2>
               <p className="mt-4 text-slate-600">
-                Share a few details about your brand and what you're looking to achieve. We typically respond within 24
-                hours on business days.
+                Share a few details about your brand and what you&apos;re trying to get out the door. We typically
+                respond within 24 hours on business days.
               </p>
               <div className="mt-8 space-y-3 text-sm text-slate-600">
-                <div className="flex items-start gap-3">
-                  <span className="mt-0.5 grid h-5 w-5 flex-none place-items-center rounded-full bg-brand-100 text-brand-700">
-                    <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
-                      <path d="M5 12l5 5L20 7" />
-                    </svg>
-                  </span>
-                  <span>Free 3-day trial — no credit card required</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="mt-0.5 grid h-5 w-5 flex-none place-items-center rounded-full bg-brand-100 text-brand-700">
-                    <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
-                      <path d="M5 12l5 5L20 7" />
-                    </svg>
-                  </span>
-                  <span>Plans starting at ₹750/month</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="mt-0.5 grid h-5 w-5 flex-none place-items-center rounded-full bg-brand-100 text-brand-700">
-                    <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
-                      <path d="M5 12l5 5L20 7" />
-                    </svg>
-                  </span>
-                  <span>Pay only after the influencer delivers</span>
-                </div>
+                {[
+                  'Free forever plan — no credit card required',
+                  'Built for solo founders and small in-house teams',
+                  'AI strategy, visual calendar, and creator campaigns in one workspace',
+                ].map((line) => (
+                  <div key={line} className="flex items-start gap-3">
+                    <span className="mt-0.5 grid h-5 w-5 flex-none place-items-center rounded-full bg-brand-100 text-brand-700">
+                      <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
+                        <path d="M5 12l5 5L20 7" />
+                      </svg>
+                    </span>
+                    <span>{line}</span>
+                  </div>
+                ))}
               </div>
+              <p className="mt-8 text-xs font-semibold uppercase tracking-wider text-slate-400">
+                {PROOF.riskReversal}
+              </p>
             </div>
 
             <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                setSubmitted(true);
-              }}
+              onSubmit={handleSubmit}
               className="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft sm:p-8"
             >
-              {submitted ? (
+              {status === 'success' ? (
                 <div className="grid place-items-center py-16 text-center">
                   <div className="grid h-16 w-16 place-items-center rounded-full bg-emerald-100 text-emerald-700">
                     <svg className="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
@@ -135,7 +163,7 @@ export default function ContactPage() {
                   </div>
                   <h3 className="mt-4 text-xl font-bold text-slate-900">Got it!</h3>
                   <p className="mt-2 text-sm text-slate-600">
-                    We'll get back to you within 24 business hours.
+                    We&apos;ll get back to you within 24 business hours.
                   </p>
                 </div>
               ) : (
@@ -147,8 +175,10 @@ export default function ContactPage() {
                     <input
                       required
                       type="text"
+                      value={form.name}
+                      onChange={onChange('name')}
                       className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-200"
-                      placeholder="Aanya Sharma"
+                      placeholder="Jordan Lee"
                     />
                   </div>
                   <div>
@@ -158,16 +188,20 @@ export default function ContactPage() {
                     <input
                       required
                       type="email"
+                      value={form.email}
+                      onChange={onChange('email')}
                       className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-200"
-                      placeholder="aanya@brand.com"
+                      placeholder="jordan@yourbrand.com"
                     />
                   </div>
                   <div>
-                    <label className="text-xs font-semibold uppercase tracking-wider text-slate-500">Brand</label>
+                    <label className="text-xs font-semibold uppercase tracking-wider text-slate-500">Company</label>
                     <input
                       type="text"
+                      value={form.company}
+                      onChange={onChange('company')}
                       className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-200"
-                      placeholder="Your D2C brand"
+                      placeholder="Your brand or startup"
                     />
                   </div>
                   <div>
@@ -175,12 +209,25 @@ export default function ContactPage() {
                     <textarea
                       required
                       rows={4}
+                      value={form.message}
+                      onChange={onChange('message')}
                       className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-200"
-                      placeholder="Tell us a bit about your campaign goals..."
+                      placeholder="Tell us a bit about your marketing goals..."
                     />
                   </div>
-                  <button type="submit" className="btn-primary w-full">
-                    Send message
+
+                  {status === 'error' && (
+                    <p className="text-sm font-medium text-rose-600">
+                      Something went wrong sending your message. Please try again, or email{' '}
+                      <a className="underline" href="mailto:support@idiv.in">
+                        support@idiv.in
+                      </a>
+                      .
+                    </p>
+                  )}
+
+                  <button type="submit" disabled={status === 'loading'} className="btn-primary w-full disabled:opacity-60">
+                    {status === 'loading' ? 'Sending…' : 'Send message'}
                   </button>
                 </div>
               )}

@@ -1,46 +1,59 @@
 import PageShell, { PageHero } from '@/components/PageShell';
 import CTA from '@/components/CTA';
+import JsonLd, { breadcrumbSchema, organizationSchema, softwareApplicationSchema } from '@/components/JsonLd';
+import { PROOF } from '@/lib/site-config';
 
 export const metadata = {
-  title: 'About Trendly — Built for Indian Startups',
+  title: 'About Trendly — The AI Marketing Workspace for Founders',
   description:
-    'Trendly is a micro-influencer discovery platform built by IDIVARTS Solutions for India\'s startup ecosystem. Learn about our mission and team.',
+    'Built by the team behind 100s of brand campaigns and a 10,000+ creator network, Trendly is the AI marketing workspace for solo founders and small in-house teams.',
 };
 
 const values = [
   {
-    title: 'Built for the underdog',
-    desc: "We obsess over startup teams who can't afford ₹30,000+ agency retainers. Every feature is designed for budget-conscious founders.",
+    title: 'Built for the team of one',
+    desc: 'Most marketing software assumes a full department. We obsess over the solo founder and the 2–3 person team doing strategy, content, and creators all at once.',
+  },
+  {
+    title: 'Strategy before scheduling',
+    desc: "A queue of posts isn't a strategy. Trendly starts upstream — the AI builds your content strategy first, so every post you plan has a reason to exist.",
   },
   {
     title: 'Honesty over hype',
-    desc: 'We tell you what works. We tell you what doesn\'t. We compare ourselves with competitors openly because our pricing speaks for itself.',
+    desc: "We're a brand-new product and we say so. No fake logos, no invented testimonials. We earn trust with what we actually ship and the track record we actually have.",
   },
   {
-    title: 'Quality > Quantity',
-    desc: 'Our team manually reviews every micro-creator under 100k followers. Better to know 10,000 great creators than 10 million junk ones.',
-  },
-  {
-    title: 'Pay on delivery',
-    desc: 'Influencer marketing should never feel like a gamble. We unlock funds only when content goes live and gets approved.',
+    title: 'Replace the tool sprawl',
+    desc: 'Strategy doc, content calendar, approval threads, creator outreach — that should be one workspace, not six tabs and a spreadsheet held together with hope.',
   },
 ];
 
 const milestones = [
-  { year: '2023', label: 'IDIVARTS Solutions founded' },
-  { year: '2024', label: 'Trendly launched in beta' },
-  { year: '2024', label: '500+ campaigns delivered' },
-  { year: '2025', label: '10,000+ verified creators' },
+  { year: 'Track record', label: 'Ran 100s of brand campaigns across our creator-marketing work' },
+  { year: 'Network', label: 'Built a network of 10,000+ creators who joined Trendly' },
+  { year: 'The insight', label: 'Watched founders and small teams drown in marketing tool-sprawl' },
+  { year: 'Today', label: 'Building the AI marketing workspace — early access for the first 100 founders' },
 ];
 
 export default function AboutPage() {
   return (
     <PageShell>
+      <JsonLd
+        data={[
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'About', path: '/about' },
+          ]),
+          organizationSchema(),
+          softwareApplicationSchema(),
+        ]}
+      />
+
       <PageHero
         eyebrow="Our story"
-        title="We make influencer marketing accessible"
-        highlight="accessible"
-        subtitle="Trendly is built by IDIVARTS Solutions for the Indian startup ecosystem — a platform where founders, growth marketers, and creators meet on equal footing."
+        title="We built the marketing workspace we wished we had"
+        highlight="marketing workspace"
+        subtitle="Trendly is an AI marketing workspace for solo founders and small in-house teams — built by the people behind 100s of brand campaigns and a 10,000+ creator network."
       />
 
       <section className="py-16">
@@ -49,27 +62,29 @@ export default function AboutPage() {
             <div>
               <span className="section-eyebrow">The mission</span>
               <h2 className="h-display mt-3 text-3xl sm:text-4xl">
-                Influence, but for the rest of us
+                Marketing software built for how small teams actually work
               </h2>
               <p className="mt-4 text-slate-600">
-                Influencer marketing in India has always been broken at the bottom of the market. Agencies wanted minimum
-                spends of ₹30,000+, celebrity influencers were out of reach, and discovering quality micro-creators was
-                a manual nightmare of DM outreach and spreadsheet chaos.
+                We come from years of running creator marketing — {PROOF.brandsLabel.toLowerCase()} and a network where{' '}
+                {PROOF.creatorsLabel.toLowerCase()}. That work taught us something the scheduling tools missed: the
+                hardest part of marketing isn&apos;t hitting publish. It&apos;s knowing what to say, planning it as a
+                team, and getting it out the door without ten tabs open.
               </p>
               <p className="mt-4 text-slate-600">
-                We built Trendly because we lived this problem. As a small team trying to grow our own products, we
-                kept hitting the same wall — and realized thousands of startups were too. So we built the platform we
-                wished we had.
+                The founders and small teams we worked with were drowning in tool-sprawl — a strategy doc here, a
+                calendar there, approvals lost in chat, creator outreach in a spreadsheet. So we built Trendly: one
+                place where AI drafts your content strategy, your team plans and approves a visual calendar, and you
+                activate creators — all under one roof.
               </p>
             </div>
             <div className="relative">
               <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-brand-50 via-white to-accent-400/10 p-8">
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { v: '10k+', l: 'Verified creators' },
-                    { v: '500+', l: 'Campaigns run' },
-                    { v: '₹750', l: 'Starts from / mo' },
-                    { v: '92%', l: 'Trust score avg' },
+                    { v: PROOF.creators, l: 'Creators joined' },
+                    { v: PROOF.brands, l: 'Brand campaigns run' },
+                    { v: 'AI-first', l: 'Strategy, not just scheduling' },
+                    { v: 'US-focused', l: 'Founders & small teams' },
                   ].map((s) => (
                     <div key={s.l} className="rounded-2xl border border-white/60 bg-white p-5 shadow-soft">
                       <div className="bg-gradient-brand bg-clip-text text-3xl font-extrabold text-transparent">
@@ -109,7 +124,7 @@ export default function AboutPage() {
         <div className="container-px">
           <div className="mx-auto max-w-3xl">
             <span className="section-eyebrow">The journey</span>
-            <h2 className="h-display mt-3 text-3xl sm:text-4xl">A short timeline</h2>
+            <h2 className="h-display mt-3 text-3xl sm:text-4xl">How we got here</h2>
             <ul className="mt-10 space-y-6 border-l-2 border-brand-100 pl-8">
               {milestones.map((m) => (
                 <li key={m.label} className="relative">
@@ -119,6 +134,10 @@ export default function AboutPage() {
                 </li>
               ))}
             </ul>
+            <p className="mt-8 text-sm text-slate-500">
+              {PROOF.brandsLabel} · {PROOF.creatorsLabel}. These come from our creator-marketing track record — Trendly
+              the workspace is brand new, and we&apos;d rather earn your trust than borrow it.
+            </p>
           </div>
         </div>
       </section>

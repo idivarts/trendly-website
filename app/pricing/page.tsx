@@ -3,11 +3,13 @@ import Pricing from '@/components/Pricing';
 import ManagedServices from '@/components/ManagedServices';
 import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
+import JsonLd, { breadcrumbSchema } from '@/components/JsonLd';
+import { PROOF } from '@/lib/site-config';
 
 export const metadata = {
-  title: 'Pricing — Trendly',
+  title: 'Pricing — Social Media Tool Pricing for Founders & Small Teams',
   description:
-    'Simple, transparent pricing for marketing teams. Start free, scale to Starter at $29/mo or Team at $79/mo. Cancel anytime.',
+    'Transparent USD pricing for solo founders and small in-house marketing teams. Start free forever, scale to Starter at $29/mo or Team at $79/mo. No credit card, cancel anytime.',
 };
 
 const compareRows = [
@@ -27,12 +29,23 @@ const compareRows = [
 export default function PricingPage() {
   return (
     <PageShell>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: 'Pricing', path: '/pricing' },
+        ])}
+      />
+
       <PageHero
         eyebrow="Pricing"
-        title="One workspace for your whole marketing team"
-        highlight="whole marketing team"
-        subtitle="Start free. Upgrade when you need more AI, more seats, or managed services. Cancel anytime — no contracts."
+        title="Pricing built for founders and small teams"
+        highlight="founders and small teams"
+        subtitle="Whether you're a solo founder or a 2–3 person marketing team, start free and upgrade only when you need more AI, more seats, or managed services. Cancel anytime — no contracts."
       />
+
+      <p className="container-px -mt-8 text-center text-sm font-semibold text-slate-500">
+        {PROOF.riskReversal}
+      </p>
 
       <Pricing />
 

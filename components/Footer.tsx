@@ -5,36 +5,39 @@ import Logo from './Logo';
 
 const cols = [
   {
+    title: 'Product',
+    links: [
+      { label: 'AI Strategy Engine', href: '/product/ai-strategy' },
+      { label: 'Content Calendar', href: '/product/content-calendar' },
+      { label: 'Creator Campaigns', href: '/product/creators' },
+      { label: 'Impulse — comment-to-cart', href: '/product/impulse' },
+    ],
+  },
+  {
+    title: 'Services',
+    links: [
+      { label: 'End-to-end marketing', href: '/services' },
+      { label: 'Influencer-led growth', href: '/services/influencer-led-growth' },
+      { label: 'Paid ads management', href: '/services/paid-ads' },
+      { label: 'Performance marketing', href: '/services/performance-marketing' },
+    ],
+  },
+  {
+    title: 'For you',
+    links: [
+      { label: 'For founders', href: '/solutions/founders' },
+      { label: 'For small teams', href: '/solutions/small-teams' },
+      { label: 'For agencies', href: '/solutions/agencies' },
+      { label: 'Free tools', href: '/tools' },
+    ],
+  },
+  {
     title: 'Company',
     links: [
       { label: 'About', href: '/about' },
+      { label: 'Blog', href: '/blog' },
       { label: 'Contact', href: '/contact' },
-      { label: 'Pricing', href: '/pricing' },
       { label: 'Book a demo', href: LINKS.BOOK_DEMO },
-    ],
-  },
-  {
-    title: 'Docs',
-    links: [
-      { label: 'All blogs', href: '/blog' },
-      { label: 'General posts', href: '/blog?category=general' },
-      { label: 'How-to guides', href: '/blog?category=how-to' },
-      { label: 'Roadmap', href: 'https://fallacious-dragon-7a2.notion.site/Trendly-Roadmap-24642d5f1701808db85ed6a8d8995ea3' },
-    ],
-  },
-  {
-    title: 'Legal',
-    links: [
-      { label: 'Terms & Conditions', href: '/terms-and-condition' },
-      { label: 'Privacy Policy', href: '/privacy-policy' },
-      { label: 'Data Deletion', href: '/data-deletion-instruction-page' },
-    ],
-  },
-  {
-    title: 'Download',
-    links: [
-      { label: 'iOS app', href: 'https://apps.apple.com/app/trendly-find-influencers/id6736949941' },
-      { label: 'Android app', href: 'https://play.google.com/store/apps/details?id=pro.trendly.brands' },
     ],
   },
 ];
@@ -140,11 +143,11 @@ export default function Footer() {
           <div className="text-xs text-slate-500">
             © {new Date().getFullYear()} IDIVARTS Solutions Pvt Ltd · All rights reserved.
           </div>
-          <div className="text-xs text-slate-500">
-            Made with care in India ·{' '}
-            <a className="hover:text-white" href="mailto:support@idiv.in">
-              support@idiv.in
-            </a>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-500">
+            <a className="hover:text-white" href="/terms-and-condition">Terms</a>
+            <a className="hover:text-white" href="/privacy-policy">Privacy</a>
+            <a className="hover:text-white" href="/data-deletion-instruction-page">Data deletion</a>
+            <a className="hover:text-white" href="mailto:support@idiv.in">support@idiv.in</a>
           </div>
         </div>
       </div>
