@@ -5,7 +5,7 @@ import { LINKS, AI_MODELS, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 // one workspace, tuned for marketing.
 export default function AIModels() {
   return (
-    <section className="relative overflow-hidden py-24">
+    <section className="relative overflow-hidden py-16 sm:py-24">
       <div className="absolute inset-0 bg-ink-900" />
       <div className="absolute -top-40 left-1/2 h-96 w-[800px] -translate-x-1/2 rounded-full bg-brand-600/20 blur-3xl" />
       <div className="absolute -bottom-40 right-0 h-72 w-72 rounded-full bg-accent-500/10 blur-3xl" />
@@ -16,7 +16,7 @@ export default function AIModels() {
             <span className="h-1.5 w-1.5 rounded-full bg-brand-400" />
             One workspace, every model
           </span>
-          <h2 className="h-display mt-5 text-4xl text-white sm:text-5xl">
+          <h2 className="h-display mt-5 text-3xl text-white sm:text-4xl lg:text-5xl">
             Stop switching between{' '}
             <span className="text-gradient-animated">ten AI tools</span>
           </h2>

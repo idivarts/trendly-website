@@ -48,7 +48,7 @@ export default function HeroChat() {
             Every AI model · one social media workspace
           </span>
 
-          <h1 className="h-display mx-auto mt-5 max-w-3xl text-5xl leading-[1.05] sm:text-6xl lg:text-7xl animate-fade-up" style={{ animationDelay: '90ms' }}>
+          <h1 className="h-display mx-auto mt-5 max-w-3xl text-4xl leading-tight sm:text-5xl lg:text-7xl animate-fade-up" style={{ animationDelay: '90ms' }}>
             What&apos;s your{' '}
             <span className="text-gradient-animated">content goal?</span>
           </h1>

@@ -10,7 +10,7 @@ const assists = [
 
 export default function ScheduleEverywhere() {
   return (
-    <section className="relative py-24">
+    <section className="relative py-16 sm:py-24">
       <div className="container-px">
         <div className="grid items-center gap-12 lg:grid-cols-12">
 
@@ -70,7 +70,7 @@ export default function ScheduleEverywhere() {
           {/* Right — copy */}
           <ScrollReveal className="lg:col-span-6 lg:order-2 order-1" direction="right" distance={32} delay={80}>
             <span className="section-eyebrow">Schedule everywhere</span>
-            <h2 className="h-display mt-3 text-4xl sm:text-5xl">
+            <h2 className="h-display mt-3 text-3xl sm:text-4xl lg:text-5xl">
               Post to every platform,{' '}
               <span className="text-gradient-animated">from one place</span>
             </h2>

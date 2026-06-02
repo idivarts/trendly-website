@@ -11,7 +11,7 @@ const wins = [
 
 export default function OneWorkspace() {
   return (
-    <section className="relative py-24">
+    <section className="relative py-16 sm:py-24">
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-brand-50/40 to-transparent" />
       <div className="container-px">
         <div className="grid items-center gap-12 lg:grid-cols-12">
@@ -19,7 +19,7 @@ export default function OneWorkspace() {
           {/* Left — copy */}
           <ScrollReveal className="lg:col-span-6" direction="left" distance={32}>
             <span className="section-eyebrow">One tool, not ten</span>
-            <h2 className="h-display mt-3 text-4xl sm:text-5xl">
+            <h2 className="h-display mt-3 text-3xl sm:text-4xl lg:text-5xl">
               Replace your whole{' '}
               <span className="text-gradient-animated">marketing stack</span>
             </h2>

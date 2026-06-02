@@ -21,12 +21,12 @@ const founding = [
 
 export default function Testimonials() {
   return (
-    <section className="relative overflow-hidden py-24">
+    <section className="relative overflow-hidden py-16 sm:py-24">
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-brand-50/40 to-white" />
       <div className="container-px">
         <ScrollReveal className="mx-auto max-w-2xl text-center">
           <span className="section-eyebrow">Why trust us now</span>
-          <h2 className="h-display mt-3 text-4xl sm:text-5xl">
+          <h2 className="h-display mt-3 text-3xl sm:text-4xl lg:text-5xl">
             New platform. <span className="bg-gradient-brand bg-clip-text text-transparent">Proven team.</span>
           </h2>
           <p className="mt-4 text-slate-600">

@@ -25,11 +25,11 @@ const outputs = [
 
 export default function CreateWithAI() {
   return (
-    <section className="relative py-24">
+    <section className="relative py-16 sm:py-24">
       <div className="container-px">
         <ScrollReveal className="mx-auto max-w-2xl text-center">
           <span className="section-eyebrow">Create with AI</span>
-          <h2 className="h-display mt-3 text-4xl sm:text-5xl">
+          <h2 className="h-display mt-3 text-3xl sm:text-4xl lg:text-5xl">
             One prompt. A{' '}
             <span className="text-gradient-animated">finished post.</span>
           </h2>

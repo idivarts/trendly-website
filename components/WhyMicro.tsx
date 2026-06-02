@@ -61,7 +61,7 @@ export default function WhyMicro() {
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-cyan-300 shadow-[0_0_8px_2px_rgba(34,211,238,0.6)]" />
             Why micro creators
           </span>
-          <h2 className="h-display mt-5 text-4xl text-white sm:text-5xl">
+          <h2 className="h-display mt-5 text-3xl text-white sm:text-4xl lg:text-5xl">
             Visibility is everything. <br />
             <span className="bg-gradient-to-r from-cyan-300 via-white to-brand-300 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(34,211,238,0.35)]">
               Micro creators get you there.

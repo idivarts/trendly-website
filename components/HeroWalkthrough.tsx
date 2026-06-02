@@ -101,7 +101,7 @@ export default function HeroWalkthrough() {
   );
 
   return (
-    <section className="relative overflow-hidden pt-28 pb-20 sm:pt-32 sm:pb-24">
+    <section className="relative overflow-hidden pt-24 pb-16 sm:pt-32 sm:pb-24">
       <div className="absolute inset-0 bg-gradient-mesh" />
       <div className="absolute inset-0 grid-bg opacity-[0.35]" />
       <ParallaxOrb className="absolute -top-32 right-[-5%] h-[420px] w-[420px] rounded-full bg-brand-300/30 blur-3xl animate-glow-pulse" speed={0.08} />
@@ -114,17 +114,17 @@ export default function HeroWalkthrough() {
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand-600" />
             Every AI model · one social media workspace
           </span>
-          <h1 className="h-display mx-auto mt-5 max-w-4xl text-5xl leading-[1.05] sm:text-6xl lg:text-7xl animate-fade-up" style={{ animationDelay: '90ms' }}>
+          <h1 className="h-display mx-auto mt-5 max-w-4xl text-[1.9rem] leading-[1.12] sm:text-5xl sm:leading-[1.05] lg:text-7xl animate-fade-up" style={{ animationDelay: '90ms' }}>
             Chat with your favorite{' '}
             <span className="text-gradient-animated">AI models</span>{' '}— and turn it into a calendar in one click
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-600 animate-fade-up" style={{ animationDelay: '180ms' }}>
+          <p className="mx-auto mt-4 max-w-2xl text-base text-slate-600 sm:mt-6 sm:text-lg animate-fade-up" style={{ animationDelay: '180ms' }}>
             Watch it work: describe a goal, answer one question, and Trendly writes the strategy and a ready-to-publish calendar across every platform.
           </p>
         </div>
 
         {/* ── Auto-playing product walkthrough (non-interactive) ── */}
-        <div className="relative mx-auto mt-14 max-w-5xl select-none animate-fade-up" style={{ animationDelay: '240ms' }}>
+        <div className="relative mx-auto mt-10 max-w-5xl select-none animate-fade-up sm:mt-14" style={{ animationDelay: '240ms' }}>
           <div className="absolute -top-8 -left-8 h-24 w-24 rounded-2xl bg-gradient-brand opacity-25 blur-2xl" />
           <div className="absolute -bottom-10 -right-10 h-28 w-28 rounded-2xl bg-accent-400 opacity-20 blur-2xl" />
 
@@ -142,7 +142,7 @@ export default function HeroWalkthrough() {
 
             {/* ── Animated demo cursor: hovers strategy → glides to button → clicks ── */}
             <div
-              className="absolute z-30 hidden transition-all duration-700 ease-out sm:block"
+              className="absolute z-30 hidden transition-all duration-700 ease-out lg:block"
               style={{ left: `${cursor.x}%`, top: `${cursor.y}%`, opacity: cursor.show ? 1 : 0 }}
             >
               {clicking && <span className="absolute left-[3px] top-[2px] h-9 w-9 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-500/30 animate-ping" />}
@@ -161,7 +161,7 @@ export default function HeroWalkthrough() {
             {!showDetail && (
             <div className="grid gap-2.5 p-1.5 lg:grid-cols-12">
               {/* ════ Chat pane ════ */}
-              <div className="flex min-h-[440px] flex-col rounded-2xl border border-slate-100 bg-slate-50/60 p-4 lg:col-span-5">
+              <div className="flex min-h-0 lg:min-h-[440px] flex-col rounded-2xl border border-slate-100 bg-slate-50/60 p-4 lg:col-span-5">
                 <div className="flex items-center gap-1.5">
                   {models.map((m, i) => (
                     <span key={m} className={`rounded-full px-2.5 py-1 text-[11px] font-bold ${i === 0 ? 'bg-gradient-brand text-white shadow-glow' : 'bg-white text-slate-500 border border-slate-200'}`}>{m}</span>
@@ -207,7 +207,7 @@ export default function HeroWalkthrough() {
 
                   {/* typing input (type1 / type2) */}
                   {typing && (
-                    <div className="mt-auto flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-3.5 py-3 shadow-sm">
+                    <div className="mt-3 flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-3.5 py-3 shadow-sm lg:mt-auto">
                       <span className="flex-1 text-[13px] text-slate-700">
                         {(phase === 'type1' ? P1.slice(0, typed1) : P2.slice(0, typed2)) || <span className="text-slate-400">Type your answer…</span>}
                         <span className="ml-0.5 inline-block h-4 w-0.5 -translate-y-px bg-brand-600 align-middle animate-pulse" />
@@ -221,7 +221,7 @@ export default function HeroWalkthrough() {
               </div>
 
               {/* ════ Strategy / Calendar pane ════ */}
-              <div className="relative flex min-h-[440px] flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white p-4 lg:col-span-7">
+              <div className="relative flex min-h-[280px] lg:min-h-[440px] flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white p-4 lg:col-span-7">
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-bold text-slate-900">{showCal ? 'Content calendar' : 'Strategy'}</span>
                   <span className={`rounded-full border px-2.5 py-0.5 text-[10px] font-bold transition-all ${showShimmer ? 'border-slate-100 bg-slate-50 text-slate-400' : 'border-brand-100 bg-brand-50 text-brand-700'}`}>
@@ -319,7 +319,7 @@ export default function HeroWalkthrough() {
             {showDetail && (
               <div className="grid gap-2.5 p-1.5 lg:grid-cols-12 animate-scale-in">
                 {/* left — content + AI tools */}
-                <div className="flex min-h-[440px] flex-col rounded-2xl border border-slate-100 bg-white p-4 lg:col-span-7">
+                <div className="flex min-h-[280px] lg:min-h-[440px] flex-col rounded-2xl border border-slate-100 bg-white p-4 lg:col-span-7">
                   <div className="flex items-center gap-2.5">
                     <SocialIcon platform="instagram" size={28} />
                     <div className="min-w-0">
@@ -351,7 +351,7 @@ export default function HeroWalkthrough() {
                 </div>
 
                 {/* right — connected accounts + publish */}
-                <div className="flex min-h-[440px] flex-col rounded-2xl border border-slate-100 bg-slate-50/60 p-4 lg:col-span-5">
+                <div className="flex min-h-0 lg:min-h-[440px] flex-col rounded-2xl border border-slate-100 bg-slate-50/60 p-4 lg:col-span-5">
                   <div className="text-sm font-bold text-slate-900">Connected accounts</div>
                   <div className="mt-3 space-y-2">
                     {ACCOUNTS.map((a) => (

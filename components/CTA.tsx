@@ -12,7 +12,7 @@ const stats = [
 
 export default function CTA() {
   return (
-    <section className="relative py-24">
+    <section className="relative py-16 sm:py-24">
       <div className="container-px">
         <ScrollReveal direction="scale" distance={24}>
           <div className="relative overflow-hidden rounded-[36px] border border-brand-100 bg-gradient-to-br from-brand-600 via-brand-700 to-accent-600 p-10 text-white shadow-glow sm:p-16">
@@ -26,7 +26,7 @@ export default function CTA() {
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-white backdrop-blur">
                   Ready when you are
                 </span>
-                <h2 className="h-display mt-4 text-4xl text-white sm:text-5xl">
+                <h2 className="h-display mt-4 text-3xl text-white sm:text-4xl lg:text-5xl">
                   Stop juggling tools. Start doing better marketing.
                 </h2>
                 <p className="mt-4 max-w-lg text-white/80">

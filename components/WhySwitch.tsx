@@ -34,11 +34,11 @@ function Cell({ value }: { value: boolean | string }) {
 
 export default function WhySwitch() {
   return (
-    <section className="relative py-24">
+    <section className="relative py-16 sm:py-24">
       <div className="container-px">
         <ScrollReveal className="mx-auto max-w-2xl text-center">
           <span className="section-eyebrow">Why teams switch</span>
-          <h2 className="h-display mt-3 text-4xl sm:text-5xl">
+          <h2 className="h-display mt-3 text-3xl sm:text-4xl lg:text-5xl">
             More than a <span className="bg-gradient-brand bg-clip-text text-transparent">scheduler</span>
           </h2>
           <p className="mt-4 text-slate-600">

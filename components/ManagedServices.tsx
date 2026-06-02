@@ -114,7 +114,7 @@ export default function ManagedServices() {
             <span className="h-1.5 w-1.5 rounded-full bg-brand-400" />
             Managed Services
           </span>
-          <h2 className="h-display mt-5 text-4xl text-white sm:text-5xl">
+          <h2 className="h-display mt-5 text-3xl text-white sm:text-4xl lg:text-5xl">
             Want us to do the work?{' '}
             <span className="text-gradient-animated">You decide what.</span>
           </h2>

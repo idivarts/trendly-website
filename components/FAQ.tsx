@@ -48,12 +48,12 @@ const faqs = [
 export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section id="faq" className="relative py-24">
+    <section id="faq" className="relative py-16 sm:py-24">
       <JsonLd data={faqSchema(faqs)} />
       <div className="container-px">
         <div className="mx-auto max-w-2xl text-center">
           <span className="section-eyebrow">FAQ</span>
-          <h2 className="h-display mt-3 text-4xl sm:text-5xl">
+          <h2 className="h-display mt-3 text-3xl sm:text-4xl lg:text-5xl">
             Questions, <span className="bg-gradient-brand bg-clip-text text-transparent">answered</span>
           </h2>
           <p className="mt-4 text-slate-600">

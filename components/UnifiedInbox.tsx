@@ -12,7 +12,7 @@ const messages: { platform: SocialKey; name: string; text: string; kind: string 
 
 export default function UnifiedInbox() {
   return (
-    <section className="relative py-24">
+    <section className="relative py-16 sm:py-24">
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-brand-50/40 to-white" />
       <div className="container-px">
         <div className="grid items-center gap-12 lg:grid-cols-12">
@@ -20,7 +20,7 @@ export default function UnifiedInbox() {
           {/* Left — copy */}
           <ScrollReveal className="lg:col-span-6" direction="left" distance={32}>
             <span className="section-eyebrow">One inbox</span>
-            <h2 className="h-display mt-3 text-4xl sm:text-5xl">
+            <h2 className="h-display mt-3 text-3xl sm:text-4xl lg:text-5xl">
               Every comment, DM &amp; message —{' '}
               <span className="text-gradient-animated">one inbox</span>
             </h2>

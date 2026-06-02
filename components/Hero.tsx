@@ -32,7 +32,7 @@ export default function Hero() {
           </span>
 
           <h1
-            className="h-display mx-auto mt-5 max-w-4xl text-5xl leading-[1.05] sm:text-6xl lg:text-7xl animate-fade-up"
+            className="h-display mx-auto mt-5 max-w-4xl text-[1.9rem] leading-[1.12] sm:text-5xl sm:leading-[1.05] lg:text-7xl animate-fade-up"
             style={{ animationDelay: '90ms' }}
           >
             Chat with your favorite{' '}

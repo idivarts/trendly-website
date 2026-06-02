@@ -25,7 +25,7 @@ const icons: Record<string, React.ReactNode> = {
 
 export default function DoneForYou() {
   return (
-    <section className="relative overflow-hidden py-28">
+    <section className="relative overflow-hidden py-20 sm:py-28">
       <div className="absolute inset-0 bg-ink-900" />
       <div className="absolute -top-40 left-1/2 h-96 w-[800px] -translate-x-1/2 rounded-full bg-brand-600/15 blur-3xl" />
       <div className="absolute -bottom-40 right-0 h-72 w-72 rounded-full bg-accent-500/10 blur-3xl" />
@@ -36,7 +36,7 @@ export default function DoneForYou() {
             <span className="h-1.5 w-1.5 rounded-full bg-brand-400" />
             Done-for-you services
           </span>
-          <h2 className="h-display mt-5 text-4xl text-white sm:text-5xl">
+          <h2 className="h-display mt-5 text-3xl text-white sm:text-4xl lg:text-5xl">
             Rather have it all{' '}
             <span className="text-gradient-animated">run for you?</span>
           </h2>

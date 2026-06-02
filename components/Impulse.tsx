@@ -26,7 +26,7 @@ const steps = [
 
 export default function Impulse() {
   return (
-    <section className="relative overflow-hidden py-24">
+    <section className="relative overflow-hidden py-16 sm:py-24">
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-brand-50/40 to-white" />
       <div className="container-px">
         <div className="grid items-center gap-12 lg:grid-cols-12">
@@ -37,7 +37,7 @@ export default function Impulse() {
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand-600" />
               New · Impulse
             </span>
-            <h2 className="h-display mt-4 text-4xl sm:text-5xl">
+            <h2 className="h-display mt-4 text-3xl sm:text-4xl lg:text-5xl">
               Turn comments into{' '}
               <span className="text-gradient-animated">customers</span> — automatically
             </h2>

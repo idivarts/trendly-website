@@ -83,7 +83,7 @@ export default function Pricing() {
 
         <div className="mx-auto max-w-2xl text-center">
           <span className="section-eyebrow">Pricing</span>
-          <h2 className="h-display mt-3 text-4xl sm:text-5xl">
+          <h2 className="h-display mt-3 text-3xl sm:text-4xl lg:text-5xl">
             Simple, <span className="text-gradient-animated">self-serve pricing</span>
           </h2>
           <p className="mt-4 text-slate-600">

@@ -14,7 +14,7 @@ const steps = [
 
 export default function CollaborateOnAI() {
   return (
-    <section className="relative py-24">
+    <section className="relative py-16 sm:py-24">
       <div className="container-px">
         <div className="grid items-center gap-12 lg:grid-cols-12">
 
@@ -69,7 +69,7 @@ export default function CollaborateOnAI() {
           {/* Right — copy */}
           <ScrollReveal className="lg:col-span-6" direction="right" distance={32} delay={80}>
             <span className="section-eyebrow">Built for collaboration</span>
-            <h2 className="h-display mt-3 text-4xl sm:text-5xl">
+            <h2 className="h-display mt-3 text-3xl sm:text-4xl lg:text-5xl">
               The first AI workspace built for{' '}
               <span className="text-gradient-animated">teams</span>
             </h2>
