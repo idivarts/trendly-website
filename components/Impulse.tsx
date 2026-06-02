@@ -1,5 +1,5 @@
 import ScrollReveal from '@/components/ScrollReveal';
-import { LINKS } from '@/lib/site-config';
+import { LINKS, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 
 // "Impulse" = Trendly's comment-to-cart automation. When a follower shows buying
 // intent on a post (comments "Interested" / DMs), the AI instantly replies with
@@ -61,7 +61,7 @@ export default function Impulse() {
 
             <div className="mt-8 flex flex-wrap gap-3">
               <a href="/product/impulse" className="btn-primary">See how Impulse works</a>
-              <a href={LINKS.BRAND_SIGNUP} className="btn-ghost">Start for free</a>
+              <a href={DISABLE_LOGIN_SIGNUP ? LINKS.BOOK_DEMO : LINKS.BRAND_SIGNUP} className="btn-ghost">{DISABLE_LOGIN_SIGNUP ? 'Book a demo' : 'Start for free'}</a>
             </div>
           </ScrollReveal>
 

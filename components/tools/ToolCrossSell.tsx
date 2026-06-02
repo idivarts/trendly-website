@@ -1,4 +1,4 @@
-import { LINKS } from '@/lib/site-config';
+import { LINKS, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 
 /**
  * Soft product cross-sell band shown on each tool page: "Do this automatically
@@ -19,9 +19,11 @@ export default function ToolCrossSell({
           <h2 className="h-display mt-3 text-2xl sm:text-3xl">{headline}</h2>
           <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-slate-600">{body}</p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <a href={LINKS.BRAND_SIGNUP} className="btn-primary">
-              Start free in Trendly
-            </a>
+            {!DISABLE_LOGIN_SIGNUP && (
+              <a href={LINKS.BRAND_SIGNUP} className="btn-primary">
+                Start free in Trendly
+              </a>
+            )}
             <a href={LINKS.BOOK_DEMO} className="btn-ghost">
               Book a demo
             </a>

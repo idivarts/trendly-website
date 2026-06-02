@@ -1,5 +1,5 @@
 import ScrollReveal from '@/components/ScrollReveal';
-import { LINKS } from '@/lib/site-config';
+import { LINKS, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 
 const steps = [
   {
@@ -96,8 +96,8 @@ export default function HowItWorks() {
         </div>
 
         <ScrollReveal className="mt-12 text-center" delay={480}>
-          <a href={LINKS.BRAND_SIGNUP} className="btn-primary">
-            Start for free
+          <a href={DISABLE_LOGIN_SIGNUP ? LINKS.BOOK_DEMO : LINKS.BRAND_SIGNUP} className="btn-primary">
+            {DISABLE_LOGIN_SIGNUP ? 'Book a demo' : 'Start for free'}
           </a>
         </ScrollReveal>
       </div>

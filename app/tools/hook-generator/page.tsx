@@ -5,7 +5,7 @@ import ToolFAQ from '@/components/tools/ToolFAQ';
 import ToolCrossSell from '@/components/tools/ToolCrossSell';
 import CTA from '@/components/CTA';
 import JsonLd, { breadcrumbSchema, faqSchema } from '@/components/JsonLd';
-import { LINKS } from '@/lib/site-config';
+import { LINKS, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 
 export const metadata = {
   title: 'Free Hook Generator for Social Media (AI) — Trendly',
@@ -127,7 +127,7 @@ export default function HookGeneratorPage() {
               steady cadence with the{' '}
               <Link href="/tools/social-media-calendar-template">content calendar template</Link>.
               When you want a strong opening for every post without doing it manually,{' '}
-              <a href={LINKS.BRAND_SIGNUP}>Trendly</a> generates hooks across your whole calendar
+              <a href={DISABLE_LOGIN_SIGNUP ? LINKS.BOOK_DEMO : LINKS.BRAND_SIGNUP}>Trendly</a> generates hooks across your whole calendar
               automatically.
             </p>
           </div>

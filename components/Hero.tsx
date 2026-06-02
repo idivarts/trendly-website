@@ -1,5 +1,5 @@
 import ParallaxOrb from '@/components/ParallaxOrb';
-import { LINKS, PROOF } from '@/lib/site-config';
+import { LINKS, PROOF, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 import { SOCIALS, SocialIcon, type SocialKey } from '@/components/SocialIcons';
 
 const models = ['GPT', 'Claude', 'Gemini'];
@@ -56,12 +56,14 @@ export default function Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3 animate-fade-up" style={{ animationDelay: '270ms' }}>
-            <a href={LINKS.BRAND_SIGNUP} className="btn-primary group">
-              Start for free
-              <svg className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                <path d="M5 12h14M13 6l6 6-6 6" />
-              </svg>
-            </a>
+            {!DISABLE_LOGIN_SIGNUP && (
+              <a href={LINKS.BRAND_SIGNUP} className="btn-primary group">
+                Start for free
+                <svg className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            )}
             <a href={LINKS.BOOK_DEMO} className="btn-ghost">
               <svg className="mr-2 h-4 w-4 text-brand-600" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
               Book a Demo

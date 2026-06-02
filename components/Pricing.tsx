@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { LINKS } from '@/lib/site-config';
+import { LINKS, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 
 type Plan = {
   name: string;
@@ -171,14 +171,14 @@ export default function Pricing() {
                 </ul>
 
                 <a
-                  href={p.cta.href}
+                  href={DISABLE_LOGIN_SIGNUP ? LINKS.BOOK_DEMO : p.cta.href}
                   className={`mt-8 inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-sm font-semibold transition ${
                     isPopular
                       ? 'bg-white text-brand-700 hover:bg-slate-100'
                       : 'bg-slate-900 text-white hover:bg-brand-600'
                   }`}
                 >
-                  {p.cta.label}
+                  {DISABLE_LOGIN_SIGNUP ? 'Book a demo' : p.cta.label}
                 </a>
               </div>
             );

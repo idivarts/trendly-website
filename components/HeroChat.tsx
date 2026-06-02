@@ -1,7 +1,7 @@
 'use client';
 import { useRef, useState } from 'react';
 import ParallaxOrb from '@/components/ParallaxOrb';
-import { LINKS, PROOF } from '@/lib/site-config';
+import { LINKS, PROOF, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 
 const models = ['GPT', 'Claude', 'Gemini'];
 
@@ -18,6 +18,11 @@ export default function HeroChat() {
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   const submit = () => {
+    // While signup is disabled (product is dev-only), send people to the demo instead.
+    if (DISABLE_LOGIN_SIGNUP) {
+      window.location.href = LINKS.BOOK_DEMO;
+      return;
+    }
     const prompt = value.trim();
     const url = prompt ? `${LINKS.BRAND_SIGNUP}?prompt=${encodeURIComponent(prompt)}` : LINKS.BRAND_SIGNUP;
     window.location.href = url;
@@ -116,7 +121,9 @@ export default function HeroChat() {
 
           {/* secondary CTA */}
           <div className="mt-7 flex items-center justify-center gap-3">
-            <a href={LINKS.BRAND_SIGNUP} className="btn-primary">Start for free</a>
+            {!DISABLE_LOGIN_SIGNUP && (
+              <a href={LINKS.BRAND_SIGNUP} className="btn-primary">Start for free</a>
+            )}
             <a href={LINKS.BOOK_DEMO} className="btn-ghost">Book a Demo</a>
           </div>
 

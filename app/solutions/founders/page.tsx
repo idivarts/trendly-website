@@ -3,7 +3,7 @@ import PageShell, { PageHero } from '@/components/PageShell';
 import ScrollReveal from '@/components/ScrollReveal';
 import CTA from '@/components/CTA';
 import JsonLd, { breadcrumbSchema, faqSchema } from '@/components/JsonLd';
-import { LINKS, PROOF } from '@/lib/site-config';
+import { LINKS, PROOF, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 
 export const metadata = {
   title: 'Social Media Management for Startups | Trendly for Founders',
@@ -135,7 +135,9 @@ export default function FoundersPage() {
         <div className="container-px">
           <div className="flex flex-col items-center gap-3">
             <div className="flex flex-wrap items-center justify-center gap-3">
-              <a href={LINKS.BRAND_SIGNUP} className="btn-primary">Start for free</a>
+              {!DISABLE_LOGIN_SIGNUP && (
+                <a href={LINKS.BRAND_SIGNUP} className="btn-primary">Start for free</a>
+              )}
               <a href={LINKS.BOOK_DEMO} className="btn-ghost">Book a demo</a>
             </div>
             <p className="text-xs text-slate-500">{PROOF.riskReversal}</p>

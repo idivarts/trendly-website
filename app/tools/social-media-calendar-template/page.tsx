@@ -4,7 +4,7 @@ import ToolFAQ from '@/components/tools/ToolFAQ';
 import ToolCrossSell from '@/components/tools/ToolCrossSell';
 import CTA from '@/components/CTA';
 import JsonLd, { breadcrumbSchema, faqSchema } from '@/components/JsonLd';
-import { LINKS } from '@/lib/site-config';
+import { LINKS, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 
 export const metadata = {
   title: 'Free Social Media Calendar Template — Trendly',
@@ -192,10 +192,10 @@ export default function CalendarTemplatePage() {
               themselves. Same structure — zero copy-pasting.
             </p>
             <a
-              href={LINKS.BRAND_SIGNUP}
+              href={DISABLE_LOGIN_SIGNUP ? LINKS.BOOK_DEMO : LINKS.BRAND_SIGNUP}
               className="mt-6 inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-brand-700 shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
             >
-              Build it live in Trendly — free
+              {DISABLE_LOGIN_SIGNUP ? 'Book a demo' : 'Build it live in Trendly — free'}
             </a>
           </div>
         </div>
@@ -235,7 +235,7 @@ export default function CalendarTemplatePage() {
               <Link href="/tools/best-time-to-post">best times for your audience</Link>. Batching
               protects your consistency on busy weeks and frees your day-to-day attention for the
               rest of the business. When the spreadsheet starts to feel like overhead,{' '}
-              <a href={LINKS.BRAND_SIGNUP}>Trendly</a> turns this exact structure into a calendar
+              <a href={DISABLE_LOGIN_SIGNUP ? LINKS.BOOK_DEMO : LINKS.BRAND_SIGNUP}>Trendly</a> turns this exact structure into a calendar
               that plans, drafts, approves, and schedules for you.
             </p>
           </div>

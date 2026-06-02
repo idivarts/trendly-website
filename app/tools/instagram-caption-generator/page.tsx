@@ -5,7 +5,7 @@ import ToolFAQ from '@/components/tools/ToolFAQ';
 import ToolCrossSell from '@/components/tools/ToolCrossSell';
 import CTA from '@/components/CTA';
 import JsonLd, { breadcrumbSchema, faqSchema } from '@/components/JsonLd';
-import { LINKS } from '@/lib/site-config';
+import { LINKS, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 
 export const metadata = {
   title: 'Free Instagram Caption Generator (AI) — Trendly',
@@ -135,7 +135,7 @@ export default function InstagramCaptionGeneratorPage() {
               <Link href="/tools/best-time-to-post">best time to post guide</Link> and grab the{' '}
               <Link href="/tools/social-media-calendar-template">content calendar template</Link> to
               stay consistent. When you&apos;re ready to stop generating captions one at a time,{' '}
-              <a href={LINKS.BRAND_SIGNUP}>Trendly</a> does it for your entire content plan
+              <a href={DISABLE_LOGIN_SIGNUP ? LINKS.BOOK_DEMO : LINKS.BRAND_SIGNUP}>Trendly</a> does it for your entire content plan
               automatically.
             </p>
           </div>

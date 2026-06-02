@@ -4,7 +4,7 @@ import ToolFAQ from '@/components/tools/ToolFAQ';
 import ToolCrossSell from '@/components/tools/ToolCrossSell';
 import CTA from '@/components/CTA';
 import JsonLd, { breadcrumbSchema, faqSchema } from '@/components/JsonLd';
-import { LINKS } from '@/lib/site-config';
+import { LINKS, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 
 export const metadata = {
   title: 'Best Time to Post on Social Media (2026 Guide) — Trendly',
@@ -174,7 +174,7 @@ export default function BestTimeToPostPage() {
               <Link href="/tools/content-idea-generator">content ideas</Link> and{' '}
               <Link href="/tools/instagram-caption-generator">captions</Link> first, ship reliably,
               then optimise timing once you have data. When you&apos;d rather not manage all of this
-              by hand, <a href={LINKS.BRAND_SIGNUP}>Trendly</a> identifies your audience-active
+              by hand, <a href={DISABLE_LOGIN_SIGNUP ? LINKS.BOOK_DEMO : LINKS.BRAND_SIGNUP}>Trendly</a> identifies your audience-active
               windows and schedules every post into them for you.
             </p>
           </div>

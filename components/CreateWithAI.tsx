@@ -1,5 +1,5 @@
 import ScrollReveal from '@/components/ScrollReveal';
-import { LINKS } from '@/lib/site-config';
+import { LINKS, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 
 const outputs = [
   {
@@ -74,7 +74,7 @@ export default function CreateWithAI() {
         </ScrollReveal>
 
         <ScrollReveal className="mt-8 text-center" delay={150}>
-          <a href={LINKS.BRAND_SIGNUP} className="btn-primary">Create your first post free</a>
+          <a href={DISABLE_LOGIN_SIGNUP ? LINKS.BOOK_DEMO : LINKS.BRAND_SIGNUP} className="btn-primary">{DISABLE_LOGIN_SIGNUP ? 'Book a demo' : 'Create your first post free'}</a>
         </ScrollReveal>
       </div>
     </section>

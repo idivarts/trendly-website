@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Logo from '@/components/Logo';
-import { LINKS } from '@/lib/site-config';
+import { LINKS, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 
 export const metadata: Metadata = {
   title: 'Influencer Marketing Done Differently — Trendly',
@@ -118,9 +118,11 @@ export default function LpAgencyPage() {
                   Book a 30-min demo
                   <svg className="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
                 </a>
-                <a href={LINKS.BRAND_SIGNUP} className="btn-ghost text-base px-8 py-4">
-                  Try the platform free
-                </a>
+                {!DISABLE_LOGIN_SIGNUP && (
+                  <a href={LINKS.BRAND_SIGNUP} className="btn-ghost text-base px-8 py-4">
+                    Try the platform free
+                  </a>
+                )}
               </div>
               <p className="mt-4 text-sm text-slate-400">No commitment · Talk to the founder directly</p>
             </div>
@@ -297,9 +299,11 @@ export default function LpAgencyPage() {
                 Book a 30-min demo
                 <svg className="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
               </a>
-              <a href={LINKS.BRAND_SIGNUP} className="inline-flex items-center justify-center rounded-full border border-white/50 px-8 py-4 text-base font-semibold text-white transition hover:bg-white/10">
-                Try the platform free
-              </a>
+              {!DISABLE_LOGIN_SIGNUP && (
+                <a href={LINKS.BRAND_SIGNUP} className="inline-flex items-center justify-center rounded-full border border-white/50 px-8 py-4 text-base font-semibold text-white transition hover:bg-white/10">
+                  Try the platform free
+                </a>
+              )}
             </div>
             <p className="mt-5 text-sm text-white/60">No retainer · No lock-in · Talk to the founder, not a salesperson</p>
           </div>

@@ -1,5 +1,5 @@
 import ScrollReveal from '@/components/ScrollReveal';
-import { LINKS, AI_MODELS } from '@/lib/site-config';
+import { LINKS, AI_MODELS, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 
 // The core differentiator: stop tab-switching between AI tools. Every model in
 // one workspace, tuned for marketing.
@@ -48,7 +48,7 @@ export default function AIModels() {
           <p className="mx-auto max-w-xl text-sm text-slate-400">
             Trendly routes each task to the model that does it best — so you always get the strongest result without thinking about which tool to open.
           </p>
-          <a href={LINKS.BRAND_SIGNUP} className="btn-primary mt-6">Try every model free</a>
+          <a href={DISABLE_LOGIN_SIGNUP ? LINKS.BOOK_DEMO : LINKS.BRAND_SIGNUP} className="btn-primary mt-6">{DISABLE_LOGIN_SIGNUP ? 'Book a demo' : 'Try every model free'}</a>
         </ScrollReveal>
       </div>
     </section>

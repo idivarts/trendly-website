@@ -1,5 +1,5 @@
 import ScrollReveal from '@/components/ScrollReveal';
-import { LINKS } from '@/lib/site-config';
+import { LINKS, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 
 // Differentiator: collaborating ON AI output is broken today (copy into a doc,
 // ping the team, lose the thread). Trendly is built specifically for reviewing,
@@ -89,7 +89,7 @@ export default function CollaborateOnAI() {
               ))}
             </div>
 
-            <a href={LINKS.BRAND_SIGNUP} className="btn-primary mt-8">Set up your workflow free</a>
+            <a href={DISABLE_LOGIN_SIGNUP ? LINKS.BOOK_DEMO : LINKS.BRAND_SIGNUP} className="btn-primary mt-8">{DISABLE_LOGIN_SIGNUP ? 'Book a demo' : 'Set up your workflow free'}</a>
           </ScrollReveal>
 
         </div>

@@ -5,7 +5,7 @@ import ToolFAQ from '@/components/tools/ToolFAQ';
 import ToolCrossSell from '@/components/tools/ToolCrossSell';
 import CTA from '@/components/CTA';
 import JsonLd, { breadcrumbSchema, faqSchema } from '@/components/JsonLd';
-import { LINKS } from '@/lib/site-config';
+import { LINKS, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 
 export const metadata = {
   title: 'Free Social Media Content Idea Generator (AI) — Trendly',
@@ -132,7 +132,7 @@ export default function ContentIdeaGeneratorPage() {
               and consistency depends on never running out of things to say. A reliable idea pipeline
               keeps you posting through busy weeks, protects your reach, and compounds your audience
               over time. When generating ideas one batch at a time starts to feel like a chore,{' '}
-              <a href={LINKS.BRAND_SIGNUP}>Trendly</a> automates the whole loop — from strategy to
+              <a href={DISABLE_LOGIN_SIGNUP ? LINKS.BOOK_DEMO : LINKS.BRAND_SIGNUP}>Trendly</a> automates the whole loop — from strategy to
               ideas to scheduled posts — so the calendar stays full without the manual grind.
             </p>
           </div>

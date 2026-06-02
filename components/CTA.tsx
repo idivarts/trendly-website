@@ -1,5 +1,5 @@
 import ScrollReveal from '@/components/ScrollReveal';
-import { LINKS } from '@/lib/site-config';
+import { LINKS, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 
 const stats = [
   { v: '$0',      l: 'To get started' },
@@ -33,22 +33,24 @@ export default function CTA() {
                   Free plan available. No credit card required. Set up your first content strategy in under 5 minutes.
                 </p>
                 <div className="mt-7 flex flex-wrap gap-3">
-                  <a
-                    href={LINKS.BRAND_SIGNUP}
-                    className="group inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-brand-700 shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
-                  >
-                    Start for free
-                    <svg
-                      className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
+                  {!DISABLE_LOGIN_SIGNUP && (
+                    <a
+                      href={LINKS.BRAND_SIGNUP}
+                      className="group inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-brand-700 shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
                     >
-                      <path d="M5 12h14M13 6l6 6-6 6" />
-                    </svg>
-                  </a>
+                      Start for free
+                      <svg
+                        className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                      >
+                        <path d="M5 12h14M13 6l6 6-6 6" />
+                      </svg>
+                    </a>
+                  )}
                   <a
                     href={LINKS.BOOK_DEMO}
                     className="inline-flex items-center justify-center rounded-full border border-white/30 bg-transparent px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-white/10 hover:border-white/50"

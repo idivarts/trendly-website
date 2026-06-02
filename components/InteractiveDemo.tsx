@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { LINKS } from '@/lib/site-config';
+import { LINKS, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 
 type Post = {
   id: number;
@@ -238,10 +238,10 @@ export default function InteractiveDemo() {
                         <div className="text-xs text-slate-500">{active.brief.creator.followers} followers · {active.brief.creator.er} ER</div>
                       </div>
                       <a
-                        href={LINKS.BRAND_SIGNUP}
+                        href={DISABLE_LOGIN_SIGNUP ? LINKS.BOOK_DEMO : LINKS.BRAND_SIGNUP}
                         className="rounded-full bg-brand-600 px-3 py-1.5 text-xs font-semibold text-white shadow-glow transition hover:bg-brand-700"
                       >
-                        Invite
+                        {DISABLE_LOGIN_SIGNUP ? 'Book a demo' : 'Invite'}
                       </a>
                     </div>
                   </div>
@@ -255,8 +255,8 @@ export default function InteractiveDemo() {
                     <div className="text-sm font-bold text-slate-900">Ready to build your own calendar?</div>
                     <div className="text-xs text-slate-500">Start free — no credit card required.</div>
                   </div>
-                  <a href={LINKS.BRAND_SIGNUP} className="btn-primary shrink-0">
-                    Start for free
+                  <a href={DISABLE_LOGIN_SIGNUP ? LINKS.BOOK_DEMO : LINKS.BRAND_SIGNUP} className="btn-primary shrink-0">
+                    {DISABLE_LOGIN_SIGNUP ? 'Book a demo' : 'Start for free'}
                   </a>
                 </div>
               </div>

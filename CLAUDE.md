@@ -235,6 +235,14 @@ Change these once and they update everywhere:
 - **`LINKS`** — `BRAND_SIGNUP` (`https://brands.trendly.now`),
   `CREATOR_SIGNUP` (`https://creators.trendly.now`),
   `BOOK_DEMO` (`https://cal.com/rahul-idiv/30min`).
+- **`DISABLE_LOGIN_SIGNUP`** (kill-switch, currently `true`) — the product app is
+  dev-only, so while this is `true` every Log in / Sign up / Start free / Get
+  started CTA → `BRAND_SIGNUP` is **hidden**, and where no "Book a demo" button
+  already sits beside it, **replaced with "Book a demo"** (→ `BOOK_DEMO`). Every
+  such CTA across the site is gated with `{!DISABLE_LOGIN_SIGNUP && …}` (hide) or
+  a `DISABLE_LOGIN_SIGNUP ? BOOK_DEMO/'Book a demo' : …` ternary (replace), so
+  flipping it to `false` restores all original hrefs + labels. **When adding any
+  new signup/login CTA, gate it the same way.**
 - **`CONTACT_ENDPOINT`** / **`QUOTE_ENDPOINT`** — Formspree placeholders
   (`REPLACE_ME…`); forms show success UX but `console.warn` until real IDs land.
 - **`SITE`** — `name`, `origin` (`https://www.trendly.now`), `legalName`,

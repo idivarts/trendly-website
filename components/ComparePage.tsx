@@ -2,7 +2,7 @@ import PageShell, { PageHero } from '@/components/PageShell';
 import CTA from '@/components/CTA';
 import ScrollReveal from '@/components/ScrollReveal';
 import JsonLd, { breadcrumbSchema, faqSchema } from '@/components/JsonLd';
-import { COMPARISONS, LINKS, PROOF } from '@/lib/site-config';
+import { COMPARISONS, LINKS, PROOF, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 
 export type CompareRow = {
   capability: string;
@@ -74,8 +74,8 @@ export default function ComparePage({
       {/* Primary CTA */}
       <section className="container-px -mt-4">
         <ScrollReveal className="mx-auto flex max-w-2xl flex-col items-center text-center">
-          <a href={LINKS.BRAND_SIGNUP} className="btn-primary">
-            Start for free
+          <a href={DISABLE_LOGIN_SIGNUP ? LINKS.BOOK_DEMO : LINKS.BRAND_SIGNUP} className="btn-primary">
+            {DISABLE_LOGIN_SIGNUP ? 'Book a demo' : 'Start for free'}
           </a>
           <p className="mt-3 text-xs font-medium text-slate-500">{PROOF.riskReversal}</p>
         </ScrollReveal>

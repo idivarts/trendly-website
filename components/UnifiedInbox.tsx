@@ -1,5 +1,5 @@
 import ScrollReveal from '@/components/ScrollReveal';
-import { LINKS } from '@/lib/site-config';
+import { LINKS, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 import { SocialIcon, SocialRow, type SocialKey } from '@/components/SocialIcons';
 
 const messages: { platform: SocialKey; name: string; text: string; kind: string }[] = [
@@ -46,7 +46,7 @@ export default function UnifiedInbox() {
               ))}
             </div>
 
-            <a href={LINKS.BRAND_SIGNUP} className="btn-primary mt-8">Unify your inbox free</a>
+            <a href={DISABLE_LOGIN_SIGNUP ? LINKS.BOOK_DEMO : LINKS.BRAND_SIGNUP} className="btn-primary mt-8">{DISABLE_LOGIN_SIGNUP ? 'Book a demo' : 'Unify your inbox free'}</a>
           </ScrollReveal>
 
           {/* Right — inbox visual */}

@@ -1,5 +1,5 @@
 import ScrollReveal from '@/components/ScrollReveal';
-import { LINKS } from '@/lib/site-config';
+import { LINKS, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 import { SOCIALS, SocialIcon } from '@/components/SocialIcons';
 
 const assists = [
@@ -92,7 +92,7 @@ export default function ScheduleEverywhere() {
               ))}
             </div>
 
-            <a href={LINKS.BRAND_SIGNUP} className="btn-primary mt-8">Start scheduling free</a>
+            <a href={DISABLE_LOGIN_SIGNUP ? LINKS.BOOK_DEMO : LINKS.BRAND_SIGNUP} className="btn-primary mt-8">{DISABLE_LOGIN_SIGNUP ? 'Book a demo' : 'Start scheduling free'}</a>
           </ScrollReveal>
 
         </div>

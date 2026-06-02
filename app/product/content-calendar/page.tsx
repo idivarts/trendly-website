@@ -3,7 +3,7 @@ import PageShell, { PageHero } from '@/components/PageShell';
 import ScrollReveal from '@/components/ScrollReveal';
 import CTA from '@/components/CTA';
 import JsonLd, { breadcrumbSchema, softwareApplicationSchema, faqSchema } from '@/components/JsonLd';
-import { LINKS, PROOF } from '@/lib/site-config';
+import { LINKS, PROOF, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 
 export const metadata = {
   title: 'Social Media Content Calendar with Team Approvals — Trendly',
@@ -74,7 +74,9 @@ export default function ContentCalendarPage() {
       <section className="-mt-4 pb-4">
         <div className="container-px flex flex-col items-center">
           <div className="flex flex-wrap items-center justify-center gap-3">
-            <a href={LINKS.BRAND_SIGNUP} className="btn-primary">Start for free</a>
+            {!DISABLE_LOGIN_SIGNUP && (
+              <a href={LINKS.BRAND_SIGNUP} className="btn-primary">Start for free</a>
+            )}
             <a href={LINKS.BOOK_DEMO} className="btn-ghost">Book a Demo</a>
           </div>
           <p className="mt-3 text-xs font-medium text-slate-500">{PROOF.riskReversal}</p>

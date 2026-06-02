@@ -3,7 +3,7 @@ import PageShell, { PageHero } from '@/components/PageShell';
 import ScrollReveal from '@/components/ScrollReveal';
 import CTA from '@/components/CTA';
 import JsonLd, { breadcrumbSchema } from '@/components/JsonLd';
-import { LINKS } from '@/lib/site-config';
+import { LINKS, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 
 export const metadata = {
   title: 'Free Social Media Tools — AI Generators & Templates | Trendly',
@@ -144,7 +144,7 @@ export default function ToolsHubPage() {
             <p>
               These tools are great for one-off drafts. But great marketing is consistent
               marketing, and copy-pasting from a free tool every day doesn&apos;t scale. Inside{' '}
-              <a href={LINKS.BRAND_SIGNUP}>Trendly</a>, the same AI builds your full content
+              <a href={DISABLE_LOGIN_SIGNUP ? LINKS.BOOK_DEMO : LINKS.BRAND_SIGNUP}>Trendly</a>, the same AI builds your full content
               strategy, generates captions and hooks for every planned post, and drops them
               straight onto a visual calendar your whole team can approve and schedule — all in one
               place. Start with a free tool here, then bring the whole workflow into Trendly when

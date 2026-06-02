@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import ParallaxOrb from '@/components/ParallaxOrb';
-import { LINKS, PROOF } from '@/lib/site-config';
+import { LINKS, PROOF, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 import { SocialIcon, type SocialKey } from '@/components/SocialIcons';
 
 const P1 = 'Plan a 30-day content calendar for my skincare launch';
@@ -384,7 +384,9 @@ export default function HeroWalkthrough() {
         {/* ── CTAs + proof ── */}
         <div className="mx-auto mt-12 max-w-2xl text-center">
           <div className="flex flex-wrap items-center justify-center gap-3">
-            <a href={LINKS.BRAND_SIGNUP} className="btn-primary">Start for free</a>
+            {!DISABLE_LOGIN_SIGNUP && (
+              <a href={LINKS.BRAND_SIGNUP} className="btn-primary">Start for free</a>
+            )}
             <a href={LINKS.BOOK_DEMO} className="btn-ghost">Book a Demo</a>
           </div>
           <p className="mt-3 text-xs font-medium text-slate-500">{PROOF.riskReversal}</p>

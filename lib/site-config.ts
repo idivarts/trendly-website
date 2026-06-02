@@ -14,6 +14,15 @@ export const LINKS = {
 } as const;
 
 /**
+ * KILL-SWITCH while the product is dev-only (features WIP, app lives only on the
+ * dev site). When `true`, every Log in / Sign up / Start free / Get started CTA
+ * that points to brands.trendly.now is hidden — and, where no "Book a demo"
+ * button already sits beside it, replaced with a "Book a demo" CTA (→ BOOK_DEMO).
+ * Flip to `false` to re-enable all signup/login CTAs site-wide.
+ */
+export const DISABLE_LOGIN_SIGNUP = true;
+
+/**
  * Endpoint the /contact form POSTs to (JSON).
  * TODO: replace with real Formspree/Loops form ID before launch.
  * While this is the placeholder, the form still shows the success UX but logs

@@ -1,5 +1,5 @@
 import ScrollReveal from '@/components/ScrollReveal';
-import { LINKS, PROOF } from '@/lib/site-config';
+import { LINKS, PROOF, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 
 // NOTE: Trendly is a newly launched product, so we do NOT fabricate customer
 // testimonials. This section earns trust honestly: the team's verified
@@ -56,7 +56,7 @@ export default function Testimonials() {
                 <p className="mt-3 text-slate-600">
                   We&apos;re onboarding our first {PROOF.earlyAccessCount} founders by hand. Join now and you&apos;ll help shape the product you use every day.
                 </p>
-                <a href={LINKS.BRAND_SIGNUP} className="btn-primary mt-6">Become a founding member</a>
+                <a href={DISABLE_LOGIN_SIGNUP ? LINKS.BOOK_DEMO : LINKS.BRAND_SIGNUP} className="btn-primary mt-6">{DISABLE_LOGIN_SIGNUP ? 'Book a demo' : 'Become a founding member'}</a>
               </div>
               <ul className="space-y-3">
                 {founding.map((f) => (

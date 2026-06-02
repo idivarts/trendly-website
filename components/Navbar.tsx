@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import Logo from './Logo';
-import { LINKS, NAV, type NavItem } from '@/lib/site-config';
+import { LINKS, NAV, DISABLE_LOGIN_SIGNUP, type NavItem } from '@/lib/site-config';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -49,11 +49,13 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          <a href={LINKS.BRAND_SIGNUP} className="text-sm font-medium text-slate-600 transition hover:text-slate-900">
-            Log in
-          </a>
-          <a href={LINKS.BRAND_SIGNUP} className="btn-primary !px-5 !py-2.5">
-            Start free
+          {!DISABLE_LOGIN_SIGNUP && (
+            <a href={LINKS.BRAND_SIGNUP} className="text-sm font-medium text-slate-600 transition hover:text-slate-900">
+              Log in
+            </a>
+          )}
+          <a href={DISABLE_LOGIN_SIGNUP ? LINKS.BOOK_DEMO : LINKS.BRAND_SIGNUP} className="btn-primary !px-5 !py-2.5">
+            {DISABLE_LOGIN_SIGNUP ? 'Book a demo' : 'Start free'}
           </a>
         </div>
 
@@ -98,8 +100,8 @@ export default function Navbar() {
                 </a>
               )
             )}
-            <a href={LINKS.BRAND_SIGNUP} className="btn-primary mt-3 w-full">
-              Start free
+            <a href={DISABLE_LOGIN_SIGNUP ? LINKS.BOOK_DEMO : LINKS.BRAND_SIGNUP} className="btn-primary mt-3 w-full">
+              {DISABLE_LOGIN_SIGNUP ? 'Book a demo' : 'Start free'}
             </a>
           </div>
         </div>
