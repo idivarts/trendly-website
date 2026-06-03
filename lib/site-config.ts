@@ -28,14 +28,14 @@ export const DISABLE_LOGIN_SIGNUP = true;
  * While this is the placeholder, the form still shows the success UX but logs
  * a console.warn instead of actually delivering the message.
  */
-export const CONTACT_ENDPOINT = 'https://formspree.io/f/REPLACE_ME';
+export const CONTACT_ENDPOINT = 'https://formspree.io/f/xaqzwzla';
 
 /**
  * Endpoint the in-page "Get an agency quote" form POSTs to (JSON).
  * TODO: replace with the real Formspree/Loops/CRM intake form ID before launch.
  * While this is the placeholder, the form shows success UX but logs a warn.
  */
-export const QUOTE_ENDPOINT = 'https://formspree.io/f/REPLACE_ME_QUOTE';
+export const QUOTE_ENDPOINT = 'https://formspree.io/f/mykagaba';
 
 /** Canonical site origin — used for sitemap, robots, and JSON-LD. */
 export const SITE = {
