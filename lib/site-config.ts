@@ -44,7 +44,7 @@ export const SITE = {
   legalName: 'IDIVARTS Solutions Pvt Ltd',
   tagline: 'The AI social media tool for founders & small teams',
   email: 'support@idiv.in',
-  twitter: '@trendlynow',
+  twitter: '@trendly_collab',
 } as const;
 
 /**
