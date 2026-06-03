@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { posts } from '@/lib/posts';
-import { COMPARISONS } from '@/lib/site-config';
+import { COMPARISONS, SERVICES } from '@/lib/site-config';
 
 const BASE_URL = 'https://www.trendly.now';
 
@@ -11,6 +11,11 @@ const TOOLS = [
   'social-media-calendar-template',
   'best-time-to-post',
 ];
+
+// Deeper, keyword-specific sub-pages. Off the main nav, but kept in the sitemap
+// for SEO breadth (they target long-tail queries the consolidated pages don't).
+const PRODUCT_SUB = ['ai-strategy', 'content-calendar', 'creators', 'impulse'];
+const SOLUTION_SUB = ['founders', 'small-teams', 'agencies'];
 
 /**
  * Next.js 14 built-in sitemap generator.
@@ -25,8 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'] = 'monthly'
   ) => ({ url: `${BASE_URL}${path}`, lastModified: now, changeFrequency, priority });
 
-  // Consolidated 6-page IA. (Old /product/*, /solutions/*, /services/* sub-pages
-  // are orphaned and intentionally excluded from the sitemap.)
+  // Primary 6-page IA (the nav). Deeper sub-pages are added below for SEO.
   const staticRoutes: MetadataRoute.Sitemap = [
     entry('', 1.0, 'weekly'),
     entry('/product', 0.9, 'weekly'),
@@ -43,6 +47,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry('/data-deletion-instruction-page', 0.2, 'yearly'),
   ];
 
+  // Sub-pages kept indexed for SEO breadth (lower priority than the nav pages).
+  const subRoutes: MetadataRoute.Sitemap = [
+    ...PRODUCT_SUB.map((s) => entry(`/product/${s}`, 0.7, 'monthly')),
+    ...SOLUTION_SUB.map((s) => entry(`/solutions/${s}`, 0.7, 'monthly')),
+    ...SERVICES.map((s) => entry(`/services/${s.slug}`, 0.7, 'monthly')),
+  ];
+
   const compareRoutes: MetadataRoute.Sitemap = COMPARISONS.map((c) =>
     entry(`/compare/${c.slug}`, 0.8, 'monthly')
   );
@@ -56,5 +67,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...compareRoutes, ...toolRoutes, ...blogRoutes];
+  return [...staticRoutes, ...subRoutes, ...compareRoutes, ...toolRoutes, ...blogRoutes];
 }
