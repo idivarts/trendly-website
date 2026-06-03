@@ -1,49 +1,35 @@
 import Navbar from '@/components/Navbar';
-// Hero variants — swap which one is rendered below to A/B them:
-//   <Hero />            = full-width centered copy + static chat→calendar product window
-//   <HeroChat />        = actionable embedded chatbot (type or pick a goal), Manus-style
-//   <HeroWalkthrough /> = auto-playing product walkthrough cinema (types → strategy → calendar)
-import Hero from '@/components/Hero';
-import HeroChat from '@/components/HeroChat';
 import HeroWalkthrough from '@/components/HeroWalkthrough';
 import AIModels from '@/components/AIModels';
 import CreateWithAI from '@/components/CreateWithAI';
 import CollaborateOnAI from '@/components/CollaborateOnAI';
-import OneWorkspace from '@/components/OneWorkspace';
 import ScheduleEverywhere from '@/components/ScheduleEverywhere';
-import UnifiedInbox from '@/components/UnifiedInbox';
-import Impulse from '@/components/Impulse';
-import WhySwitch from '@/components/WhySwitch';
-import DoneForYou from '@/components/DoneForYou';
-import Pricing from '@/components/Pricing';
-import Testimonials from '@/components/Testimonials';
-import FAQ from '@/components/FAQ';
+import ProofBar from '@/components/ProofBar';
+import PricingTeaser from '@/components/PricingTeaser';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
 import JsonLd, { organizationSchema, softwareApplicationSchema } from '@/components/JsonLd';
 
+// Homepage = curiosity → demo/signup. One job. The deep content (full FAQ,
+// pricing table, comparison, Impulse deep-dive, services) lives on its own
+// pages and is linked, not inlined here.
 export default function Page() {
   return (
     <main className="overflow-x-hidden">
       <JsonLd data={[organizationSchema(), softwareApplicationSchema()]} />
       <Navbar />
+      {/* Hero — headline + subtext + CTA + a live product walkthrough */}
       <HeroWalkthrough />
-      {/* The differentiator: every AI model in one place */}
+      {/* The problem + what Trendly is: every AI model in one workspace */}
       <AIModels />
-      {/* Create → collaborate → consolidate → schedule → engage */}
+      {/* 3 features shown as UI moments */}
       <CreateWithAI />
       <CollaborateOnAI />
-      <OneWorkspace />
       <ScheduleEverywhere />
-      <UnifiedInbox />
-      {/* Convert: comment-to-cart automation */}
-      <Impulse />
-      {/* Why us + done-for-you + convert */}
-      <WhySwitch />
-      <DoneForYou />
-      <Pricing />
-      <Testimonials />
-      <FAQ />
+      {/* Honest social proof + a one-line pricing teaser */}
+      <ProofBar />
+      <PricingTeaser />
+      {/* One final CTA */}
       <CTA />
       <Footer />
     </main>

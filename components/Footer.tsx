@@ -5,30 +5,21 @@ import Logo from './Logo';
 
 const cols = [
   {
-    title: 'Product',
+    title: 'Platform',
     links: [
-      { label: 'AI Strategy Engine', href: '/product/ai-strategy' },
-      { label: 'Content Calendar', href: '/product/content-calendar' },
-      { label: 'Creator Campaigns', href: '/product/creators' },
-      { label: 'Impulse — comment-to-cart', href: '/product/impulse' },
+      { label: 'Product', href: '/product' },
+      { label: 'Solutions', href: '/solutions' },
+      { label: 'Pricing', href: '/pricing' },
+      { label: 'Services', href: '/services' },
     ],
   },
   {
-    title: 'Services',
+    title: 'Free tools',
     links: [
-      { label: 'End-to-end marketing', href: '/services' },
-      { label: 'Influencer-led growth', href: '/services/influencer-led-growth' },
-      { label: 'Paid ads management', href: '/services/paid-ads' },
-      { label: 'Performance marketing', href: '/services/performance-marketing' },
-    ],
-  },
-  {
-    title: 'For you',
-    links: [
-      { label: 'For founders', href: '/solutions/founders' },
-      { label: 'For small teams', href: '/solutions/small-teams' },
-      { label: 'For agencies', href: '/solutions/agencies' },
-      { label: 'Free tools', href: '/tools' },
+      { label: 'Caption Generator', href: '/tools/instagram-caption-generator' },
+      { label: 'Content Idea Generator', href: '/tools/content-idea-generator' },
+      { label: 'Hook Generator', href: '/tools/hook-generator' },
+      { label: 'All free tools', href: '/tools' },
     ],
   },
   {
@@ -121,7 +112,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:col-span-7">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-7">
             {cols.map((c) => (
               <div key={c.title}>
                 <div className="text-xs font-bold uppercase tracking-[0.2em] text-white">{c.title}</div>

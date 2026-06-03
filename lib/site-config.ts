@@ -70,33 +70,13 @@ export const PROOF = {
 export type NavChild = { label: string; href: string; desc?: string };
 export type NavItem = { label: string; href?: string; children?: NavChild[] };
 
+// IA consolidated to 6 core marketing pages (co-founder feedback): Home,
+// Product, Solutions, Services, Pricing, About. Product/Solutions/Services are
+// now single pages (their old sub-pages are orphaned — not in nav/sitemap).
 export const NAV: NavItem[] = [
-  {
-    label: 'Product',
-    children: [
-      { label: 'AI Strategy Engine', href: '/product/ai-strategy', desc: 'Every AI model, one workspace — strategy & ideas' },
-      { label: 'Content Calendar', href: '/product/content-calendar', desc: 'Create, collaborate & schedule everywhere' },
-      { label: 'Creator Campaigns', href: '/product/creators', desc: 'Activate 10,000+ creators' },
-      { label: 'Impulse — comment-to-cart', href: '/product/impulse', desc: 'AI turns comments & DMs into sales, instantly' },
-    ],
-  },
-  {
-    label: 'Solutions',
-    children: [
-      { label: 'For founders', href: '/solutions/founders', desc: 'You are the founder and the marketing team' },
-      { label: 'For small teams', href: '/solutions/small-teams', desc: 'One source of truth for 2–3 person teams' },
-      { label: 'For agencies', href: '/solutions/agencies', desc: 'Run clients at scale, or partner to fill your gaps' },
-    ],
-  },
-  {
-    label: 'Services',
-    children: [
-      { label: 'End-to-end marketing', href: '/services', desc: 'Done-for-you growth — we run it with you' },
-      { label: 'Influencer-led growth', href: '/services/influencer-led-growth', desc: 'We source, brief & run creator campaigns' },
-      { label: 'Paid ads management', href: '/services/paid-ads', desc: 'Ads across Meta, Google, TikTok & more' },
-      { label: 'Performance marketing', href: '/services/performance-marketing', desc: 'ROI-focused growth across the funnel' },
-    ],
-  },
+  { label: 'Product', href: '/product' },
+  { label: 'Solutions', href: '/solutions' },
+  { label: 'Services', href: '/services' },
   { label: 'Pricing', href: '/pricing' },
   {
     label: 'Tools',
@@ -113,8 +93,8 @@ export const NAV: NavItem[] = [
     label: 'Resources',
     children: [
       { label: 'Blog', href: '/blog', desc: 'Strategy, content & creator playbooks' },
-      { label: 'Compare', href: '/compare/trendly-vs-buffer', desc: 'Trendly vs Buffer, Later, Hootsuite…' },
       { label: 'About', href: '/about', desc: 'Why we built Trendly' },
+      { label: 'Compare', href: '/compare/trendly-vs-buffer', desc: 'Trendly vs Buffer, Later, Hootsuite…' },
     ],
   },
 ];

@@ -1,57 +1,71 @@
-import Link from 'next/link';
 import PageShell, { PageHero } from '@/components/PageShell';
 import ScrollReveal from '@/components/ScrollReveal';
 import ManagedServices from '@/components/ManagedServices';
 import QuoteForm from '@/components/QuoteForm';
 import CTA from '@/components/CTA';
-import JsonLd, { breadcrumbSchema, faqSchema } from '@/components/JsonLd';
-import { LINKS, PROOF, SERVICES } from '@/lib/site-config';
+import JsonLd, { breadcrumbSchema } from '@/components/JsonLd';
+import { LINKS, PROOF } from '@/lib/site-config';
 
 export const metadata = {
-  title: 'Done-For-You Social Media Marketing | Marketing Agency for Startups — Trendly',
+  title: 'Done-for-you social media marketing | Marketing agency for startups — Trendly',
   description:
-    'Done-for-you social media marketing for startups. The Trendly team runs your growth with you — influencer campaigns, paid ads, and performance marketing — with transparent, line-by-line pricing you pay from the app. No bloated retainers.',
+    'Trendly is the software — and a team that runs your growth with you. Influencer-led campaigns, paid ads, and performance marketing, with transparent line-by-line pricing you pay from the app. No retainers.',
 };
+
+const services = [
+  {
+    t: 'Influencer-led growth',
+    d: 'We source, vet, brief, and run creator campaigns end-to-end — using our 10,000+ creator network. We handle outreach, contracts, deliverables, and payments, so you stay in approvals only.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="9" cy="7" r="4" />
+        <circle cx="17" cy="11" r="3" />
+        <path d="M2 21c0-3.9 3.1-7 7-7 2 0 3.8.8 5.1 2.1" />
+        <path d="M21 21c0-2.8-1.8-5-4-5" />
+      </svg>
+    ),
+  },
+  {
+    t: 'Paid ads management',
+    d: 'We plan, launch, and optimize ads across Meta, Google, TikTok, and more — so spend turns into customers, not guesswork. Tracking, creative, targeting, and budget, watched daily.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+      </svg>
+    ),
+  },
+  {
+    t: 'Performance marketing',
+    d: 'Full-funnel, ROI-focused growth run as one system — ads, creators, landing pages, and conversion, measured to revenue. The pieces working together instead of in silos.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 3v18h18" />
+        <path d="m19 9-5 5-4-4-3 3" />
+      </svg>
+    ),
+  },
+];
 
 const how = [
   {
     n: '01',
-    t: 'You pick the scope',
-    d: 'Choose exactly what you want off your plate — a single channel or end-to-end growth. Nothing you don\'t need gets bundled in.',
+    t: 'Scope',
+    d: 'You pick exactly what you want off your plate — one channel or end-to-end. Nothing you don\'t need gets bundled in.',
   },
   {
     n: '02',
-    t: 'We send a clear quote',
-    d: 'You get a transparent, line-by-line quote within 24 hours. No retainers, no vague "marketing package" — you see what every line costs.',
+    t: 'Quote',
+    d: 'You get a transparent, line-by-line quote within 24 hours. No retainers, no vague "package" — you see what every line costs.',
   },
   {
     n: '03',
-    t: 'We run it with you',
-    d: 'Once you approve, our team executes inside your Trendly workspace — sourcing creators, launching ads, building the funnel — alongside you.',
+    t: 'Execute',
+    d: 'Once you approve, our team runs it inside your Trendly workspace — sourcing creators, launching ads, building the funnel.',
   },
   {
     n: '04',
-    t: 'You see the report',
-    d: 'A clear performance report every cycle: what worked, what didn\'t, and what we\'re changing next. You always know where your money went.',
-  },
-];
-
-const faqs = [
-  {
-    q: 'How is this different from a marketing agency?',
-    a: 'Most agencies lock you into a long-term retainer with a vague scope. Trendly is software first — you pick exactly what you want done, get a transparent line-by-line quote, and pay from the app with no long-term contract. The same team that built the platform runs the work inside it, so you have full visibility instead of a black box.',
-  },
-  {
-    q: 'What can the Trendly team run for me?',
-    a: 'Influencer-led growth (we source, vet, brief and run creator campaigns), paid ads management (Meta, Google, TikTok and more), and full-funnel performance marketing that ties ads, creators, and conversion together. You can take one service or combine them — and you can also have us handle pieces like strategy, content writing, and community management.',
-  },
-  {
-    q: 'How much does it cost?',
-    a: `It depends entirely on the scope you choose, which is why we send a clear, itemized quote within 24 hours rather than a fixed "package" price. You review it, approve what you want, and pay directly inside the app. ${PROOF.riskReversal}.`,
-  },
-  {
-    q: 'Do I still need the Trendly software?',
-    a: 'The work runs inside your Trendly workspace, so you keep the strategy, calendar, and campaigns in one place even when our team is executing. You can also use Trendly entirely self-serve and only bring us in for the parts you want off your plate.',
+    t: 'Report',
+    d: 'A clear report every cycle: what worked, what didn\'t, and what we\'re changing next. You always know where your money went.',
   },
 ];
 
@@ -64,15 +78,14 @@ export default function ServicesPage() {
             { name: 'Home', path: '/' },
             { name: 'Services', path: '/services' },
           ]),
-          faqSchema(faqs),
         ]}
       />
 
       <PageHero
-        eyebrow="Done-for-you marketing"
-        title="Want it all run for you? We do that too."
-        highlight="run for you"
-        subtitle="Trendly is the software — and a team that runs growth with you. Done-for-you social media marketing for startups, with transparent, line-by-line pricing you pay from the app. No bloated retainers."
+        eyebrow="Services"
+        title="Rather have us run it?"
+        highlight="run it"
+        subtitle="Trendly is the software — and a team that runs growth with you. Done-for-you social media marketing for startups, with transparent, line-by-line pricing you pay from the app."
       />
 
       {/* CTAs under hero */}
@@ -83,46 +96,52 @@ export default function ServicesPage() {
               <a href="#quote" className="btn-primary">Get a quote</a>
               <a href={LINKS.BOOK_DEMO} className="btn-ghost">Book a call</a>
             </div>
-            <p className="text-xs text-slate-500">{PROOF.brandsLabel}</p>
+            <p className="text-xs text-slate-500">{PROOF.riskReversal}</p>
           </div>
         </div>
       </section>
 
-      {/* ── Positioning ── */}
-      <section className="py-20">
+      {/* ── Opening positioning ── */}
+      <section className="py-16 sm:py-24">
         <div className="container-px">
           <ScrollReveal className="mx-auto max-w-2xl text-center">
             <span className="section-eyebrow">Software + a team</span>
-            <h2 className="h-display mt-3 text-4xl sm:text-5xl">
-              Not an agency.{' '}
-              <span className="text-gradient-animated">A team inside your workspace.</span>
+            <h2 className="h-display mt-3 text-3xl sm:text-4xl">
+              We don’t just sell software.{' '}
+              <span className="text-gradient-animated">We run the marketing.</span>
             </h2>
             <p className="mt-4 text-slate-600">
-              Self-serve software is great until you don't have the time. When you'd rather have growth
-              run end-to-end, the team behind Trendly steps in — executing inside the same workspace you
-              already use, with pricing you approve line by line and pay from the app. No retainers. No surprises.
+              Self-serve Trendly is great until you don’t have the time. When you’d rather have growth
+              run for you, the team behind the platform steps in — executing inside the same workspace you
+              already use, with pricing you approve line by line and pay from the app. No retainers, no surprises.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ── The 3 services ── */}
+      <section className="py-16 sm:py-24">
+        <div className="container-px">
+          <ScrollReveal className="mx-auto max-w-2xl text-center">
+            <span className="section-eyebrow">What we run</span>
+            <h2 className="h-display mt-3 text-3xl sm:text-4xl">
+              Three ways we drive{' '}
+              <span className="bg-gradient-brand bg-clip-text text-transparent">growth</span>
+            </h2>
+            <p className="mt-4 text-slate-600">
+              Take one or combine them into full-funnel growth. Every engagement is scoped and priced transparently.
             </p>
           </ScrollReveal>
 
-          <div className="mt-14 grid gap-4 md:grid-cols-3">
-            {[
-              {
-                t: 'Transparent, not retainer',
-                d: 'You get an itemized quote for exactly the scope you pick — and pay it inside the app. No locked-in monthly minimum.',
-              },
-              {
-                t: 'Run inside your workspace',
-                d: 'We execute in your Trendly account, so strategy, calendar, and campaigns stay in one place — fully visible to you.',
-              },
-              {
-                t: 'A real track record',
-                d: `${PROOF.brandsLabel}, with ${PROOF.creators} creators in the network. The team running your growth has done this before.`,
-              },
-            ].map((c, i) => (
-              <ScrollReveal key={c.t} direction="scale" delay={i * 90}>
-                <div className="group relative h-full overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-2 hover:border-brand-200 hover:shadow-glow">
-                  <h3 className="text-lg font-bold text-slate-900">{c.t}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{c.d}</p>
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {services.map((s, i) => (
+              <ScrollReveal key={s.t} direction="up" delay={i * 80} distance={28}>
+                <div className="flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 transition hover:-translate-y-2 hover:shadow-glow">
+                  <span className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-brand text-white shadow-glow">
+                    <span className="h-5 w-5">{s.icon}</span>
+                  </span>
+                  <h3 className="mt-5 text-lg font-bold text-slate-900">{s.t}</h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{s.d}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -130,52 +149,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ── The 3 services ── */}
-      <section className="py-12">
-        <div className="container-px">
-          <ScrollReveal className="mx-auto max-w-2xl text-center">
-            <span className="section-eyebrow">What we run</span>
-            <h2 className="h-display mt-3 text-3xl sm:text-4xl">
-              Three ways we drive growth for startups
-            </h2>
-            <p className="mt-4 text-slate-600">
-              Take one service or combine them into full-funnel growth. Every engagement is scoped and
-              priced transparently.
-            </p>
-          </ScrollReveal>
-
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
-            {SERVICES.map((s, i) => (
-              <ScrollReveal key={s.slug} direction="up" delay={i * 80} distance={28}>
-                <Link
-                  href={`/services/${s.slug}`}
-                  className="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 transition hover:-translate-y-2 hover:shadow-glow"
-                >
-                  <span className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-brand text-white shadow-glow">
-                    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                      <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-                    </svg>
-                  </span>
-                  <h3 className="mt-5 text-lg font-bold text-slate-900">{s.title}</h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{s.tagline}</p>
-                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-700">
-                    Learn more
-                    <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                      <path d="M5 12h14M13 6l6 6-6 6" />
-                    </svg>
-                  </span>
-                </Link>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Build-your-plan (existing component) ── */}
-      <ManagedServices />
-
-      {/* ── How engagement works ── */}
-      <section className="py-20">
+      {/* ── How it works ── */}
+      <section className="py-16 sm:py-24">
         <div className="container-px">
           <ScrollReveal className="mx-auto max-w-2xl text-center">
             <span className="section-eyebrow">How it works</span>
@@ -184,7 +159,7 @@ export default function ServicesPage() {
               <span className="bg-gradient-brand bg-clip-text text-transparent">report</span>
             </h2>
             <p className="mt-4 text-slate-600">
-              No long onboarding, no agency theater. Four simple steps from "I want this off my plate" to results you can see.
+              No long onboarding, no agency theater. Four steps from "I want this off my plate" to results you can see.
             </p>
           </ScrollReveal>
 
@@ -202,54 +177,29 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ── FAQ ── */}
-      <section className="py-12">
-        <div className="container-px mx-auto max-w-3xl">
-          <ScrollReveal className="text-center">
-            <span className="section-eyebrow">FAQ</span>
-            <h2 className="h-display mt-3 text-3xl sm:text-4xl">Done-for-you questions</h2>
-          </ScrollReveal>
-          <div className="mt-10 space-y-4">
-            {faqs.map((f, i) => (
-              <ScrollReveal key={f.q} direction="up" delay={i * 50} distance={20}>
-                <div className="rounded-3xl border border-slate-200 bg-white p-6">
-                  <h3 className="text-base font-bold text-slate-900">{f.q}</h3>
-                  <p className="mt-2 text-sm text-slate-600">{f.a}</p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ── Build your plan (pick-what-you-want builder) ── */}
+      <ManagedServices />
 
-      {/* ── Inline quote form ── */}
+      {/* ── Inline quote form (id="quote") ── */}
       <QuoteForm />
 
-      {/* ── Internal links ── */}
-      <section className="pb-8">
+      {/* ── Trust signals ── */}
+      <section className="py-16 sm:py-24">
         <div className="container-px">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { href: '/services/influencer-led-growth', t: 'Influencer-led growth', d: 'We source, vet, brief and run creator campaigns end-to-end.' },
-              { href: '/services/paid-ads', t: 'Paid ads management', d: 'Ads across Meta, Google, TikTok and more — spend that converts.' },
-              { href: '/services/performance-marketing', t: 'Performance marketing', d: 'Full-funnel growth measured to revenue.' },
-              { href: '/solutions/founders', t: 'For founders', d: 'Prefer to run it yourself? See Trendly for solo founders.' },
-            ].map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                className="group rounded-3xl border border-slate-200 bg-white p-6 transition hover:-translate-y-2 hover:shadow-glow"
-              >
-                <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-bold text-slate-900">{l.t}</h3>
-                  <svg className="h-4 w-4 flex-none text-brand-600 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                    <path d="M5 12h14M13 6l6 6-6 6" />
-                  </svg>
+          <ScrollReveal>
+            <div className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-3">
+              {[
+                { t: PROOF.brandsLabel, d: 'A team that has done this before.' },
+                { t: 'Transparent, line-by-line pricing', d: 'You see what every line costs.' },
+                { t: 'No retainers, cancel anytime', d: 'Pay for the scope you pick, from the app.' },
+              ].map((s) => (
+                <div key={s.t} className="rounded-3xl border border-slate-200 bg-white p-6 text-center">
+                  <p className="text-sm font-bold text-slate-900">{s.t}</p>
+                  <p className="mt-1.5 text-xs text-slate-600">{s.d}</p>
                 </div>
-                <p className="mt-2 text-xs text-slate-600">{l.d}</p>
-              </Link>
-            ))}
-          </div>
+              ))}
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
