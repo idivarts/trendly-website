@@ -48,8 +48,8 @@ export const metadata: Metadata = {
   // ── Twitter / X ───────────────────────────────────────────────────────────
   twitter: {
     card: 'summary_large_image',
-    site: '@trendlynow',
-    creator: '@trendlynow',
+    site: '@trendly_collab',
+    creator: '@trendly_collab',
     title: 'Trendly — The AI Social Media Tool for Founders & Teams Worldwide',
     description:
       'Every AI model in one social media workspace: generate posts, images & scripts, plan a calendar in one click, schedule everywhere, and manage every comment & DM in one inbox.',

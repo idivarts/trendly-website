@@ -25,9 +25,10 @@ export function organizationSchema() {
     url: SITE.origin,
     logo: `${SITE.origin}/logo.png`,
     sameAs: [
-      'https://www.instagram.com/trendly_collab',
-      'https://www.linkedin.com/showcase/105144641',
-      'https://www.facebook.com/trendly.pro/',
+      'https://www.instagram.com/trendly_social_planner/',
+      'https://www.linkedin.com/company/trendly-collab',
+      'https://www.facebook.com/trendly.for.brands/',
+      'https://x.com/trendly_collab',
     ],
   };
 }

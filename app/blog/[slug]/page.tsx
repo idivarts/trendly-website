@@ -37,7 +37,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     },
     twitter: {
       card: 'summary_large_image',
-      site: '@trendlynow',
+      site: '@trendly_collab',
       title: post.title,
       description: post.metaDescription,
       images: post.imageUrl ? [post.imageUrl] : ['/logo.png'],

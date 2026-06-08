@@ -36,7 +36,7 @@ const cols = [
 const socials: { label: string; href: string; icon: React.ReactNode }[] = [
   {
     label: 'Instagram',
-    href: 'https://www.instagram.com/trendly_collab',
+    href: 'https://www.instagram.com/trendly_social_planner/',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <rect x="3" y="3" width="18" height="18" rx="5" />
@@ -47,7 +47,7 @@ const socials: { label: string; href: string; icon: React.ReactNode }[] = [
   },
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/showcase/105144641',
+    href: 'https://www.linkedin.com/company/trendly-collab',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor">
         <path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.06c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.4c0-1.3 0-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21h-4z" />
@@ -55,8 +55,17 @@ const socials: { label: string; href: string; icon: React.ReactNode }[] = [
     ),
   },
   {
+    label: 'X',
+    href: 'https://x.com/trendly_collab',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+      </svg>
+    ),
+  },
+  {
     label: 'Facebook',
-    href: 'https://www.facebook.com/trendly.pro/',
+    href: 'https://www.facebook.com/trendly.for.brands/',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor">
         <path d="M22 12a10 10 0 1 0-11.6 9.9V15H8v-3h2.4V9.6c0-2.4 1.4-3.8 3.6-3.8 1 0 2.1.2 2.1.2v2.3H15c-1.2 0-1.6.7-1.6 1.5V12h2.7l-.4 3h-2.3v6.9A10 10 0 0 0 22 12z" />
