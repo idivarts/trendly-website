@@ -5,7 +5,7 @@ import NewsletterForm from '@/components/NewsletterForm';
 export const metadata = {
   title: 'Blog — Trendly',
   description:
-    'Tips, tricks, and updates for influencer marketing — written for Indian D2C startups and creators.',
+    'Tips, tactics, and updates on AI social media marketing — written for founders and marketing teams worldwide.',
 };
 
 export default function BlogIndex() {

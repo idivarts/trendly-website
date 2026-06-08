@@ -37,11 +37,11 @@ const faqs = [
   },
   {
     q: 'What does the free plan include?',
-    a: 'The free plan gives you 1 seat, 1 workspace, 15 scheduled posts per month, 5 AI strategy credits, and 10 creator searches. It never expires — a good way to explore the platform before upgrading.',
+    a: 'The free plan gives you 1 brand, 1 seat, 20 AI credits per month, and 10 creator lookups. It never expires — a good way to explore the platform before upgrading.',
   },
   {
     q: 'Can I cancel or change my plan anytime?',
-    a: 'Yes. All monthly plans are cancel-anytime with no contracts. Annual plans are billed upfront and are non-refundable after a 7-day window. You can upgrade or downgrade at any time; changes take effect at the next billing cycle.',
+    a: 'Yes. Plans are billed monthly in USD and are cancel-anytime with no contracts or long-term commitments. You can upgrade or downgrade at any time; changes take effect at the next billing cycle.',
   },
 ];
 

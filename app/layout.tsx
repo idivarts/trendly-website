@@ -6,11 +6,11 @@ import './globals.css';
 export const metadata: Metadata = {
   // ── Core ──────────────────────────────────────────────────────────────────
   title: {
-    default: 'Trendly — The AI Social Media Tool for Founders & Small Teams',
+    default: 'Trendly — The AI Social Media Tool for Founders & Teams Worldwide',
     template: '%s — Trendly',
   },
   description:
-    'Trendly is the AI social media management tool that brings GPT, Claude & Gemini into one workspace. Generate posts, images & scripts, plan a calendar in one click, schedule to every platform, and manage all comments & DMs in one inbox. Free forever, no credit card.',
+    'Trendly is the AI social media management tool that brings GPT, Claude & Gemini into one workspace. Built for founders and teams worldwide: generate posts, images & scripts, plan a calendar in one click, schedule to every platform, and manage all comments & DMs in one inbox. Free forever, no credit card.',
   metadataBase: new URL('https://www.trendly.now'),
   // ── Canonical & indexing ──────────────────────────────────────────────────
   alternates: {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   // ── Open Graph ────────────────────────────────────────────────────────────
   openGraph: {
-    title: 'Trendly — The AI Social Media Tool for Founders & Small Teams',
+    title: 'Trendly — The AI Social Media Tool for Founders & Teams Worldwide',
     description:
       'Every AI model in one social media workspace: generate posts, images & scripts, plan a calendar in one click, schedule everywhere, and manage every comment & DM in one inbox.',
     url: 'https://www.trendly.now',
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@trendlynow',
     creator: '@trendlynow',
-    title: 'Trendly — The AI Social Media Tool for Founders & Small Teams',
+    title: 'Trendly — The AI Social Media Tool for Founders & Teams Worldwide',
     description:
       'Every AI model in one social media workspace: generate posts, images & scripts, plan a calendar in one click, schedule everywhere, and manage every comment & DM in one inbox.',
     images: ['/logo.png'],
@@ -65,6 +65,8 @@ export const metadata: Metadata = {
     'ai social media content generator',
     'social media tool for startups',
     'social media tool for small teams',
+    'ai social media tool for agencies',
+    'global social media management software',
     'buffer alternative',
   ],
   authors: [{ name: 'Trendly — IDIVARTS Solutions Pvt Ltd', url: 'https://www.trendly.now' }],

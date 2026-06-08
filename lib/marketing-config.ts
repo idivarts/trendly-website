@@ -15,7 +15,7 @@ export const MARKETING = {
   GOOGLE_ADS_ID: 'REPLACE_WITH_GOOGLE_ADS_ID',
 
   // LinkedIn Insight Tag — 7-8 digit number
-  LINKEDIN_PARTNER_ID: '10155273',
+  LINKEDIN_PARTNER_ID: '9466476',
 
   // Twitter / X pixel — short alphanumeric string e.g. o7abc
   TWITTER_PIXEL_ID: 'REPLACE_WITH_TWITTER_PIXEL_ID',

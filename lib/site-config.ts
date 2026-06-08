@@ -42,7 +42,7 @@ export const SITE = {
   name: 'Trendly',
   origin: 'https://www.trendly.now',
   legalName: 'IDIVARTS Solutions Pvt Ltd',
-  tagline: 'The AI social media tool for founders & small teams',
+  tagline: 'The AI social media tool for founders & teams worldwide',
   email: 'support@idiv.in',
   twitter: '@trendly_collab',
 } as const;

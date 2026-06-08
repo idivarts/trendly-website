@@ -21,15 +21,20 @@ A modern marketing site for **Trendly** (https://www.trendly.now). As of the
 > one workspace. (SEO target cluster: "AI social media tool / AI social media
 > management", not the lower-volume "marketing workspace".)
 
-- **ICP / audience**: US-based — (1) **solo founders**, (2) **small in-house
+- **ICP / audience**: **worldwide** — (1) **solo founders**, (2) **small in-house
   marketing teams (2–3)**, and (3) **agencies**. Agencies use Trendly two ways:
   run client social at scale on the SaaS subscription (multi-workspace,
   white-label **Agency** tier), **and** in **coalition/partnership** — an ads
   agency plugs in Trendly for content & strategy; a content/strategy shop
   partners with Trendly for ads & performance marketing. The SaaS subscription
   is always available regardless.
-- **Market**: US-first. **USD pricing.** (See the legacy exception under
-  *Deprecated / legacy surfaces* below.)
+- **Market**: **Global / worldwide.** **USD pricing everywhere**, billed monthly
+  (no annual plans). Trust is earned by leaning on the global tech Trendly is
+  built on (OpenAI, Anthropic, Google, Meta) + global platform coverage + the
+  verified `PROOF` track record — **never** fabricated customer logos. (See the
+  legacy exception under *Deprecated / legacy surfaces* below.) Do **not**
+  reintroduce "US-first/US-only" framing — the site is positioned for founders
+  and teams anywhere in the world.
 - **The wedge — TWO pillars the homepage leads with (emphasize these everywhere):**
   1. **Every AI model in one place.** GPT, Claude, Gemini, ElevenLabs, Flux,
      Perplexity in one workspace; Trendly routes each task to the best model.
@@ -178,6 +183,7 @@ trendly-website/
 │   ├── Logo.tsx            # SVG logo + wordmark (`dark` prop)
 │   ├── Hero.tsx            # Homepage hero — calendar/post preview + ParallaxOrbs + PROOF
 │   ├── LogosMarquee.tsx    # Honest trust bar: supported CHANNELS + team track record (no fake logos)
+│   ├── BuiltOnGlobalTech.tsx # Homepage global-trust band: AI makers (AI_MODELS) + platforms (SOCIALS) + worldwide/USD — honest, no fake logos
 │   ├── HowItWorks.tsx      # Strategy → Calendar → Publish → Creators
 │   ├── Features.tsx        # Alternating feature blocks (AI strategy / calendar+workflow / creators)
 │   ├── Impulse.tsx         # Homepage teaser for the Impulse (comment-to-cart) product
@@ -335,19 +341,27 @@ follow the heading/eyebrow/gradient + mock-visual pattern above.
 
 ---
 
-## Pricing (USD)
+## Pricing (USD · monthly-only)
 
-In `components/Pricing.tsx` (the `plans` array; `/pricing` has the full table):
+In `components/Pricing.tsx` (the `plans` array; `/pricing` has the full table).
+Single value metric = **brands/workspaces per org**; everything metered draws
+from **one monthly "AI-credits" wallet** (the site never says "tokens"). Tracks
+the credit/subscription-revamp spec (v1 draft numbers).
 
-| Plan | Monthly | Annual (save 20%) | Notes |
+| Plan | Monthly | Brands · Seats · AI credits | Notes |
 |---|---|---|---|
-| **Free** | $0 | $0 | Free forever, no credit card |
-| **Starter** | $29 | $23 | Individuals / freelancers |
-| **Team** | $79 | $63 | **Most popular** |
-| **Agency** | $199 | $159 | White-label, client portal, API |
-| **Enterprise** | Custom | — | Separate row → `mailto:support@idiv.in` |
+| **Free** | $0 | 1 · 1 · 20/mo | Free forever, no credit card |
+| **Pro** | $29 | 1 · 2 · 200/mo | Solo founders / freelancers |
+| **Team** | $79 | 3 · 5 · 600/mo | **Most popular** |
+| **Agency** | Custom | Custom | Contact us — white-label, SSO/SAML, dedicated CSM, done-for-you services (absorbs the old Enterprise tier) → `mailto:support@idiv.in` |
 
-All CTAs go to `LINKS.BRAND_SIGNUP`. **USD only** on the main site — never ₹/INR.
+- **Monthly-only — no annual toggle / no annual discount.** Billed in USD,
+  worldwide. **No separate Enterprise row** (folded into Agency "contact us").
+- **"AI credit" = one AI action** (caption / image / script / creator lookup),
+  defined inline on `/pricing` and the homepage `Pricing`. Top-up packs for overage.
+- Free/Pro/Team CTAs go to `LINKS.BRAND_SIGNUP` (gated by `DISABLE_LOGIN_SIGNUP`);
+  the Agency card CTA is always **"Contact us"** → `mailto:support@idiv.in`
+  (never Book-a-demo-gated). **USD only** on the main site — never ₹/INR.
 
 ---
 

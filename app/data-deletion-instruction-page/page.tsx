@@ -48,7 +48,7 @@ export default function DataDeletionPage() {
           {
             heading: 'Legal exceptions',
             body: [
-              'We may retain certain data longer when required by Indian law — for example, invoices and tax records (typically retained for 7 years). These records are stored securely and are not used for any other purpose.',
+              'We may retain certain data longer when required by applicable law — for example, invoices and tax records, which our operating entity (IDIVARTS Solutions Pvt Ltd) is typically required to keep for up to 7 years. These records are stored securely and are not used for any other purpose.',
             ],
           },
           {

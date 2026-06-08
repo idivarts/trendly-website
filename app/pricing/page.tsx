@@ -5,41 +5,50 @@ import JsonLd, { breadcrumbSchema, faqSchema } from '@/components/JsonLd';
 import { PROOF } from '@/lib/site-config';
 
 export const metadata = {
-  title: 'Pricing — Social Media Tool Pricing for Founders & Small Teams',
+  title: 'Pricing — AI Social Media Tool Pricing for Founders & Teams Worldwide',
   description:
-    'Transparent USD pricing for solo founders and small in-house marketing teams. Start free forever, scale to Starter at $29/mo or Team at $79/mo. No credit card, cancel anytime.',
+    'Transparent USD pricing for founders and marketing teams anywhere in the world. Start free forever, scale to Pro at $29/mo or Team at $79/mo. Billed monthly, no credit card, cancel anytime.',
 };
 
 const compareRows = [
-  { feature: 'Team seats',          free: '1',           starter: '2',            team: '5',               agency: '15' },
-  { feature: 'Workspaces',          free: '1',           starter: '1',            team: '3',               agency: 'Unlimited' },
-  { feature: 'Scheduled posts/mo',  free: '15',          starter: 'Unlimited',    team: 'Unlimited',       agency: 'Unlimited' },
-  { feature: 'AI credits/mo',       free: '5',           starter: '50',           team: '300',             agency: '1,000' },
-  { feature: 'Content calendar',    free: '✓',           starter: '✓',            team: '✓',               agency: '✓' },
-  { feature: 'Team approvals',      free: '—',           starter: '✓',            team: '✓',               agency: '✓' },
-  { feature: 'Campaign management', free: '—',           starter: '—',            team: '✓',               agency: '✓' },
-  { feature: 'Creator discovery',   free: 'Basic',       starter: 'Basic',        team: 'Advanced',        agency: 'Advanced' },
-  { feature: 'Analytics & reports', free: 'Basic',       starter: 'Standard',     team: 'Standard',        agency: 'White-label' },
-  { feature: 'API access',          free: '—',           starter: '—',            team: '—',               agency: '✓' },
-  { feature: 'Priority support',    free: '—',           starter: 'Email',        team: 'Priority email',  agency: 'Dedicated CSM' },
+  { feature: 'Brands / workspaces',  free: '1',           pro: '1',                team: '3',               agency: 'Custom' },
+  { feature: 'Team seats',           free: '1',           pro: '2',                team: '5',               agency: 'Custom' },
+  { feature: 'AI credits / mo',      free: '20',          pro: '200',              team: '600',             agency: 'Custom' },
+  { feature: 'Creator lookups',      free: '10/mo',       pro: 'From credits',     team: 'From credits',    agency: 'Unlimited' },
+  { feature: 'Scheduling',           free: 'Basic',       pro: 'Full',             team: 'Full',            agency: 'Full' },
+  { feature: 'Content calendar',     free: '✓',           pro: '✓',                team: '✓',               agency: '✓' },
+  { feature: 'Team approvals',       free: '—',           pro: '—',                team: '✓',               agency: '✓' },
+  { feature: 'Campaign management',  free: '—',           pro: '—',                team: '✓',               agency: '✓' },
+  { feature: 'Analytics & reports',  free: 'Basic',       pro: 'Standard',         team: 'Full + team',     agency: 'White-label' },
+  { feature: 'SSO / SAML',           free: '—',           pro: '—',                team: '—',               agency: '✓' },
+  { feature: 'Done-for-you services', free: '—',          pro: '—',                team: '—',               agency: '✓' },
+  { feature: 'Support',              free: 'Community',    pro: 'Email',            team: 'Priority email',  agency: 'Dedicated CSM' },
 ];
 
 const faqs = [
   {
     q: 'Is the free plan really free?',
-    a: 'Yes — Free forever, no credit card required. You get 1 seat, 1 workspace, 15 scheduled posts a month, and 5 AI credits. Upgrade only when you need more seats, AI, or campaign features.',
+    a: 'Yes — Free forever, no credit card required. You get 1 brand, 1 seat, 20 AI credits a month, and 10 creator lookups. Upgrade only when you need more brands, seats, AI credits, or campaign features.',
   },
   {
-    q: 'Can I change or cancel my plan anytime?',
-    a: 'Yes. Monthly plans are cancel-anytime with no contracts. You can upgrade or downgrade whenever you like; changes take effect at your next billing cycle.',
+    q: 'What is an AI credit?',
+    a: 'One credit = one AI action — a generated caption, image, script, or creator lookup. Every plan shares a single monthly credit pool that refills on the 1st of the month. If you run out, you can buy top-up credit packs anytime.',
   },
   {
-    q: 'How does annual billing work?',
-    a: 'Annual plans are billed upfront and save you roughly 20% versus monthly. The lower per-month price shown on each card is the annual rate.',
+    q: 'Can I use Trendly outside the US?',
+    a: 'Yes. Trendly works for founders and teams anywhere in the world. All plans are priced and billed in USD, and you can subscribe from any country.',
   },
   {
-    q: 'Do you offer Enterprise or custom plans?',
-    a: 'Yes. Enterprise adds unlimited seats and workspaces, SSO/SAML, a dedicated success manager, and custom integrations — plus optional done-for-you services. Contact us for a quote.',
+    q: 'How does billing work?',
+    a: 'Plans are billed monthly in USD — there are no annual contracts or long-term commitments. You can upgrade, downgrade, or cancel anytime; changes take effect on your next billing cycle.',
+  },
+  {
+    q: 'Is there an in-app purchase on iOS?',
+    a: 'No. The iOS app is free to use, with no in-app purchase. When you want to upgrade, you do it on the web — just reach out to support and we will send you a secure upgrade link.',
+  },
+  {
+    q: 'Do you offer Agency or custom plans?',
+    a: 'Yes. The Agency plan adds custom brands and seats, white-label client reports and a client portal, SSO/SAML, a dedicated success manager, and optional done-for-you growth services. Contact us for a quote.',
   },
 ];
 
@@ -58,9 +67,9 @@ export default function PricingPage() {
 
       <PageHero
         eyebrow="Pricing"
-        title="Pricing built for founders and small teams"
-        highlight="founders and small teams"
-        subtitle="Start free and upgrade only when you need more AI, more seats, or campaign management. Cancel anytime — no contracts."
+        title="Pricing built for founders and teams worldwide"
+        highlight="founders and teams worldwide"
+        subtitle="Start free and upgrade only when you need more brands, seats, or AI credits. Billed monthly in USD, anywhere in the world. Cancel anytime — no contracts."
       />
 
       <p className="container-px -mt-8 text-center text-sm font-semibold text-slate-500">
@@ -83,7 +92,7 @@ export default function PricingPage() {
                 <tr className="text-left">
                   <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">Feature</th>
                   <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">Free</th>
-                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">Starter</th>
+                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">Pro</th>
                   <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-brand-700">Team</th>
                   <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">Agency</th>
                 </tr>
@@ -93,7 +102,7 @@ export default function PricingPage() {
                   <tr key={r.feature} className="hover:bg-brand-50/30">
                     <td className="px-6 py-3 font-semibold text-slate-800">{r.feature}</td>
                     <td className="px-6 py-3 text-slate-500">{r.free}</td>
-                    <td className="px-6 py-3 text-slate-600">{r.starter}</td>
+                    <td className="px-6 py-3 text-slate-600">{r.pro}</td>
                     <td className="px-6 py-3 font-semibold text-brand-700">{r.team}</td>
                     <td className="px-6 py-3 text-slate-600">{r.agency}</td>
                   </tr>
@@ -103,7 +112,7 @@ export default function PricingPage() {
           </div>
 
           <p className="mt-6 text-center text-xs text-slate-500">
-            All prices in USD. Annual billing saves ~20%. Enterprise (unlimited seats, SSO/SAML) available — contact us.
+            All prices in USD, billed monthly, available worldwide. Agency (custom brands &amp; seats, SSO/SAML, done-for-you services) — contact us.
           </p>
         </div>
       </section>

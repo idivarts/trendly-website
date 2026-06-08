@@ -5,7 +5,7 @@ import JsonLd, { breadcrumbSchema, organizationSchema, softwareApplicationSchema
 export const metadata = {
   title: 'About Trendly — The AI Social Media Tool for Founders',
   description:
-    'Built by the IDIVARTS team behind 100s of brand campaigns and a 10,000+ creator network, Trendly is the AI social media tool for solo founders and small in-house teams.',
+    'Built by the IDIVARTS team behind 100s of brand campaigns and a 10,000+ creator network, Trendly is the AI social media tool for founders and marketing teams worldwide.',
 };
 
 export default function AboutPage() {
@@ -26,7 +26,7 @@ export default function AboutPage() {
         eyebrow="Our story"
         title="We built the workspace we wished we had"
         highlight="workspace we wished we had"
-        subtitle="Trendly is an AI social media tool for solo founders and small in-house teams — built by the people behind 100s of brand campaigns and a 10,000+ creator network."
+        subtitle="Trendly is an AI social media tool for founders and marketing teams worldwide — built by the people behind 100s of brand campaigns and a 10,000+ creator network."
       />
 
       <section className="py-16 sm:py-24">

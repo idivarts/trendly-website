@@ -1,42 +1,43 @@
 'use client';
-import { useState } from 'react';
 import { LINKS, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 
 type Plan = {
   name: string;
   blurb: string;
-  monthly: number | 'free' | 'custom';
-  annually: number | 'free' | 'custom';
+  price: number | 'free' | 'custom';
   features: string[];
   cta: { label: string; href: string };
   popular?: boolean;
+  /** Sales-led tier — CTA is always "Contact us" (mailto), never gated/Book-a-demo. */
+  contact?: boolean;
 };
 
+// Single value metric = brands/workspaces per org; everything metered draws from
+// one monthly AI-credits wallet. Monthly-only (no annual). Numbers track the
+// credit/subscription revamp spec (v1 draft, USD, billed worldwide).
 const plans: Plan[] = [
   {
     name: 'Free',
-    blurb: 'For solo marketers exploring the platform',
-    monthly: 'free',
-    annually: 'free',
+    blurb: 'For founders exploring the platform',
+    price: 'free',
     features: [
-      '1 seat · 1 workspace',
-      '15 scheduled posts / month',
-      '5 AI strategy credits / month',
-      '10 creator searches / month',
+      '1 brand · 1 seat',
+      '20 AI credits / month',
+      '10 creator lookups / month',
+      'Basic scheduling',
       'Basic analytics',
     ],
     cta: { label: 'Start Free', href: LINKS.BRAND_SIGNUP },
   },
   {
-    name: 'Starter',
-    blurb: 'For individual marketers and freelancers',
-    monthly: 29,
-    annually: 23,
+    name: 'Pro',
+    blurb: 'For solo founders and freelancers',
+    price: 29,
     features: [
-      '2 seats · 2 workspaces',
-      'Unlimited scheduled posts',
-      '50 AI credits / month',
-      '100 creator searches / month',
+      '1 brand · 2 seats',
+      '200 AI credits / month',
+      'Creator lookups from credits',
+      'Full scheduling to every platform',
       'Standard analytics & reporting',
     ],
     cta: { label: 'Get Started', href: LINKS.BRAND_SIGNUP },
@@ -44,13 +45,11 @@ const plans: Plan[] = [
   {
     name: 'Team',
     blurb: 'For growing marketing teams',
-    monthly: 79,
-    annually: 63,
+    price: 79,
     features: [
-      '5 seats · 5 workspaces',
-      'Unlimited posts + scheduling',
-      '300 AI credits / month',
-      'Unlimited creator searches',
+      '3 brands · 5 seats',
+      '600 AI credits / month',
+      'Creator lookups from credits',
       'Campaign management & approvals',
       'Full analytics + team reporting',
     ],
@@ -59,24 +58,22 @@ const plans: Plan[] = [
   },
   {
     name: 'Agency',
-    blurb: 'For agencies managing multiple brands',
-    monthly: 199,
-    annually: 159,
+    blurb: 'For agencies running multiple brands',
+    price: 'custom',
     features: [
-      '15 seats · 15 workspaces',
-      'Everything in Team',
-      'White-label client reports',
-      'Client portal access',
-      'API access',
-      'Priority support',
+      'Custom brands & seats',
+      'Custom AI credits',
+      'Unlimited creator lookups',
+      'White-label client reports & portal',
+      'SSO / SAML · dedicated success manager',
+      'Done-for-you growth services available',
     ],
-    cta: { label: 'Get Started', href: LINKS.BRAND_SIGNUP },
+    cta: { label: 'Contact us', href: 'mailto:support@idiv.in' },
+    contact: true,
   },
 ];
 
 export default function Pricing() {
-  const [annual, setAnnual] = useState(true);
-
   return (
     <section id="pricing" className="relative py-12">
       <div className="container-px">
@@ -87,34 +84,12 @@ export default function Pricing() {
             Simple, <span className="text-gradient-animated">self-serve pricing</span>
           </h2>
           <p className="mt-4 text-slate-600">
-            All plans include a free trial. No contracts. Cancel anytime.
+            One plan for your whole team, worldwide. Billed monthly in USD. No contracts. Cancel anytime.
           </p>
-          <div className="mt-6 inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white p-1 shadow-sm">
-            <button
-              onClick={() => setAnnual(false)}
-              className={`rounded-full px-5 py-2 text-sm font-semibold transition ${
-                !annual ? 'bg-slate-900 text-white' : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              Monthly
-            </button>
-            <button
-              onClick={() => setAnnual(true)}
-              className={`flex items-center gap-2 rounded-full px-5 py-2 text-sm font-semibold transition ${
-                annual ? 'bg-slate-900 text-white' : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              Annually
-              <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-emerald-700">
-                Save 20%
-              </span>
-            </button>
-          </div>
         </div>
 
         <div className="mt-10 grid gap-5 lg:grid-cols-4">
           {plans.map((p) => {
-            const price = annual ? p.annually : p.monthly;
             const isPopular = p.popular;
             return (
               <div
@@ -134,19 +109,14 @@ export default function Pricing() {
                 <div className={`mt-1 text-xs ${isPopular ? 'text-white/80' : 'text-slate-500'}`}>{p.blurb}</div>
 
                 <div className="mt-6">
-                  {price === 'free' ? (
+                  {p.price === 'free' ? (
                     <div className={`text-4xl font-extrabold ${isPopular ? 'text-white' : 'text-slate-900'}`}>Free</div>
-                  ) : price === 'custom' ? (
+                  ) : p.price === 'custom' ? (
                     <div className={`text-4xl font-extrabold ${isPopular ? 'text-white' : 'text-slate-900'}`}>Custom</div>
                   ) : (
                     <div className="flex items-baseline gap-1">
-                      {annual && typeof p.monthly === 'number' && (
-                        <span className={`text-base line-through ${isPopular ? 'text-white/60' : 'text-slate-400'}`}>
-                          ${p.monthly}
-                        </span>
-                      )}
                       <span className={`text-4xl font-extrabold ${isPopular ? 'text-white' : 'text-slate-900'}`}>
-                        ${price}
+                        ${p.price}
                       </span>
                       <span className={`text-sm ${isPopular ? 'text-white/80' : 'text-slate-500'}`}>/mo</span>
                     </div>
@@ -171,54 +141,26 @@ export default function Pricing() {
                 </ul>
 
                 <a
-                  href={DISABLE_LOGIN_SIGNUP ? LINKS.BOOK_DEMO : p.cta.href}
+                  href={p.contact ? p.cta.href : DISABLE_LOGIN_SIGNUP ? LINKS.BOOK_DEMO : p.cta.href}
                   className={`mt-8 inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-sm font-semibold transition ${
                     isPopular
                       ? 'bg-white text-brand-700 hover:bg-slate-100'
                       : 'bg-slate-900 text-white hover:bg-brand-600'
                   }`}
                 >
-                  {DISABLE_LOGIN_SIGNUP ? 'Book a demo' : p.cta.label}
+                  {p.contact ? p.cta.label : DISABLE_LOGIN_SIGNUP ? 'Book a demo' : p.cta.label}
                 </a>
               </div>
             );
           })}
         </div>
 
-        {/* Enterprise / Custom plan */}
-        <div className="mt-6 rounded-3xl border border-slate-200 bg-white p-6 transition hover:border-brand-200 hover:shadow-soft sm:p-8">
-          <div className="flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-center">
-            <div>
-              <div className="text-sm font-bold text-slate-900">Enterprise / Custom</div>
-              <div className="mt-1 max-w-xl text-sm text-slate-600">
-                The platform plus done-for-you growth — scoped to your brand. Software, ads, and performance marketing under one custom plan.
-              </div>
-            </div>
-            <a href="mailto:support@idiv.in" className="shrink-0 rounded-full border border-slate-200 bg-white px-6 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-brand-300 hover:text-brand-700">
-              Contact us
-            </a>
-          </div>
-          <div className="mt-6 grid gap-x-6 gap-y-2.5 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              'Unlimited seats & workspaces',
-              'SSO / SAML',
-              'Dedicated success manager',
-              'Custom integrations',
-              'SLA',
-              'Website & full-funnel conversion audit',
-              'Ad running & management',
-              'Performance marketing',
-            ].map((f) => (
-              <div key={f} className="flex items-start gap-2">
-                <span className="mt-0.5 grid h-5 w-5 flex-none place-items-center rounded-full bg-brand-100 text-brand-700">
-                  <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M5 12l5 5L20 7" />
-                  </svg>
-                </span>
-                <span className="text-sm text-slate-700">{f}</span>
-              </div>
-            ))}
-          </div>
+        {/* What's an AI credit? — define the single value metric inline */}
+        <div className="mx-auto mt-8 max-w-3xl rounded-2xl border border-slate-200 bg-slate-50 p-5 text-center">
+          <p className="text-sm text-slate-600">
+            <span className="font-semibold text-slate-900">What&apos;s an AI credit?</span>{' '}
+            One credit = one AI action — a generated caption, image, script, or creator lookup. Every plan shares a single monthly credit pool that refills on the 1st. Need more? Top-up credit packs are available anytime.
+          </p>
         </div>
 
         <div className="mt-8 text-center">

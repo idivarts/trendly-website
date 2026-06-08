@@ -3,7 +3,7 @@ import LegalDoc from '@/components/LegalDoc';
 
 export const metadata = {
   title: 'Terms & Conditions — Trendly',
-  description: 'The terms governing the use of Trendly\'s influencer marketing platform.',
+  description: 'The terms governing the use of Trendly\'s AI social media platform.',
 };
 
 export default function TermsPage() {
@@ -30,9 +30,9 @@ export default function TermsPage() {
           {
             heading: 'Subscription & payments',
             body: [
-              'Trendly offers tiered subscription plans (Starter, Growth, Pro, Enterprise). Pricing is displayed on the pricing page in INR (₹) and is exclusive of applicable taxes.',
-              'Subscriptions auto-renew at the end of each billing cycle. You may cancel anytime — cancellations take effect at the end of the current billing period.',
-              'Influencer service fees are agreed and paid directly between you and the influencer. Trendly does not collect or hold those funds.',
+              'Trendly offers tiered subscription plans (Free, Pro, Team, Agency). Paid plans are displayed on the pricing page in US Dollars (USD), billed monthly, and are exclusive of any applicable taxes.',
+              'Subscriptions auto-renew at the end of each monthly billing cycle. You may cancel anytime — cancellations take effect at the end of the current billing period.',
+              'Where you engage creators through Trendly, any creator service fees are agreed and paid as set out in the applicable order; Trendly does not act as your marketing or PR agency.',
             ],
           },
           {

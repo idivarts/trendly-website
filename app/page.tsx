@@ -5,6 +5,7 @@ import CreateWithAI from '@/components/CreateWithAI';
 import CollaborateOnAI from '@/components/CollaborateOnAI';
 import ScheduleEverywhere from '@/components/ScheduleEverywhere';
 import ProofBar from '@/components/ProofBar';
+import BuiltOnGlobalTech from '@/components/BuiltOnGlobalTech';
 import PricingTeaser from '@/components/PricingTeaser';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
@@ -26,8 +27,9 @@ export default function Page() {
       <CreateWithAI />
       <CollaborateOnAI />
       <ScheduleEverywhere />
-      {/* Honest social proof + a one-line pricing teaser */}
+      {/* Honest social proof + global trust (world-class AI, every platform, worldwide) */}
       <ProofBar />
+      <BuiltOnGlobalTech />
       <PricingTeaser />
       {/* One final CTA */}
       <CTA />

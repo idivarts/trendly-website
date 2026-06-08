@@ -41,7 +41,7 @@ export function softwareApplicationSchema() {
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web, iOS, Android',
     description:
-      'Trendly is an AI social media tool for founders and small teams — every AI model in one workspace to generate posts, plan a calendar in one click, schedule to every platform, and manage all comments and DMs in one inbox.',
+      'Trendly is an AI social media tool for founders and marketing teams worldwide — every AI model in one workspace to generate posts, plan a calendar in one click, schedule to every platform, and manage all comments and DMs in one inbox.',
     offers: {
       '@type': 'Offer',
       price: '0',
