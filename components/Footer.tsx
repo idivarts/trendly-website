@@ -47,7 +47,7 @@ const socials: { label: string; href: string; icon: React.ReactNode }[] = [
   },
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/company/trendly-collab',
+    href: 'https://www.linkedin.com/company/trendly-social-planner',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor">
         <path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.06c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.4c0-1.3 0-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21h-4z" />
@@ -65,7 +65,7 @@ const socials: { label: string; href: string; icon: React.ReactNode }[] = [
   },
   {
     label: 'Facebook',
-    href: 'https://www.facebook.com/trendly.for.brands/',
+    href: 'https://www.facebook.com/trendly.social.planner/',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor">
         <path d="M22 12a10 10 0 1 0-11.6 9.9V15H8v-3h2.4V9.6c0-2.4 1.4-3.8 3.6-3.8 1 0 2.1.2 2.1.2v2.3H15c-1.2 0-1.6.7-1.6 1.5V12h2.7l-.4 3h-2.3v6.9A10 10 0 0 0 22 12z" />

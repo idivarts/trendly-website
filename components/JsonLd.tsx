@@ -26,8 +26,8 @@ export function organizationSchema() {
     logo: `${SITE.origin}/logo.png`,
     sameAs: [
       'https://www.instagram.com/trendly_social_planner/',
-      'https://www.linkedin.com/company/trendly-collab',
-      'https://www.facebook.com/trendly.for.brands/',
+      'https://www.linkedin.com/company/trendly-social-planner',
+      'https://www.facebook.com/trendly.social.planner/',
       'https://x.com/trendly_collab',
     ],
   };
