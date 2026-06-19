@@ -2,9 +2,9 @@ export default function Logo({ className = '', dark = false }: { className?: str
   return (
     <div className={`flex items-center ${className}`}>
       <img
-        src="/trendly-primary-horizontal-dark.png"
+        src={dark ? '/trendly-primary-horizontal-white.png' : "/trendly-primary-horizontal-dark.png"}
         alt="Trendly"
-        className={`h-10 w-auto object-contain${dark ? ' brightness-0 invert' : ''}`}
+        className={`h-10 w-auto object-contain`}
       />
     </div>
   );
