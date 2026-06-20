@@ -20,7 +20,7 @@ export const LINKS = {
  * button already sits beside it, replaced with a "Book a demo" CTA (→ BOOK_DEMO).
  * Flip to `false` to re-enable all signup/login CTAs site-wide.
  */
-export const DISABLE_LOGIN_SIGNUP = true;
+export const DISABLE_LOGIN_SIGNUP = false;
 
 /**
  * Endpoint the /contact form POSTs to (JSON).
