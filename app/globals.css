@@ -42,6 +42,9 @@ html, body {
   .glass-card {
     @apply rounded-3xl border border-white/40 bg-white/70 p-6 shadow-soft backdrop-blur-md;
   }
+  .qf-input {
+    @apply w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-brand-400 focus:ring-2 focus:ring-brand-100;
+  }
   .grid-bg {
     background-image: linear-gradient(to right, rgba(15, 23, 42, 0.06) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(15, 23, 42, 0.06) 1px, transparent 1px);

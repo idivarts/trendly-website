@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Logo from '@/components/Logo';
+import { LINKS } from '@/lib/site-config';
 
 export const metadata: Metadata = {
   title: 'The Trendly Pilot — We Set It Up, Work With You, Then Hand It Over',
@@ -75,7 +76,7 @@ export default function LpPilotPage() {
       <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/90 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
           <Logo />
-          <a href="https://cal.com/rahul-idiv/30min" className="btn-primary">
+          <a href={LINKS.BOOK_DEMO} className="btn-primary">
             Talk to the founder
             <svg className="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
           </a>
@@ -139,7 +140,7 @@ export default function LpPilotPage() {
                 className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center animate-fade-up"
                 style={{ animationDelay: '280ms' }}
               >
-                <a href="https://cal.com/rahul-idiv/30min" className="btn-primary text-base px-8 py-4">
+                <a href={LINKS.BOOK_DEMO} className="btn-primary text-base px-8 py-4">
                   Book a 30-min call
                   <svg className="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
                 </a>
@@ -362,7 +363,7 @@ export default function LpPilotPage() {
             </p>
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
               <a
-                href="https://cal.com/rahul-idiv/30min"
+                href={LINKS.BOOK_DEMO}
                 className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-bold text-brand-700 shadow-soft transition hover:-translate-y-0.5"
               >
                 Book a 30-min call with Rahul

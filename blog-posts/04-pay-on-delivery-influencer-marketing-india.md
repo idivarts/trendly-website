@@ -92,7 +92,7 @@ For the first time, they have a clear picture of which campaigns are working. Th
 
 That clarity compounds. Each campaign generates learnings that make the next one more effective. The channel stops feeling like a black box and starts feeling like a real lever.
 
-If you have been hesitant about influencer marketing because you have been burned by upfront payments with no accountability, the performance model is worth a serious look. [Start on Trendly for free](https://openinapp.link/b5aqc) and see how structuring your first campaign with clear milestones changes the dynamic.
+If you have been hesitant about influencer marketing because you have been burned by upfront payments with no accountability, the performance model is worth a serious look. [Start on Trendly for free](https://brands.trendly.now) and see how structuring your first campaign with clear milestones changes the dynamic.
 
 ---
 

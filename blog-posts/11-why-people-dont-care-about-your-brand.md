@@ -41,7 +41,7 @@ This is the entire reason [Trendly exists](/#how). Micro-creators talk to their 
 
 Stop trying to be everywhere and start showing up where it actually counts — in the feeds of people who already care about your category, recommended by voices they already trust.
 
-[Start free on Trendly](https://openinapp.link/b5aqc) and find the creators whose audiences are already your customers. Or [explore how it works](/#features) before you commit to anything.
+[Start free on Trendly](https://brands.trendly.now) and find the creators whose audiences are already your customers. Or [explore how it works](/#features) before you commit to anything.
 
 ---
 

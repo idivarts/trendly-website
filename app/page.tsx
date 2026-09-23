@@ -1,35 +1,37 @@
 import Navbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
-import LogosMarquee from '@/components/LogosMarquee';
-import HowItWorks from '@/components/HowItWorks';
-import Features from '@/components/Features';
-import InteractiveDemo from '@/components/InteractiveDemo';
-import WhyTrendly from '@/components/WhyTrendly';
-import WhyMicro from '@/components/WhyMicro';
-import Pricing from '@/components/Pricing';
-import PilotProgramme from '@/components/PilotProgramme';
-import Testimonials from '@/components/Testimonials';
-import FAQ from '@/components/FAQ';
-import Blog from '@/components/Blog';
+import HeroWalkthrough from '@/components/HeroWalkthrough';
+import AIModels from '@/components/AIModels';
+import CreateWithAI from '@/components/CreateWithAI';
+import CollaborateOnAI from '@/components/CollaborateOnAI';
+import ScheduleEverywhere from '@/components/ScheduleEverywhere';
+import ProofBar from '@/components/ProofBar';
+import BuiltOnGlobalTech from '@/components/BuiltOnGlobalTech';
+import PricingTeaser from '@/components/PricingTeaser';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
+import JsonLd, { organizationSchema, softwareApplicationSchema } from '@/components/JsonLd';
 
+// Homepage = curiosity → demo/signup. One job. The deep content (full FAQ,
+// pricing table, comparison, Impulse deep-dive, services) lives on its own
+// pages and is linked, not inlined here.
 export default function Page() {
   return (
     <main className="overflow-x-hidden">
+      <JsonLd data={[organizationSchema(), softwareApplicationSchema()]} />
       <Navbar />
-      <Hero />
-      <LogosMarquee />
-      <HowItWorks />
-      <Features />
-      <InteractiveDemo />
-      <WhyTrendly />
-      <WhyMicro />
-      <Pricing />
-      <PilotProgramme />
-      <Testimonials />
-      <FAQ />
-      <Blog />
+      {/* Hero — headline + subtext + CTA + a live product walkthrough */}
+      <HeroWalkthrough />
+      {/* The problem + what Trendly is: every AI model in one workspace */}
+      <AIModels />
+      {/* 3 features shown as UI moments */}
+      <CreateWithAI />
+      <CollaborateOnAI />
+      <ScheduleEverywhere />
+      {/* Honest social proof + global trust (world-class AI, every platform, worldwide) */}
+      <ProofBar />
+      <BuiltOnGlobalTech />
+      <PricingTeaser />
+      {/* One final CTA */}
       <CTA />
       <Footer />
     </main>

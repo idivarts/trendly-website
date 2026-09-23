@@ -108,7 +108,7 @@ Looking back at Ananya's eight weeks, the practical learning is worth summarisin
 
 ---
 
-If you are at the beginning of this journey — product in hand, first budget allocated, uncertain where to start — [Trendly's platform is free to explore](https://openinapp.link/b5aqc). The discovery tool will give you a qualified creator shortlist in an hour, which is a much better starting point than a blank Instagram search.
+If you are at the beginning of this journey — product in hand, first budget allocated, uncertain where to start — [Trendly's platform is free to explore](https://brands.trendly.now). The discovery tool will give you a qualified creator shortlist in an hour, which is a much better starting point than a blank Instagram search.
 
 And if you want to skip the learning curve and run your first few campaigns with Trendly's team alongside you, that is exactly what the [Pilot Programme](/#pilot) is for.
 

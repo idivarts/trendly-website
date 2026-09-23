@@ -39,7 +39,7 @@ If you measure your campaign at day two and declare it a failure, you have misse
 
 If you have not tried influencer marketing because you have heard it does not work, you have heard it from people who ran one campaign with a celebrity and called it quits. Run five campaigns with micro-creators, measure properly over 30 days, and revisit the myth.
 
-[Start free on Trendly](https://openinapp.link/b5aqc) — no agency contract, no minimum spend. Or [book a 30-minute call](https://cal.com/rahul-idiv/30min) if you want to talk through your specific situation first.
+[Start free on Trendly](https://brands.trendly.now) — no agency contract, no minimum spend. Or [book a 30-minute call](https://cal.com/rahul-idiv/30min) if you want to talk through your specific situation first.
 
 ---
 

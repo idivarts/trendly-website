@@ -1,14 +1,17 @@
+import MarketingPixels from '@/components/MarketingPixels';
+import PostHogProvider from '@/components/PostHogProvider';
 import type { Metadata } from 'next';
+// @ts-ignore - Next.js 14 app router types are still in RC and not yet included in @types/next
 import './globals.css';
 
 export const metadata: Metadata = {
   // ── Core ──────────────────────────────────────────────────────────────────
   title: {
-    default: 'Trendly — Find the Right Micro Influencers to Grow Your Brand',
+    default: 'Trendly — The AI Social Media Tool for Founders & Teams Worldwide',
     template: '%s — Trendly',
   },
   description:
-    'Trendly is the smartest way for startups and SMBs to discover, hire, and manage micro-influencers. Launch authentic campaigns from ₹750 with verified creators.',
+    'Trendly is the AI social media management tool that brings GPT, Claude & Gemini into one workspace. Built for founders and teams worldwide: generate posts, images & scripts, plan a calendar in one click, schedule to every platform, and manage all comments & DMs in one inbox. Free forever, no credit card.',
   metadataBase: new URL('https://www.trendly.now'),
   // ── Canonical & indexing ──────────────────────────────────────────────────
   alternates: {
@@ -27,52 +30,64 @@ export const metadata: Metadata = {
   },
   // ── Open Graph ────────────────────────────────────────────────────────────
   openGraph: {
-    title: 'Trendly — Influencer Marketing for Indian Startups',
+    title: 'Trendly — The AI Social Media Tool for Founders & Teams Worldwide',
     description:
-      'Discover 10,000+ verified micro-creators, manage campaigns end-to-end, and pay only on delivery. From ₹750/month.',
+      'Every AI model in one social media workspace: generate posts, images & scripts, plan a calendar in one click, schedule everywhere, and manage every comment & DM in one inbox.',
     url: 'https://www.trendly.now',
     siteName: 'Trendly',
-    locale: 'en_IN',
+    locale: 'en_US',
     type: 'website',
     images: [
       {
-        url: '/og-default.png',
+        url: '/logo.png',
         width: 1200,
         height: 630,
-        alt: 'Trendly — Micro Influencer Marketing Platform for Indian Startups',
+        alt: 'Trendly — AI-Powered Marketing Workspace for Social Media Teams',
       },
     ],
   },
   // ── Twitter / X ───────────────────────────────────────────────────────────
   twitter: {
     card: 'summary_large_image',
-    site: '@trendlynow',
-    creator: '@trendlynow',
-    title: 'Trendly — Influencer Marketing for Indian Startups',
+    site: '@trendly_collab',
+    creator: '@trendly_collab',
+    title: 'Trendly — The AI Social Media Tool for Founders & Teams Worldwide',
     description:
-      'Discover 10,000+ verified micro-creators, manage campaigns end-to-end, and pay only on delivery. From ₹750/month.',
-    images: ['/og-default.png'],
+      'Every AI model in one social media workspace: generate posts, images & scripts, plan a calendar in one click, schedule everywhere, and manage every comment & DM in one inbox.',
+    images: ['/logo.png'],
   },
   // ── App / browser hints ───────────────────────────────────────────────────
   applicationName: 'Trendly',
   keywords: [
-    'influencer marketing India',
-    'micro influencer platform',
-    'influencer marketing for startups',
-    'find influencers India',
-    'influencer marketing saas',
-    'instagram influencer marketing',
-    'D2C influencer marketing',
+    'ai social media tool',
+    'ai social media management',
+    'social media management tool',
+    'social media scheduling tool',
+    'ai social media content generator',
+    'social media tool for startups',
+    'social media tool for small teams',
+    'ai social media tool for agencies',
+    'global social media management software',
+    'buffer alternative',
   ],
   authors: [{ name: 'Trendly — IDIVARTS Solutions Pvt Ltd', url: 'https://www.trendly.now' }],
   creator: 'IDIVARTS Solutions Pvt Ltd',
   publisher: 'IDIVARTS Solutions Pvt Ltd',
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="font-sans text-slate-700 antialiased">{children}</body>
+      <body className="font-sans text-slate-700 antialiased">
+        <MarketingPixels />
+        <PostHogProvider />
+        {children}
+      </body>
     </html>
   );
 }

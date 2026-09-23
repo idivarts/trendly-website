@@ -1,57 +1,63 @@
 'use client';
 import { useState } from 'react';
+import JsonLd, { faqSchema } from '@/components/JsonLd';
 
 const faqs = [
   {
-    q: "Will I find who I'm looking for in Trendly?",
-    a: "Yes. If you're looking for micro-creators (influencers under 100k followers) on Instagram, you'll find them on Trendly. We specialize in this category, which means our database is much larger and cleaner than what most competitors offer.",
+    q: 'How is Trendly different from Buffer, Later, or Hootsuite?',
+    a: "Those are mainly schedulers — you still juggle separate AI tools to actually make content. Trendly brings every top AI model (GPT, Claude, Gemini, ElevenLabs and more) into one workspace, generates your captions, images and scripts from a single prompt, turns ideas into a calendar in one click, schedules to every platform, and pulls all your comments and DMs into one inbox. It replaces your whole stack — Docs, Notion, a calendar, a scheduler, and a pile of AI subscriptions — not just your scheduler.",
   },
   {
-    q: 'Where does Trendly get influencer data from? Is it accurate?',
-    a: "We have multiple trusted sources. Our in-house team manually reviews and curates micro-creators (under 100k followers) on Instagram. Over 90% of quality micro-influencers in India are already on our platform. For enterprise needs we also rely on verified providers like Modash and Phyllo.",
+    q: 'Which AI models does Trendly support?',
+    a: 'Trendly brings the leading models together in one place — GPT (OpenAI), Claude (Anthropic), Gemini (Google), ElevenLabs, and more — and routes each task to the model that does it best (e.g. research vs. captions vs. images vs. voice). You get the strongest result without paying for and switching between several AI subscriptions.',
   },
   {
-    q: "How does Trendly ensure influencers are trustworthy and don't have fake followers?",
-    a: "Each influencer goes through our internal AI system that analyzes follower profiles, engagement patterns, comment quality, and growth signals to assign a Trust Score. This score reflects audience authenticity, so you can focus on collaborations while we handle the background checks.",
+    q: 'What social channels does Trendly support?',
+    a: 'Instagram, TikTok, LinkedIn, X (Twitter), YouTube and Facebook — schedule and multi-publish to all of them from one place, and manage every comment and DM across them in a single inbox.',
   },
   {
-    q: "If an influencer doesn't deliver on time or quality, who is responsible?",
-    a: "Trendly is a discovery tool, not a PR or marketing agency, so we don't take responsibility for influencer deliverables. That said, our Trustability Score (above 80% is highly reliable) helps you pick safely. If issues do occur, we step in to escalate, blacklist repeat offenders, and report to partner networks.",
+    q: 'How does the AI content strategy actually work?',
+    a: "You answer a few questions about your brand, audience, and goals. Trendly's AI analyzes your competitive landscape and trending content formats to produce a content strategy organized into pillars, posting cadence, and content themes — tailored to your brand, not generic templates.",
   },
   {
-    q: 'How is Trendly priced so much lower compared to competitors?',
-    a: "We focus on a specific niche — micro-creators on Instagram — which lets us run lean while delivering high-quality data. For enterprise plans we partner with Modash and Phyllo on a shared model, operating at roughly 30% of what they would charge directly.",
+    q: 'Can my whole team use it? How do permissions work?',
+    a: 'Yes. Team plans include multiple seats with role-based access: writers can draft, designers can upload assets, approvers can sign off, and admins control publishing. Everyone works in the same calendar without stepping on each other.',
   },
   {
-    q: 'Can I get celebrity or macro influencers on Trendly?',
-    a: "Trendly specializes in micro-creators under 100k followers. For larger influencers we partner with data providers like Modash and Phyllo to fulfill those requirements on the Enterprise plan.",
+    q: 'Do I have to use the creator / influencer feature?',
+    a: "No — it's completely optional. Many teams use Trendly purely for strategy, planning, and scheduling. The influencer discovery tools are there when you're ready to amplify with creators, but you'll never be pushed toward it.",
   },
   {
-    q: 'Will Trendly handle content brainstorming or follow-ups for delivery?',
-    a: "No. Trendly is a discovery tool — we help you find the right influencers and run campaigns that attract them, while you stay in full control of collaboration and content delivery.",
+    q: 'How does influencer discovery work?',
+    a: "Search our database of 10,000+ verified micro-influencers by niche, platform, audience size, and engagement rate. When you find a match, you can send a campaign brief directly from your Trendly calendar — no separate tool, no spreadsheet.",
   },
   {
-    q: 'Do I pay the influencer separately from my Trendly subscription?',
-    a: "Yes. Your Trendly subscription is for discovering influencers and managing campaigns. The amount you agree on with the influencer for their services is handled separately, directly between you and them.",
+    q: 'Is my content and strategy data private?',
+    a: "Yes. Your strategy, drafts, and brand data are private to your workspace. We never use your content to train AI models, sell your data, or share it with third parties. See our Privacy Policy for the full details.",
   },
   {
-    q: "Do I get a refund if I don't find the influencer I'm looking for?",
-    a: "Normally, yes. Each refund request is evaluated for validity. If your campaign expectations are aligned with industry standards and you still don't get matched with any influencer, we process the refund.",
+    q: 'What does the free plan include?',
+    a: 'The free plan gives you 1 brand, 1 seat, 20 AI credits per month, and 10 creator lookups. It never expires — a good way to explore the platform before upgrading.',
+  },
+  {
+    q: 'Can I cancel or change my plan anytime?',
+    a: 'Yes. Plans are billed monthly in USD and are cancel-anytime with no contracts or long-term commitments. You can upgrade or downgrade at any time; changes take effect at the next billing cycle.',
   },
 ];
 
 export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section id="faq" className="relative py-24">
+    <section id="faq" className="relative py-16 sm:py-24">
+      <JsonLd data={faqSchema(faqs)} />
       <div className="container-px">
         <div className="mx-auto max-w-2xl text-center">
           <span className="section-eyebrow">FAQ</span>
-          <h2 className="h-display mt-3 text-4xl sm:text-5xl">
+          <h2 className="h-display mt-3 text-3xl sm:text-4xl lg:text-5xl">
             Questions, <span className="bg-gradient-brand bg-clip-text text-transparent">answered</span>
           </h2>
           <p className="mt-4 text-slate-600">
-            We proudly compare ourselves with competitors — because we're priced for startups, by design.
+            Everything you need to know before getting started.
           </p>
         </div>
 

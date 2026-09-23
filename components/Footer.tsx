@@ -1,39 +1,34 @@
 'use client';
 
+import { LINKS } from '@/lib/site-config';
 import Logo from './Logo';
 
 const cols = [
   {
+    title: 'Platform',
+    links: [
+      { label: 'Product', href: '/product' },
+      { label: 'Solutions', href: '/solutions' },
+      { label: 'Pricing', href: '/pricing' },
+      { label: 'Services', href: '/services' },
+    ],
+  },
+  {
+    title: 'Free tools',
+    links: [
+      { label: 'Caption Generator', href: '/tools/instagram-caption-generator' },
+      { label: 'Content Idea Generator', href: '/tools/content-idea-generator' },
+      { label: 'Hook Generator', href: '/tools/hook-generator' },
+      { label: 'All free tools', href: '/tools' },
+    ],
+  },
+  {
     title: 'Company',
     links: [
       { label: 'About', href: '/about' },
+      { label: 'Blog', href: '/blog' },
       { label: 'Contact', href: '/contact' },
-      { label: 'Pricing', href: '/pricing' },
-      { label: 'Influencer pages', href: 'https://creators.trendly.now/' },
-    ],
-  },
-  {
-    title: 'Docs',
-    links: [
-      { label: 'All blogs', href: '/blog' },
-      { label: 'General posts', href: '/blog?category=general' },
-      { label: 'How-to guides', href: '/blog?category=how-to' },
-      { label: 'Roadmap', href: 'https://fallacious-dragon-7a2.notion.site/Trendly-Roadmap-24642d5f1701808db85ed6a8d8995ea3' },
-    ],
-  },
-  {
-    title: 'Legal',
-    links: [
-      { label: 'Terms & Conditions', href: '/terms-and-condition' },
-      { label: 'Privacy Policy', href: '/privacy-policy' },
-      { label: 'Data Deletion', href: '/data-deletion-instruction-page' },
-    ],
-  },
-  {
-    title: 'Download',
-    links: [
-      { label: 'iOS app', href: 'https://apps.apple.com/app/trendly-find-influencers/id6736949941' },
-      { label: 'Android app', href: 'https://amzn.openinapp.link/brands-app' },
+      { label: 'Book a demo', href: LINKS.BOOK_DEMO },
     ],
   },
 ];
@@ -41,7 +36,7 @@ const cols = [
 const socials: { label: string; href: string; icon: React.ReactNode }[] = [
   {
     label: 'Instagram',
-    href: 'https://www.instagram.com/trendly_collab',
+    href: 'https://www.instagram.com/trendly_social_planner/',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <rect x="3" y="3" width="18" height="18" rx="5" />
@@ -52,7 +47,7 @@ const socials: { label: string; href: string; icon: React.ReactNode }[] = [
   },
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/showcase/105144641',
+    href: 'https://www.linkedin.com/company/trendly-social-planner',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor">
         <path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.06c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.4c0-1.3 0-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21h-4z" />
@@ -60,8 +55,17 @@ const socials: { label: string; href: string; icon: React.ReactNode }[] = [
     ),
   },
   {
+    label: 'X',
+    href: 'https://x.com/trendly_collab',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+      </svg>
+    ),
+  },
+  {
     label: 'Facebook',
-    href: 'https://www.facebook.com/trendly.pro/',
+    href: 'https://www.facebook.com/trendly.social.planner/',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor">
         <path d="M22 12a10 10 0 1 0-11.6 9.9V15H8v-3h2.4V9.6c0-2.4 1.4-3.8 3.6-3.8 1 0 2.1.2 2.1.2v2.3H15c-1.2 0-1.6.7-1.6 1.5V12h2.7l-.4 3h-2.3v6.9A10 10 0 0 0 22 12z" />
@@ -73,8 +77,7 @@ const socials: { label: string; href: string; icon: React.ReactNode }[] = [
     href: 'https://rahul-trendly.medium.com/',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor">
-        <path d="M2 5h20v14H2z" opacity="0" />
-        <path d="M7 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm10 .5c1.4 0 2.5 2 2.5 4.5s-1.1 4.5-2.5 4.5S14.5 14.5 14.5 12 15.6 7.5 17 7.5zm5 .5v8h-1V8h1z" />
+        <path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
       </svg>
     ),
   },
@@ -89,8 +92,7 @@ export default function Footer() {
           <div className="lg:col-span-5">
             <Logo dark />
             <p className="mt-5 max-w-sm text-sm text-slate-400">
-              Trendly is a place where brands and influencers connect, collaborate, and create campaigns that actually
-              move the needle.
+              Trendly is an AI-powered marketing workspace for modern teams — from content strategy and scheduling to creator campaigns, all in one place.
             </p>
 
             <form
@@ -119,7 +121,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:col-span-7">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-7">
             {cols.map((c) => (
               <div key={c.title}>
                 <div className="text-xs font-bold uppercase tracking-[0.2em] text-white">{c.title}</div>
@@ -141,11 +143,11 @@ export default function Footer() {
           <div className="text-xs text-slate-500">
             © {new Date().getFullYear()} IDIVARTS Solutions Pvt Ltd · All rights reserved.
           </div>
-          <div className="text-xs text-slate-500">
-            Made with care in India ·{' '}
-            <a className="hover:text-white" href="mailto:support@idiv.in">
-              support@idiv.in
-            </a>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-500">
+            <a className="hover:text-white" href="/terms-and-condition">Terms</a>
+            <a className="hover:text-white" href="/privacy-policy">Privacy</a>
+            <a className="hover:text-white" href="/data-deletion-instruction-page">Data deletion</a>
+            <a className="hover:text-white" href="mailto:support@idiv.in">support@idiv.in</a>
           </div>
         </div>
       </div>

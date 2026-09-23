@@ -1,173 +1,78 @@
-'use client';
-import { useEffect, useState } from 'react';
+import ScrollReveal from '@/components/ScrollReveal';
+import { LINKS, PROOF, DISABLE_LOGIN_SIGNUP } from '@/lib/site-config';
 
-const UNS = 'https://images.unsplash.com/photo-';
-const AV  = '?w=200&h=200&fit=crop&auto=format&q=80';
+// NOTE: Trendly is a newly launched product, so we do NOT fabricate customer
+// testimonials. This section earns trust honestly: the team's verified
+// track record + a founding-member offer. Swap in real quotes as design
+// partners come in (see ticket "Critique the trendly-website").
 
-type T = {
-  quote: string;
-  name: string;
-  role: string;
-  brand: string;
-  gradient: string;
-  avatar: string;
-  rating: number;
-};
+const stats = [
+  { v: PROOF.creators, l: 'Creators on the platform' },
+  { v: PROOF.brands, l: 'Brand campaigns by our team' },
+  { v: '8', l: 'Channels to plan & publish' },
+  { v: '$0', l: 'To start — free forever' },
+];
 
-const testimonials: T[] = [
-  {
-    quote:
-      'Trendly cut our influencer discovery time from 2 weeks to a single afternoon. The micro-creator filters actually work — every collab moved the needle.',
-    name: 'Aakash Sharma',
-    role: 'Co-founder',
-    brand: 'BoldCare',
-    gradient: 'from-brand-500 to-accent-500',
-    avatar: UNS+'1542909168-82935b4b349d'+AV,
-    rating: 5,
-  },
-  {
-    quote:
-      'We launched 12 campaigns in 3 months with zero agency overhead. The trust score caught fake followers we would have totally missed.',
-    name: 'Riya Kapoor',
-    role: 'Head of Growth',
-    brand: 'Quench',
-    gradient: 'from-pink-500 to-rose-500',
-    avatar: UNS+'1494790108377-be9c29b29330'+AV,
-    rating: 5,
-  },
-  {
-    quote:
-      "Pay-on-delivery was the killer feature for us. We finally tried influencer marketing without the usual financial risk.",
-    name: 'Mohit Singh',
-    role: 'Marketing Lead',
-    brand: 'Earth Rhythm',
-    gradient: 'from-emerald-500 to-teal-500',
-    avatar: UNS+'1599566150163-29194dcaad36'+AV,
-    rating: 5,
-  },
-  {
-    quote:
-      'The interface feels like Linear meets Instagram. We onboarded in under 10 minutes and ran our first campaign the same day.',
-    name: 'Neha Verma',
-    role: 'Brand Manager',
-    brand: 'Sleepyhead',
-    gradient: 'from-violet-500 to-purple-500',
-    avatar: UNS+'1567532939604-b6b5b0db2604'+AV,
-    rating: 5,
-  },
-  {
-    quote:
-      "We used to spend ₹50k+ on agencies. Trendly delivers more authentic creators at a fraction of the cost — and we keep full control.",
-    name: 'Arjun Patel',
-    role: 'Founder',
-    brand: 'Plum',
-    gradient: 'from-amber-500 to-orange-500',
-    avatar: UNS+'1580489944761-15a19d654956'+AV,
-    rating: 5,
-  },
-  {
-    quote:
-      'The interactive demo sold us. We could see exactly what kind of creators we would find before we paid a rupee.',
-    name: 'Sneha Iyer',
-    role: 'Performance Marketing',
-    brand: 'Mamaearth',
-    gradient: 'from-sky-500 to-indigo-500',
-    avatar: UNS+'1558618666-fcd25c85cd64'+AV,
-    rating: 5,
-  },
+const founding = [
+  'Lifetime founding-member pricing, locked in',
+  'A direct line to the team building Trendly',
+  'Your feature requests shape the roadmap',
 ];
 
 export default function Testimonials() {
-  const [idx, setIdx] = useState(0);
-  const [paused, setPaused] = useState(false);
-
-  useEffect(() => {
-    if (paused) return;
-    const id = setInterval(() => setIdx((i) => (i + 1) % testimonials.length), 4500);
-    return () => clearInterval(id);
-  }, [paused]);
-
   return (
-    <section className="relative overflow-hidden py-24">
+    <section className="relative overflow-hidden py-16 sm:py-24">
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-brand-50/40 to-white" />
       <div className="container-px">
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="section-eyebrow">Loved by founders</span>
-          <h2 className="h-display mt-3 text-4xl sm:text-5xl">
-            Real startups, <span className="bg-gradient-brand bg-clip-text text-transparent">real results</span>
+        <ScrollReveal className="mx-auto max-w-2xl text-center">
+          <span className="section-eyebrow">Why trust us now</span>
+          <h2 className="h-display mt-3 text-3xl sm:text-4xl lg:text-5xl">
+            New platform. <span className="bg-gradient-brand bg-clip-text text-transparent">Proven team.</span>
           </h2>
           <p className="mt-4 text-slate-600">
-            Thousands of startups and SMBs trust Trendly to leverage the power of micro and mid-tier influencers — cost-effectively
-            and authentically.
+            Trendly is brand new — and we&apos;re not going to invent reviews to look bigger. Instead, here&apos;s the truth: {PROOF.brandsLabel.toLowerCase()} and {PROOF.creators} creators have already joined us. The product does the rest of the talking.
           </p>
-        </div>
+        </ScrollReveal>
 
-        {/* Featured testimonial */}
-        <div
-          onMouseEnter={() => setPaused(true)}
-          onMouseLeave={() => setPaused(false)}
-          className="relative mx-auto mt-12 max-w-4xl"
-        >
-          <div className="relative rounded-3xl border border-slate-200 bg-white p-8 shadow-soft sm:p-12">
-            <svg
-              className="absolute -top-5 left-8 h-10 w-10 text-brand-200"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path d="M9 7H5a3 3 0 0 0-3 3v8h8v-8H6c0-1.1.9-2 2-2h1V7zm10 0h-4a3 3 0 0 0-3 3v8h8v-8h-4c0-1.1.9-2 2-2h1V7z" />
-            </svg>
-            <div key={idx} className="animate-fade-up">
-              <div className="flex items-center gap-1">
-                {Array.from({ length: testimonials[idx].rating }).map((_, i) => (
-                  <svg key={i} className="h-5 w-5 text-amber-400" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2 15 9l8 .8-6 5.4 1.8 7.8L12 19l-6.8 4 1.8-7.8L1 9.8 9 9z" />
-                  </svg>
-                ))}
+        {/* Honest stats strip */}
+        <div className="mx-auto mt-12 grid max-w-4xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {stats.map((s, i) => (
+            <ScrollReveal key={s.l} direction="scale" delay={i * 90} distance={18}>
+              <div className="rounded-3xl border border-slate-200 bg-white p-6 text-center h-full">
+                <div className="bg-gradient-brand bg-clip-text text-3xl font-extrabold text-transparent">{s.v}</div>
+                <div className="mt-1 text-sm text-slate-600">{s.l}</div>
               </div>
-              <p className="mt-5 text-xl font-semibold leading-relaxed text-slate-900 sm:text-2xl">
-                "{testimonials[idx].quote}"
-              </p>
-              <div className="mt-6 flex items-center gap-3">
-                <div className={`relative h-12 w-12 flex-none overflow-hidden rounded-full bg-gradient-to-br ${testimonials[idx].gradient}`}>
-                  <img src={testimonials[idx].avatar} alt={testimonials[idx].name} className="h-full w-full object-cover" />
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-slate-900">{testimonials[idx].name}</div>
-                  <div className="text-xs text-slate-500">
-                    {testimonials[idx].role} · {testimonials[idx].brand}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-6 flex items-center justify-center gap-2">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                aria-label={`Show testimonial ${i + 1}`}
-                onClick={() => setIdx(i)}
-                className={`h-2 rounded-full transition-all ${
-                  i === idx ? 'w-8 bg-gradient-brand' : 'w-2 bg-slate-300 hover:bg-slate-400'
-                }`}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Stats strip */}
-        <div className="mx-auto mt-16 grid max-w-4xl gap-4 sm:grid-cols-3">
-          {[
-            { v: '10,000+', l: 'Verified micro-creators' },
-            { v: '500+', l: 'Campaigns launched' },
-            { v: '92%', l: 'On-time delivery rate' },
-          ].map((s) => (
-            <div key={s.l} className="rounded-3xl border border-slate-200 bg-white p-6 text-center">
-              <div className="bg-gradient-brand bg-clip-text text-3xl font-extrabold text-transparent">{s.v}</div>
-              <div className="mt-1 text-sm text-slate-600">{s.l}</div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
+
+        {/* Founding-member offer */}
+        <ScrollReveal className="mx-auto mt-12 max-w-4xl" direction="scale" distance={20}>
+          <div className="overflow-hidden rounded-3xl border border-brand-100 bg-gradient-to-br from-brand-50 to-white p-8 sm:p-10">
+            <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+              <div>
+                <span className="pill">{PROOF.earlyAccessLabel}</span>
+                <h3 className="h-display mt-4 text-2xl sm:text-3xl">Get in early — and get rewarded for it</h3>
+                <p className="mt-3 text-slate-600">
+                  We&apos;re onboarding our first {PROOF.earlyAccessCount} founders by hand. Join now and you&apos;ll help shape the product you use every day.
+                </p>
+                <a href={DISABLE_LOGIN_SIGNUP ? LINKS.BOOK_DEMO : LINKS.BRAND_SIGNUP} className="btn-primary mt-6">{DISABLE_LOGIN_SIGNUP ? 'Book a demo' : 'Become a founding member'}</a>
+              </div>
+              <ul className="space-y-3">
+                {founding.map((f) => (
+                  <li key={f} className="flex items-start gap-3 rounded-2xl border border-slate-100 bg-white p-4 shadow-sm">
+                    <span className="mt-0.5 grid h-5 w-5 flex-none place-items-center rounded-full bg-brand-100 text-brand-700">
+                      <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M5 12l5 5L20 7" />
+                      </svg>
+                    </span>
+                    <span className="text-sm font-medium text-slate-700">{f}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

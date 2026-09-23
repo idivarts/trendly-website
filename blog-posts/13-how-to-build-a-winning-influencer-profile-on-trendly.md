@@ -1,5 +1,5 @@
 ---
-title: "How to Build a Winning Influencer Profile on Trendly"
+drtitle: "How to Build a Winning Influencer Profile on Trendly"
 slug: how-to-build-a-winning-influencer-profile-on-trendly
 date: 05 Aug 2024
 dateISO: "2024-08-05"
@@ -12,7 +12,6 @@ targetKeyword: influencer profile Trendly India creator
 gradient: from-violet-500 via-purple-500 to-sky-400
 imageUrl: https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=1200&h=750&fit=crop&auto=format&q=80
 ---
-
 # How to Build a Winning Influencer Profile on Trendly
 
 Brands on Trendly browse hundreds of creators every day. Yours has roughly six seconds to communicate why you are the right fit for the next campaign in their niche. A great profile makes those six seconds count.
@@ -41,10 +40,11 @@ Trendly's profile editor walks you through each section step by step. Block out 
 
 A profile with posts from six months ago signals inactivity. Even if you are actively creating, brands will pass. Set a quarterly reminder to refresh your featured Reels and update your bio if your content focus has shifted.
 
-[Sign up or update your creator profile on Trendly](https://openinapp.link/1lbgf) — it takes less than an hour and it is the single highest-leverage thing you can do to increase collaboration invites.
+[Sign up or update your creator profile on Trendly](https://creators.trendly.now/) — it takes less than an hour and it is the single highest-leverage thing you can do to increase collaboration invites.
 
 ---
 
 *Related reading:*
-- [Why people don't care about your brand (and how to make them care)](/blog/why-people-dont-care-about-your-brand)
+
+- [Why people don&#39;t care about your brand (and how to make them care)](/blog/why-people-dont-care-about-your-brand)
 - [From zero to your first 10 influencer collaborations](/blog/first-10-influencer-collaborations-startup-india)
