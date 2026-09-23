@@ -1,4 +1,5 @@
 import MarketingPixels from '@/components/MarketingPixels';
+import PostHogProvider from '@/components/PostHogProvider';
 import type { Metadata } from 'next';
 // @ts-ignore - Next.js 14 app router types are still in RC and not yet included in @types/next
 import './globals.css';
@@ -84,6 +85,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className="font-sans text-slate-700 antialiased">
         <MarketingPixels />
+        <PostHogProvider />
         {children}
       </body>
     </html>
