@@ -1,3 +1,4 @@
+import AttributionLinks from '@/components/AttributionLinks';
 import MarketingPixels from '@/components/MarketingPixels';
 import PostHogProvider from '@/components/PostHogProvider';
 import type { Metadata } from 'next';
@@ -86,6 +87,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="font-sans text-slate-700 antialiased">
         <MarketingPixels />
         <PostHogProvider />
+        <AttributionLinks />
         {children}
       </body>
     </html>
