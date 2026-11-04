@@ -37,8 +37,16 @@ export default function StoreBadges({
         aria-label="Download Trendly on the App Store"
         className="inline-block rounded-xl transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-600"
       >
+        {/* ?v=2 is a cache-buster, not a version scheme. This file briefly went
+            out with Content-Type: text/html (the deploy bug fixed in 2d01f97),
+            and an SVG served as text/html does not render. Correcting the
+            object could not reach browsers that had already cached it under
+            max-age=3600, and changing the ETag did not either — they had no
+            reason to revalidate for an hour. A new URL is the only thing that
+            does. Safe to drop once nobody is holding a cache entry from
+            2026-11-04; harmless if it stays. */}
         <img
-          src="/badge-app-store.svg"
+          src="/badge-app-store.svg?v=2"
           alt="Download on the App Store"
           height={h.apple}
           width={Math.round(h.apple * (119.66407 / 40))}
