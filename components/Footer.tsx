@@ -11,6 +11,7 @@ const cols = [
       { label: 'Solutions', href: '/solutions' },
       { label: 'Pricing', href: '/pricing' },
       { label: 'Services', href: '/services' },
+      { label: 'Download', href: '/download' },
     ],
   },
   {

@@ -141,6 +141,7 @@ trendly-website/
 │   ├── about/page.tsx                 # /about
 │   ├── contact/page.tsx               # /contact — 'use client' form → CONTACT_ENDPOINT (Formspree placeholder)
 │   ├── pricing/page.tsx               # /pricing — USD plans + comparison + FAQ
+│   ├── download/page.tsx              # /download — get the iOS/Android app (store badges + FAQ)
 │   ├── terms-and-condition/page.tsx           # /terms-and-condition
 │   ├── privacy-policy/page.tsx                # /privacy-policy
 │   ├── data-deletion-instruction-page/page.tsx# /data-deletion-instruction-page
@@ -197,9 +198,11 @@ trendly-website/
 │   ├── Testimonials.tsx    # HONEST: team track record + founding-member offer (NO fabricated quotes)
 │   ├── FAQ.tsx             # 'use client' — accordion + emits faqSchema JSON-LD
 │   ├── Blog.tsx            # Homepage recent-posts teaser (from lib/posts)
+│   ├── DownloadApp.tsx     # Homepage "get the app" card + exported <PhoneMock/> (reused on /download)
+│   ├── StoreBadges.tsx     # Official App Store / Google Play badges — vendor artwork, do NOT redraw
 │   ├── CTA.tsx             # Final gradient CTA with stat tiles (uses approved proof only)
 │   ├── ComparePage.tsx     # Shared template for all /compare/* pages (props: rows, faqs, where-each-wins…)
-│   ├── JsonLd.tsx          # JSON-LD helpers: organizationSchema / softwareApplicationSchema / breadcrumbSchema / faqSchema
+│   ├── JsonLd.tsx          # JSON-LD helpers: organizationSchema / softwareApplicationSchema / mobileApplicationSchema / breadcrumbSchema / faqSchema
 │   ├── ScrollReveal.tsx    # 'use client' — IntersectionObserver reveal wrapper (direction/delay/distance)
 │   ├── ParallaxOrb.tsx     # 'use client' — scroll-parallax decorative blob
 │   ├── MarketingPixels.tsx # 'use client' — renders configured analytics/retargeting pixels (in layout)
@@ -255,9 +258,18 @@ Change these once and they update everywhere:
   `tagline` ("The AI marketing workspace for founders and small teams"),
   `email` (`support@idiv.in`), `twitter` (`@trendlynow`).
 - **`PROOF`** — the only approved proof claims (see honesty rule above).
-- **`NAV`** — dropdown IA the Navbar renders (Product / Solutions / Services /
-  Pricing / Tools / Resources). Anchor links use `/#id` so they resolve from any
-  subroute.
+- **`NAV`** — dropdown IA the Navbar renders. Since 2026-11-04:
+  **Platform** (dropdown: Product / Solutions / Services) · **Pricing** ·
+  **Download** · **Tools** · **Resources**. Ordered by descending intent —
+  Pricing and Download are the two act-now items and sit nearest the primary
+  CTA. A `NavItem` may carry `icon: 'download'` to render an action glyph.
+  Anchor links use `/#id` so they resolve from any subroute.
+- **`APP_DOWNLOAD`** — App Store + Google Play listings for the brand app
+  ("Trendly - AI Social Planner"). Mirrors `BRANDS_APPSTORE_URL` /
+  `BRANDS_PLAYSTORE_URL` in the app repo's `shared-constants/app.ts`, except the
+  App Store link uses the id-only form (`/app/id6736949941`) because that
+  constant's slug still says "find-influencers". **Not** gated by
+  `DISABLE_LOGIN_SIGNUP` — the apps are live, so downloading is always valid.
 - **`COMPARISONS`** — drives the `/compare/*` routes + cross-links (Buffer,
   Later, Hootsuite, SocialPilot).
 - **`SERVICES`** — drives the `/services/*` routes + homepage `DoneForYou`
@@ -270,13 +282,21 @@ Other shared modules:
 - **`components/SocialIcons.tsx`** — brand-color platform app-icons (`SocialIcon`,
   `SocialRow`, `SOCIALS`) for Instagram/TikTok/LinkedIn/X/YouTube/Facebook. Use
   these (not 2-letter chips) wherever multi-platform support is shown.
+- **`components/StoreBadges.tsx`** — the App Store + Google Play badges (links
+  from `APP_DOWNLOAD`). The artwork in `public/badge-app-store.svg` and
+  `public/badge-google-play.png` is **Apple's and Google's own, unmodified** —
+  both vendors' guidelines forbid redrawing, recoloring or retyping the badges,
+  so this is the one place the site uses `<img>` instead of hand-rolled SVG. The
+  two files bake in different clear space, so the Play badge is rendered taller
+  to make the black pills optically equal; change the pair together, never one.
 - **`components/QuoteForm.tsx`** — the services "get a quote" form (→ `QUOTE_ENDPOINT`).
 - **Homepage section components** (current narrative): `AIModels`, `CreateWithAI`,
   `CollaborateOnAI`, `OneWorkspace`, `ScheduleEverywhere`, `UnifiedInbox`,
   `Impulse`, `WhySwitch`, `DoneForYou`.
 - **`components/JsonLd.tsx`** — `<JsonLd data={…}/>` emits `application/ld+json`
   at build time. Helpers: `organizationSchema()`, `softwareApplicationSchema()`
-  (USD, free offer), `breadcrumbSchema([{name,path}])`, `faqSchema([{q,a}])`.
+  (USD, free offer), `mobileApplicationSchema()` (the iOS/Android apps, used on
+  `/download`), `breadcrumbSchema([{name,path}])`, `faqSchema([{q,a}])`.
   Pass the **same** FAQ array to both the visible FAQ and `faqSchema` so content
   and structured data stay in sync.
 - **`lib/tools-api.ts`** — see *Free tools* below.
@@ -292,6 +312,7 @@ Other shared modules:
 | `/about` | Company story |
 | `/contact` | `'use client'` form → `CONTACT_ENDPOINT` |
 | `/pricing` | USD plans + comparison + FAQ |
+| `/download` | Get the mobile app — official App Store + Google Play badges, what you can do from the phone, app FAQ. Linked from the navbar, the footer `Platform` column and the homepage `DownloadApp` band. |
 | `/product/ai-strategy` | AI Strategy Engine |
 | `/product/content-calendar` | Calendar + team approvals |
 | `/product/creators` | Creator campaigns |
@@ -317,18 +338,26 @@ gradient).
 
 ## Homepage composition (`app/page.tsx`)
 
-Order (rebuilt 2026 around the AI + collaboration narrative — create →
-collaborate → consolidate → schedule → engage → convert → services):
+Order (homepage = curiosity → demo/signup; the deep content lives on its own
+pages and is linked, not inlined):
 
-1. **Navbar** → 2. **Hero** (chat w/ model-switcher → 1-click calendar) →
-3. **AIModels** (dark — every model in one place, the differentiator) →
-4. **CreateWithAI** (one prompt → caption/image/script) → 5. **CollaborateOnAI**
-(generate → review → edit → approve workflow) → 6. **OneWorkspace** (replace
-your stack) → 7. **ScheduleEverywhere** (multi-publish + AI assist, brand icons)
-→ 8. **UnifiedInbox** (all comments/DMs, brand icons) → 9. **Impulse**
-(comment-to-cart) → 10. **WhySwitch** (more-than-a-scheduler → /compare/*) →
-11. **DoneForYou** (dark — services) → 12. **Pricing** → 13. **Testimonials**
-(honest founding-member proof) → 14. **FAQ** → 15. **CTA** → 16. **Footer**.
+1. **Navbar** → 2. **HeroWalkthrough** (headline + CTA + live product
+walkthrough) → 3. **AIModels** (dark — every model in one place, the
+differentiator) → 4. **CreateWithAI** (one prompt → caption/image/script) →
+5. **CollaborateOnAI** (generate → review → edit → approve workflow) →
+6. **ScheduleEverywhere** (multi-publish + AI assist, brand icons) →
+7. **DownloadApp** (iOS/Android app + store badges) → 8. **ProofBar** →
+9. **BuiltOnGlobalTech** → 10. **PricingTeaser** → 11. **CTA** → 12. **Footer**.
+
+> **`DownloadApp` placement is deliberate.** It sits straight after
+> `ScheduleEverywhere` because it extends the publishing story ("…and from your
+> pocket"), and *before* the ProofBar → Pricing → CTA run so it never competes
+> with the closing ask. It is a **contained white card on a light section** —
+> not dark, not full-bleed gradient — because the only full-bleed gradient on
+> the page is the final `CTA`. Downloading the app is a *channel* choice, not a
+> second primary conversion; keep it one visual rung below "Start for free". Do
+> not move it between `PricingTeaser` and `CTA` — that stacks two conversion
+> asks back to back and cannibalizes the primary one.
 
 > **Dropped from the homepage** (components still on disk, used elsewhere or
 > retired): `LogosMarquee`, `HowItWorks`, `Features`, `InteractiveDemo`,

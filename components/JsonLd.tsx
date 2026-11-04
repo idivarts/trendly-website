@@ -1,4 +1,4 @@
-import { SITE } from '@/lib/site-config';
+import { APP_DOWNLOAD, SITE } from '@/lib/site-config';
 
 /**
  * Renders a JSON-LD <script> for SEO structured data.
@@ -50,6 +50,27 @@ export function softwareApplicationSchema() {
       description: 'Free forever plan — no credit card required.',
     },
     url: SITE.origin,
+  };
+}
+
+/** MobileApplication schema — the /download page (the iOS + Android apps). */
+export function mobileApplicationSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'MobileApplication',
+    name: 'Trendly - AI Social Planner',
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'iOS, Android',
+    description:
+      'Plan, create and schedule social posts from your phone. Review and approve AI drafts, move your content calendar, publish to every connected channel, and answer comments and DMs in one inbox.',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+      description: 'Free to download — free forever plan, no credit card required.',
+    },
+    installUrl: [APP_DOWNLOAD.APP_STORE, APP_DOWNLOAD.PLAY_STORE],
+    url: `${SITE.origin}/download`,
   };
 }
 

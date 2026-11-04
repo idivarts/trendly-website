@@ -94,8 +94,9 @@ export default function Navbar() {
                   key={item.label}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
+                  className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
                 >
+                  {item.icon && <NavIcon name={item.icon} />}
                   {item.label}
                 </a>
               )
@@ -110,13 +111,24 @@ export default function Navbar() {
   );
 }
 
+/** Small glyph for nav items that are an action rather than a destination. */
+function NavIcon({ name }: { name: NonNullable<NavItem['icon']> }) {
+  if (name !== 'download') return null;
+  return (
+    <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 3v12M7 11l5 5 5-5M4 20h16" />
+    </svg>
+  );
+}
+
 function NavLink({ item, open, setOpen }: { item: NavItem; open: boolean; setOpen: (v: boolean) => void }) {
   if (!item.children) {
     return (
       <a
         href={item.href}
-        className="rounded-full px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900"
+        className="flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900"
       >
+        {item.icon && <NavIcon name={item.icon} />}
         {item.label}
       </a>
     );

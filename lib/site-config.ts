@@ -14,6 +14,19 @@ export const LINKS = {
 } as const;
 
 /**
+ * Store listings for the Trendly brand app ("Trendly - AI Social Planner").
+ * Mirrors BRANDS_APPSTORE_URL / BRANDS_PLAYSTORE_URL in the app repo's
+ * `shared-constants/app.ts` — the App Store link uses the id-only form because
+ * the slug on that constant still carries the old "find influencers" name.
+ * These are NOT gated by DISABLE_LOGIN_SIGNUP: the apps are live on both
+ * stores, so downloading is always a valid action.
+ */
+export const APP_DOWNLOAD = {
+  APP_STORE: 'https://apps.apple.com/app/id6736949941',
+  PLAY_STORE: 'https://play.google.com/store/apps/details?id=pro.trendly.brands',
+} as const;
+
+/**
  * KILL-SWITCH while the product is dev-only (features WIP, app lives only on the
  * dev site). When `true`, every Log in / Sign up / Start free / Get started CTA
  * that points to brands.trendly.now is hidden — and, where no "Book a demo"
@@ -68,16 +81,28 @@ export const PROOF = {
  * Anchor links use `/#id` so they resolve from any subroute.
  */
 export type NavChild = { label: string; href: string; desc?: string };
-export type NavItem = { label: string; href?: string; children?: NavChild[] };
+export type NavItem = { label: string; href?: string; children?: NavChild[]; icon?: 'download' };
 
 // IA consolidated to 6 core marketing pages (co-founder feedback): Home,
 // Product, Solutions, Services, Pricing, About. Product/Solutions/Services are
 // now single pages (their old sub-pages are orphaned — not in nav/sitemap).
+//
+// 2026-11-04: Product / Solutions / Services merged into one "Platform"
+// dropdown so the bar reads as intent, not as three sibling hubs, and
+// Download added next to Pricing. Order = descending intent:
+// Platform (what it is) → Pricing → Download (the two act-now items, nearest
+// the primary CTA) → Tools → Resources (top-of-funnel / SEO).
 export const NAV: NavItem[] = [
-  { label: 'Product', href: '/product' },
-  { label: 'Solutions', href: '/solutions' },
-  { label: 'Services', href: '/services' },
+  {
+    label: 'Platform',
+    children: [
+      { label: 'Product', href: '/product', desc: 'Every AI model in one workspace' },
+      { label: 'Solutions', href: '/solutions', desc: 'For solo founders & small teams' },
+      { label: 'Services', href: '/services', desc: 'Done-for-you growth, run by our team' },
+    ],
+  },
   { label: 'Pricing', href: '/pricing' },
+  { label: 'Download', href: '/download', icon: 'download' },
   {
     label: 'Tools',
     children: [

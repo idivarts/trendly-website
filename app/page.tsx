@@ -4,6 +4,7 @@ import AIModels from '@/components/AIModels';
 import CreateWithAI from '@/components/CreateWithAI';
 import CollaborateOnAI from '@/components/CollaborateOnAI';
 import ScheduleEverywhere from '@/components/ScheduleEverywhere';
+import DownloadApp from '@/components/DownloadApp';
 import ProofBar from '@/components/ProofBar';
 import BuiltOnGlobalTech from '@/components/BuiltOnGlobalTech';
 import PricingTeaser from '@/components/PricingTeaser';
@@ -27,6 +28,9 @@ export default function Page() {
       <CreateWithAI />
       <CollaborateOnAI />
       <ScheduleEverywhere />
+      {/* "…and from your pocket" — extends the publishing story into the apps.
+          A contained card, not a second full-bleed CTA (see DownloadApp). */}
+      <DownloadApp />
       {/* Honest social proof + global trust (world-class AI, every platform, worldwide) */}
       <ProofBar />
       <BuiltOnGlobalTech />

@@ -37,6 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry('/solutions', 0.9, 'weekly'),
     entry('/services', 0.8, 'monthly'),
     entry('/pricing', 0.9, 'monthly'),
+    entry('/download', 0.8, 'monthly'),
     entry('/about', 0.7, 'monthly'),
     entry('/tools', 0.8, 'weekly'),
     entry('/blog', 0.8, 'weekly'),
