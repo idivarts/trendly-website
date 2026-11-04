@@ -241,7 +241,12 @@ The `@/` alias resolves to the project root (e.g. `@/components/Hero`,
 
 Change these once and they update everywhere:
 
-- **`LINKS`** — `BRAND_SIGNUP` (`https://brands.trendly.now`),
+- **`LINKS`** — `BRAND_WEB_APP` (`…/lets-start?web=1`) — the brand app with the
+  mobile app-download interstitial skipped. Use it **only** where the user has
+  explicitly chosen the web (currently just the "Prefer a bigger screen?" link
+  on `/download`); every other CTA keeps `BRAND_SIGNUP` and gets the gate. It
+  must be the literal `/lets-start` path — the bare origin redirects and drops
+  the query string. Also `BRAND_SIGNUP` (`https://brands.trendly.now`),
   `CREATOR_SIGNUP` (`https://creators.trendly.now`),
   `BOOK_DEMO` (`https://cal.com/rahul-idiv/30min`).
 - **`DISABLE_LOGIN_SIGNUP`** (kill-switch, currently `true`) — the product app is

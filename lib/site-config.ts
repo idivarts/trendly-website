@@ -9,6 +9,23 @@ export const LINKS = {
   /** Influencer / creator onboarding */
   CREATOR_SIGNUP: 'https://creators.trendly.now',
 
+  /**
+   * Brand app, for someone who has explicitly chosen the web over the apps.
+   *
+   * On a phone the brand app shows an app-download interstitial, so sending a
+   * "prefer a bigger screen?" link to BRAND_SIGNUP lands them on exactly the
+   * thing they just declined. `?web=1` skips it and remembers the choice for
+   * 30 days (trendly-brands#527).
+   *
+   * It has to be the literal /lets-start path: the bare origin redirects with
+   * resetAndNavigate("/lets-start") and drops the query string, so appending
+   * the param to BRAND_SIGNUP does nothing. Only `1` and `true` count.
+   *
+   * Use this ONLY where the user has asked for the web. Every other CTA should
+   * keep pointing at BRAND_SIGNUP and get the interstitial.
+   */
+  BRAND_WEB_APP: 'https://brands.trendly.now/lets-start?web=1',
+
   /** Founder booking page */
   BOOK_DEMO: 'https://cal.com/rahul-idiv/30min',
 } as const;

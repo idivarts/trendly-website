@@ -131,21 +131,16 @@ export default function Page() {
 
               <StoreBadges size="lg" className="mt-7" />
 
-              {/* KNOWN WRINKLE: on a phone this lands on the brand app's
-                  /get-the-app interstitial (trendly-brands#526) — i.e. we send
-                  someone who just asked for the web to an app-download gate.
-                  A bypass param can't go on BRAND_SIGNUP: the bare origin does
-                  resetAndNavigate("/lets-start") and drops the query string, so
-                  the fix is a real path (…/lets-start?web=1) once that gate
-                  grows a bypass. Not built yet — leave this pointing at
-                  BRAND_SIGNUP until it is. */}
+              {/* BRAND_WEB_APP, not BRAND_SIGNUP: this is the one link on the
+                  site where the user has said they want the web, so it skips
+                  the app-download interstitial. See the note on the constant. */}
               <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-5 shadow-soft">
                 <div className="text-sm font-semibold text-slate-900">Prefer a bigger screen?</div>
                 <p className="mt-1 text-sm text-slate-600">
                   Trendly runs in the browser too — no install, same workspace.
                 </p>
                 <a
-                  href={DISABLE_LOGIN_SIGNUP ? LINKS.BOOK_DEMO : LINKS.BRAND_SIGNUP}
+                  href={DISABLE_LOGIN_SIGNUP ? LINKS.BOOK_DEMO : LINKS.BRAND_WEB_APP}
                   className="mt-3 inline-flex text-sm font-semibold text-brand-700 underline-offset-2 hover:underline"
                 >
                   {DISABLE_LOGIN_SIGNUP ? 'Book a demo →' : 'Open the web app →'}
