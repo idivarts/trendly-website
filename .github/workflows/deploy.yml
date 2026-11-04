@@ -74,13 +74,25 @@ jobs:
             --cache-control "public, no-cache, must-revalidate" \
             --metadata-directive REPLACE
 
+      # NOTE: `cp --recursive`, not `sync`, and that is deliberate.
+      # The HTML step above passes `--include "*.html"` with no preceding
+      # `--exclude "*"`, so its filters do not actually narrow anything — every
+      # root file (png, svg, xml, txt) gets uploaded there too and stamped
+      # `Content-Type: text/html`. This step is what puts the real type back.
+      # `sync` could not do it: it skips files whose local mtime is older than
+      # the object just written by the previous step, so the wrong type stuck.
+      # A PNG survives being mislabelled; an SVG does not — the browser refuses
+      # to render it and you get a broken-image icon (this is exactly how the
+      # App Store badge broke). `cp --recursive` always uploads and lets the
+      # CLI infer the type from the extension. Root files are small; the extra
+      # upload each deploy is cheap insurance.
       - name: Upload SEO & root files (1-hour cache)
         run: |
-          aws s3 sync out/ s3://${{ vars.S3_BUCKET }}/ \
+          aws s3 cp out/ s3://${{ vars.S3_BUCKET }}/ \
+            --recursive \
             --exclude "_next/*" \
             --exclude "*.html" \
-            --cache-control "public, max-age=3600" \
-            --metadata-directive REPLACE
+            --cache-control "public, max-age=3600"
 
       - name: Invalidate CloudFront
         run: |
