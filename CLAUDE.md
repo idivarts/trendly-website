@@ -343,22 +343,44 @@ follow the heading/eyebrow/gradient + mock-visual pattern above.
 
 ## Pricing (USD · monthly-only)
 
-In `components/Pricing.tsx` (the `plans` array; `/pricing` has the full table).
-Single value metric = **brands/workspaces per org**; everything metered draws
-from **one monthly "AI-credits" wallet** (the site never says "tokens"). Tracks
-the credit/subscription-revamp spec (v1 draft numbers).
+In `components/Pricing.tsx` (the `plans` array; `/pricing` has the full table
+`compareRows` + billing FAQ). Single value metric = **brands/workspaces per
+org**; everything metered draws from **one monthly AI-token wallet**.
 
-| Plan | Monthly | Brands · Seats · AI credits | Notes |
+> **⚠️ Changed 2026-11-04 — the site says "AI tokens", not "AI credits".**
+> The old rule ("the site never says tokens") is retired. The product meters in
+> tokens and shows a wallet meter reading "5M"; the site was quoting "600 AI
+> credits" for the same plan, so a visitor priced one product and signed up to
+> another. Marketing and product now use one word and one set of numbers.
+
+**The source of truth is the backend, not this file:** `PlanLimitsMap` in
+`backend-sls/internal/models/trendlymodels/organization.go` (maxBrands,
+maxSeats, monthlyAllotment, analyticsTier, approvals, inboxReply,
+maxPostsPerMonth, canvaBridge). Re-read it before touching any pricing copy;
+Phase-1 values are still provisional and will be re-tuned.
+
+| Plan | Monthly | Brands · Seats · AI tokens | Notes |
 |---|---|---|---|
-| **Free** | $0 | 1 · 1 · 20/mo | Free forever, no credit card |
-| **Pro** | $29 | 1 · 2 · 200/mo | Solo founders / freelancers |
-| **Team** | $79 | 3 · 5 · 600/mo | **Most popular** |
-| **Agency** | Custom | Custom | Contact us — white-label, SSO/SAML, dedicated CSM, done-for-you services (absorbs the old Enterprise tier) → `mailto:support@idiv.in` |
+| **Free** | $0 | 1 · 1 · 200K/mo | Free forever, no credit card |
+| **Pro** | $29 | 1 · 2 · 2M/mo | Solo founders / freelancers |
+| **Team** | $79 | 3 · 5 · 5M/mo | **Most popular** |
+| **Agency** | Custom | Custom (20M floor) | Contact us — white-label, SSO/SAML, dedicated CSM, done-for-you services (absorbs the old Enterprise tier) → `mailto:support@idiv.in` |
 
 - **Monthly-only — no annual toggle / no annual discount.** Billed in USD,
   worldwide. **No separate Enterprise row** (folded into Agency "contact us").
-- **"AI credit" = one AI action** (caption / image / script / creator lookup),
-  defined inline on `/pricing` and the homepage `Pricing`. Top-up packs for overage.
+- **"AI token" = metered AI work**, not a flat per-action unit — a quick caption
+  is cheap, a fully AI-designed post or video costs more. Platform usage
+  (calendar, scheduling, inbox) is free. One pool per organization, refilled on
+  the 1st, top-up packs for overage. Defined inline on `/pricing` and the
+  homepage `Pricing`.
+  ⚠️ Don't quote per-action token figures in public copy. The backend's own
+  scale (`render_cost.go`) puts one AI *generation* at 20k-80k tokens and the
+  *render* that finishes it at only 2-5% of that, so "a render is the expensive
+  part" is backwards — and the real numbers move with the model mix.
+- **Never advertise a capability with no entitlement behind it.** "Creator
+  lookups" sat on the cards and the compare table with nothing in the product
+  metering them — and it is off-narrative besides, now that the app is an AI
+  social planner. Removed; don't bring it back.
 - Free/Pro/Team CTAs go to `LINKS.BRAND_SIGNUP` (gated by `DISABLE_LOGIN_SIGNUP`);
   the Agency card CTA is always **"Contact us"** → `mailto:support@idiv.in`
   (never Book-a-demo-gated). **USD only** on the main site — never ₹/INR.

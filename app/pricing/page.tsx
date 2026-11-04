@@ -7,19 +7,26 @@ import { PROOF } from '@/lib/site-config';
 export const metadata = {
   title: 'Pricing — AI Social Media Tool Pricing for Founders & Teams Worldwide',
   description:
-    'Transparent USD pricing for founders and marketing teams anywhere in the world. Start free forever, scale to Pro at $29/mo or Team at $79/mo. Billed monthly, no credit card, cancel anytime.',
+    'Transparent USD pricing for founders and marketing teams anywhere in the world. Start free forever with 200K AI tokens a month, scale to Pro at $29/mo or Team at $79/mo. Billed monthly, no credit card, cancel anytime.',
 };
 
+// Values track the backend PlanLimitsMap (maxBrands / maxSeats /
+// monthlyAllotment / analyticsTier / approvals / inboxReply /
+// maxPostsPerMonth / canvaBridge). Anything added here needs a matching
+// entitlement to be real — the previous table shipped a "Creator lookups"
+// row that nothing in the product has ever metered.
 const compareRows = [
   { feature: 'Brands / workspaces',  free: '1',           pro: '1',                team: '3',               agency: 'Custom' },
   { feature: 'Team seats',           free: '1',           pro: '2',                team: '5',               agency: 'Custom' },
-  { feature: 'AI credits / mo',      free: '20',          pro: '200',              team: '600',             agency: 'Custom' },
-  { feature: 'Creator lookups',      free: '10/mo',       pro: 'From credits',     team: 'From credits',    agency: 'Unlimited' },
-  { feature: 'Scheduling',           free: 'Basic',       pro: 'Full',             team: 'Full',            agency: 'Full' },
+  { feature: 'AI tokens / mo',       free: '200K',        pro: '2M',               team: '5M',              agency: 'Custom' },
   { feature: 'Content calendar',     free: '✓',           pro: '✓',                team: '✓',               agency: '✓' },
+  { feature: 'AI strategy & content', free: '✓',          pro: '✓',                team: '✓',               agency: '✓' },
+  { feature: 'Scheduling',           free: 'Starter',     pro: 'Unlimited',        team: 'Unlimited',       agency: 'Unlimited' },
+  { feature: 'Inbox — comments & DMs', free: 'View',    pro: 'View & reply',     team: 'View & reply',    agency: 'View & reply' },
+  { feature: 'Canva editing',        free: '—',           pro: '✓',                team: '✓',               agency: '✓' },
   { feature: 'Team approvals',       free: '—',           pro: '—',                team: '✓',               agency: '✓' },
   { feature: 'Campaign management',  free: '—',           pro: '—',                team: '✓',               agency: '✓' },
-  { feature: 'Analytics & reports',  free: 'Basic',       pro: 'Standard',         team: 'Full + team',     agency: 'White-label' },
+  { feature: 'Analytics & reports',  free: 'Preview',     pro: 'Standard',         team: 'Full + team',     agency: 'White-label' },
   { feature: 'SSO / SAML',           free: '—',           pro: '—',                team: '—',               agency: '✓' },
   { feature: 'Done-for-you services', free: '—',          pro: '—',                team: '—',               agency: '✓' },
   { feature: 'Support',              free: 'Community',    pro: 'Email',            team: 'Priority email',  agency: 'Dedicated CSM' },
@@ -28,11 +35,11 @@ const compareRows = [
 const faqs = [
   {
     q: 'Is the free plan really free?',
-    a: 'Yes — Free forever, no credit card required. You get 1 brand, 1 seat, 20 AI credits a month, and 10 creator lookups. Upgrade only when you need more brands, seats, AI credits, or campaign features.',
+    a: 'Yes — Free forever, no credit card required. You get 1 brand, 1 seat, 200K AI tokens a month, the full content calendar and AI strategy tools, starter scheduling and an analytics preview. Upgrade only when you need more tokens, seats, brands, unlimited scheduling or campaign features.',
   },
   {
-    q: 'What is an AI credit?',
-    a: 'One credit = one AI action — a generated caption, image, script, or creator lookup. Every plan shares a single monthly credit pool that refills on the 1st of the month. If you run out, you can buy top-up credit packs anytime.',
+    q: 'What is an AI token?',
+    a: 'Tokens meter the work the AI actually does, so you only spend on what you generate — a quick caption is cheap, a fully AI-designed post or video costs more. Using the platform itself (calendar, scheduling, inbox) is free. Your whole organization shares one monthly pool that refills on the 1st of the month, and if you run out you can buy top-up packs anytime.',
   },
   {
     q: 'Can I use Trendly outside the US?',
@@ -69,7 +76,7 @@ export default function PricingPage() {
         eyebrow="Pricing"
         title="Pricing built for founders and teams worldwide"
         highlight="founders and teams worldwide"
-        subtitle="Start free and upgrade only when you need more brands, seats, or AI credits. Billed monthly in USD, anywhere in the world. Cancel anytime — no contracts."
+        subtitle="Start free and upgrade only when you need more brands, seats, or AI tokens. Billed monthly in USD, anywhere in the world. Cancel anytime — no contracts."
       />
 
       <p className="container-px -mt-8 text-center text-sm font-semibold text-slate-500">

@@ -103,7 +103,7 @@ const faqs = [
   },
   {
     q: 'What does it cost to start?',
-    a: `Trendly has a Free forever plan with no credit card required — enough to build a strategy and schedule your first posts. When you want more AI credits, seats, or brands, the Pro plan ($29/mo) is a small monthly upgrade. ${PROOF.riskReversal}.`,
+    a: `Trendly has a Free forever plan with no credit card required — enough to build a strategy and schedule your first posts. When you want more AI tokens, seats, or brands, the Pro plan ($29/mo) is a small monthly upgrade. ${PROOF.riskReversal}.`,
   },
   {
     q: 'Which platforms can I manage from Trendly?',
@@ -289,7 +289,7 @@ export default function FoundersPage() {
                 <span className="pill">Pro</span>
                 <h3 className="mt-4 text-xl font-bold text-slate-900">Scale when you're ready</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                  More AI credits, more seats, and full scheduling for the founder who's now posting every day. A small monthly step up.
+                  More AI tokens, a second seat, and unlimited scheduling for the founder who's now posting every day. A small monthly step up.
                 </p>
               </div>
             </ScrollReveal>

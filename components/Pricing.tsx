@@ -13,8 +13,15 @@ type Plan = {
 };
 
 // Single value metric = brands/workspaces per org; everything metered draws from
-// one monthly AI-credits wallet. Monthly-only (no annual). Numbers track the
-// credit/subscription revamp spec (v1 draft, USD, billed worldwide).
+// one monthly AI-token wallet. Monthly-only (no annual).
+//
+// The allowances below are the live backend numbers (PlanLimitsMap in
+// backend-sls/internal/models/trendlymodels/organization.go), stated in the
+// same unit the product meters in. The site used to say "20 / 200 / 600 AI
+// credits" against a wallet that actually grants 200K / 2M / 5M tokens and a
+// meter that reads "5M" — so anyone who signed up met a different product
+// than the one they priced. Keep these in step when the allotments are
+// re-tuned (Phase-1 values are still provisional).
 const plans: Plan[] = [
   {
     name: 'Free',
@@ -22,10 +29,10 @@ const plans: Plan[] = [
     price: 'free',
     features: [
       '1 brand · 1 seat',
-      '20 AI credits / month',
-      '10 creator lookups / month',
-      'Basic scheduling',
-      'Basic analytics',
+      '200K AI tokens / month',
+      'AI content calendar & strategy',
+      'Starter scheduling',
+      'Analytics preview',
     ],
     cta: { label: 'Start Free', href: LINKS.BRAND_SIGNUP },
   },
@@ -35,9 +42,9 @@ const plans: Plan[] = [
     price: 29,
     features: [
       '1 brand · 2 seats',
-      '200 AI credits / month',
-      'Creator lookups from credits',
-      'Full scheduling to every platform',
+      '2M AI tokens / month',
+      'Unlimited scheduling to every platform',
+      'Reply to comments & DMs from the inbox',
       'Standard analytics & reporting',
     ],
     cta: { label: 'Get Started', href: LINKS.BRAND_SIGNUP },
@@ -48,8 +55,8 @@ const plans: Plan[] = [
     price: 79,
     features: [
       '3 brands · 5 seats',
-      '600 AI credits / month',
-      'Creator lookups from credits',
+      '5M AI tokens / month',
+      'Unlimited scheduling & inbox replies',
       'Campaign management & approvals',
       'Full analytics + team reporting',
     ],
@@ -62,8 +69,7 @@ const plans: Plan[] = [
     price: 'custom',
     features: [
       'Custom brands & seats',
-      'Custom AI credits',
-      'Unlimited creator lookups',
+      'Custom AI token allowance',
       'White-label client reports & portal',
       'SSO / SAML · dedicated success manager',
       'Done-for-you growth services available',
@@ -155,11 +161,11 @@ export default function Pricing() {
           })}
         </div>
 
-        {/* What's an AI credit? — define the single value metric inline */}
+        {/* What's an AI token? — define the single value metric inline */}
         <div className="mx-auto mt-8 max-w-3xl rounded-2xl border border-slate-200 bg-slate-50 p-5 text-center">
           <p className="text-sm text-slate-600">
-            <span className="font-semibold text-slate-900">What&apos;s an AI credit?</span>{' '}
-            One credit = one AI action — a generated caption, image, script, or creator lookup. Every plan shares a single monthly credit pool that refills on the 1st. Need more? Top-up credit packs are available anytime.
+            <span className="font-semibold text-slate-900">What&apos;s an AI token?</span>{' '}
+            Tokens meter the work the AI actually does, so you only spend on what you generate — a quick caption is cheap, a fully AI-designed post or video costs more. Using the platform itself is free. Your whole organization shares one monthly pool that refills on the 1st, and top-up packs are available anytime.
           </p>
         </div>
 

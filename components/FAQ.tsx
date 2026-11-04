@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     q: 'What does the free plan include?',
-    a: 'The free plan gives you 1 brand, 1 seat, 20 AI credits per month, and 10 creator lookups. It never expires — a good way to explore the platform before upgrading.',
+    a: 'The free plan gives you 1 brand, 1 seat and 200K AI tokens per month, with the full content calendar, AI strategy tools and starter scheduling. It never expires — a good way to explore the platform before upgrading.',
   },
   {
     q: 'Can I cancel or change my plan anytime?',
